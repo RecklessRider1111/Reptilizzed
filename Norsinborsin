@@ -1,909 +1,1183 @@
-
-      
-	local word = "A black hole has been spotted"
-	local lib = require(game:GetService("Workspace").upsilonLibrary)
-	firesignal(game.Workspace.resources.RemoteEvent.OnClientEvent,"displayChoice",'returnToMenu',word)
-	lib.FireOtherClients("displayChoice",'returnToMenu',word)
-      
-      wait(2)
-      
-      local word = "Make sure to take...#.#%%%..##%%%%%"
-	local lib = require(game:GetService("Workspace").upsilonLibrary)
-	firesignal(game.Workspace.resources.RemoteEvent.OnClientEvent,"displayChoice",'returnToMenu',word)
-	lib.FireOtherClients("displayChoice",'returnToMenu',word)
+--Cannon Arm
 
 
-    wait(5)
-     
-    
-    
-    local a = Instance.new("Model")
-        a.Name = "BlackHole"
-        a.Parent = workspace
-    
-    local an = true
-      local am = false
 
-
-local function Start() -- ClickFling.LocalScript 
+function createshooty(part,start,endpos)
+    local lib = require(game:GetService("Workspace").upsilonLibrary)
     
-       
-        local b  =  Instance.new("Part")
-        b.Size = Vector3.new(1750, 250, 1484)
-        b.Parent = a
-        b.Material = Enum.Material.ForceField 
-        b.CFrame = CFrame.new(-128.380066, -1.5, -386.209351, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-        b.BrickColor = BrickColor.new("Dark stone grey")
-        b.Transparency = 0
-        b.CanCollide = false
-        b.CanTouch = false
-        b.Anchored = an
-        b.Shape = Enum.PartType.Block
-         b.Name = "SuckPart"
-        b.AssemblyLinearVelocity = Vector3.new(0, 0, -99)
-       
-    game.Workspace:WaitForChild("BlackHole")
-    game.Workspace.BlackHole:WaitForChild("SuckPart")
-    local z = game.Workspace.BlackHole.SuckPart
+                        local dist = (start-endpos).magnitude
+                        local properties = {
+                            ["Material"] = Enum.Material.Neon,  
+                            ["BrickColor"] = BrickColor.new("Really red"),
+                            ["Reflectance"] = 0,
+                            ["CanCollide"] = false,
+                   ["Name"] = "Part",
+                            ["Size"] = Vector3.new(0.5, 0.5, dist),
+                            ["Parent"] = Workspace
+                        }
+                        
+                    firesignal(game.Workspace.resources.RemoteEvent.OnClientEvent,"drawLaser",start,endpos,properties)	lib.FireOtherClients("drawLaser",start,endpos,properties)
+                    end
+                    local mouse = game.Players.LocalPlayer:GetMouse()
+                    local ray = Instance.new("Part")
+                    ray.Parent = Workspace
+                    local tool = Instance.new("Tool",game.Players.LocalPlayer.Backpack)
+                    tool.Name = "Beams!!"
+                    tool.RequiresHandle = false
+    local h = Instance.new("Part")
+    h.Parent = tool
+    h.Size = Vector3.new(1, 1, 1)
+    h.Name = "Handle"				
+    h.Transparency = 1				
+                    local doing = false
     
-    _G.BlackHole = true
-    while _G.BlackHole == true do
-        wait()
-    
-    if game.Workspace.BlackHole:FindFirstChild("SuckPart") then
-    
+                    tool.Activated:Connect(function()
+    for i,v in pairs(game.Players:GetPlayers()) do
         
-        local p = z.Position
-        local tbl = {
-            ["CanCollide"] = true,
-          
-            ["Parent"] = workspace,
-            ["Anchored"] = true,
-            ["Name"] = "Part",
-            ["CastShadow"] = false,
-            ["Transparency"] = 1,
-            ["RotVelocity"] = Vector3.new(0,0,0),
-            ["Position"] = p,
-            ["BrickColor"] = z.BrickColor,
-            ["Material"] = Enum.Material.ForceField,
-            ["Shape"] = Enum.PartType.Block,
-            ["Size"] = z.Size,
-          ["Rotation"] = z.Rotation,
-       ["AssemblyLinearVelocity"] = z.AssemblyLinearVelocity
-        }
+        workspace.resources.RemoteEvent:FireServer("becomeHostile");	--workspace.resources.RemoteEvent:FireServer("dealMeleeDamage", v.Character.Humanoid, 15);
+    end
+                    
+                    
         
-        workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
-          
-    
-    else
-        _G.BlackHole = false
-        while _G.BlackHole == true do
-            wait()
-    
-    end
-    end
-    end
-    end
-    coroutine.wrap(Start)()
+                            createshooty(ray, game.Players.LocalPlayer.Character["Arm Cannon"].ShootPart.Position, mouse.Hit.p)
+                                
+                        
+                        
+                        local plr = game.Players.LocalPlayer
+    local mouse = plr:GetMouse()
     
     
     
-
-local function BlackHoleItself() -- ClickFling.LocalScript 
-
-local c  =  Instance.new("Part")
-c.Size = Vector3.new(2042, 2042, 2042)
-c.Parent = a
-c.Material = Enum.Material.SmoothPlastic 
-c.CFrame = CFrame.new(-40.7982483, 123.5, -2038.271, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-c.BrickColor = BrickColor.new("Really black")
-c.Transparency = 0
-c.CanCollide = true
-c.CanTouch = true
-c.Anchored = an
-c.Shape = Enum.PartType.Ball
- c.Name = "Hole"
-
-
- game.Workspace:WaitForChild("BlackHole")
- game.Workspace.BlackHole:WaitForChild("Hole")
- local z = game.Workspace.BlackHole.Hole
- 
- _G.Hole = true
- while _G.Hole == true do
-     wait()
- 
- if game.Workspace.BlackHole:FindFirstChild("Hole") then
- 
-     
-     local p = z.Position
-     local tbl = {
-         ["CanCollide"] = true,
-       
-         ["Parent"] = workspace,
-         ["Anchored"] = true,
-         ["Name"] = "Part",
-         ["CastShadow"] = false,
-         ["Transparency"] = 0,
-         ["RotVelocity"] = Vector3.new(0,0,0),
-         ["Position"] = p,
-         ["BrickColor"] = z.BrickColor,
-         ["Material"] = Enum.Material.SmoothPlastic,
-         ["Shape"] = Enum.PartType.Ball,
-         ["Size"] = z.Size,
-       ["Rotation"] = z.Rotation,
-    
-     }
-     
-     workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
-       
- 
- else
-     _G.Hole = false
-     while _G.Hole == true do
-         wait()
- 
- end
- end
- end
- end
- 
-
-
- coroutine.wrap(BlackHoleItself)()
-
- 
- 
- 
- 
- 
- local function ThirdPhase() -- ClickFling.LocalScript 
- 
- 
-    game.Workspace:WaitForChild("BlackHole")
-    game.Workspace.BlackHole:WaitForChild("Hole")
- 
-    wait(12)
- 
-	
-	local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[2].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[3].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[4].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[5].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[6].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[7].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[8].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[9].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[10].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[11].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[12].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[13].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[14].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[15].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[16].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[17].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[18].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[19].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[20].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
- end
- 
- 
- coroutine.wrap(ThirdPhase)()
-
- 
- local function FourthPhase() -- ClickFling.LocalScript 
- 
- 
-    game.Workspace:WaitForChild("BlackHole")
-    game.Workspace.BlackHole:WaitForChild("Hole")
- 
-    wait(12)
- 
-    local TweenService = game:GetService("TweenService")
-    local part = workspace.BlackHole.Hole
-    local info = TweenInfo.new(10, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, -1, true)
-    
-    local tween = TweenService:Create(part,info, {CFrame = CFrame.new(-223.886063, 91, -250.543823, 1, 0, 0, 0, 1, 0, 0, 0, 1)} )
-    
-    tween:Play()
-   
-   wait(10)
-game.Workspace.BlackHole.Hole:Destroy()
-   local d  =  Instance.new("Part")
-   d.Size = Vector3.new(2042, 2042, 2042)
-   d.Parent = a
-   d.Material = Enum.Material.SmoothPlastic 
-   d.CFrame = CFrame.new(-223.886063, 91, -250.543823, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-   d.BrickColor = BrickColor.new("Really black")
-   d.Transparency = 0
-   d.CanCollide = true
-   d.CanTouch = true
-   d.Anchored = an
-   d.Shape = Enum.PartType.Ball
-    d.Name = "Hole2"
-   
-
-
-
-    game.Workspace:WaitForChild("BlackHole")
- game.Workspace.BlackHole:WaitForChild("Hole2")
- local z = game.Workspace.BlackHole.Hole2
- 
- _G.Hole2 = true
- while _G.Hole2 == true do
-     wait()
- 
- if game.Workspace.BlackHole:FindFirstChild("Hole2") then
- 
-     
-     local p = z.Position
-     local tbl = {
-         ["CanCollide"] = true,
-       
-         ["Parent"] = workspace,
-         ["Anchored"] = true,
-         ["Name"] = "Part",
-         ["CastShadow"] = false,
-         ["Transparency"] = 1,
-         ["RotVelocity"] = Vector3.new(0,0,0),
-         ["Position"] = p,
-         ["BrickColor"] = z.BrickColor,
-         ["Material"] = Enum.Material.SmoothPlastic,
-         ["Shape"] = Enum.PartType.Ball,
-         ["Size"] = z.Size,
-       ["Rotation"] = z.Rotation,
- 
-     }
-     
-     workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
-       
- 
- else
-     _G.Hole2 = false
-     while _G.Hole2 == true do
-         wait()
- 
- end
- end
-end
- end
- 
-
- coroutine.wrap(FourthPhase)()
-
-
-
-function killall()
-
-	
-	local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[2].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[3].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[4].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[5].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[6].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[7].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[8].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[9].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[10].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[11].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[12].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[13].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[14].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[15].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[16].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[17].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[18].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[19].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-local args = {
-        [1] = "FireOtherClients",
-        [2] = "drawLaser",
-        [3] = Vector3.new(0, 0, 0),
-        [4] = Vector3.new(0, 0, 0),
-        [5] = {
-            ["Name"] = "Head",
-            ["Parent"] = game.Players:GetPlayers()[20].Character,
-            ["Material"] = Enum.Material.ForceField,
-            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-            ["Size"] = Vector3.new(5, 1, 1)
-        }
-    }
-
-    workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-end
-
-
- local function FithPhase()
-   wait(25)
-    _G.Kill = true
-    while _G.Kill == true do
-        wait()
-killall()
-
- end
-end
-
-    coroutine.wrap(FithPhase)()
-
-
-
-    
- local function Last()
-    wait(40)
-    _G.Kill = false
-    while _G.Kill == true do
-        wait()
-
-    end
- end
-
-
-    coroutine.wrap(Last)()
-
-
-
-
-    local function Last1()
-        wait(40)
-        
-    game.Workspace.BlackHole:Destroy()
+        local t = mouse.Target
+        local target = nil
+        if t then
+          for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Character and v.Character:FindFirstChild("Torso") then
+                if t:IsDescendantOf(v.Character) then
+                    target = v
+                    break
+                end
+            end
+          end
         end
+        if target then --your code down here:
+    
+    
+    local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = target.Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+    
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+    
+    local Player = game:GetService("Players").LocalPlayer
+    local client = Player.PlayerGui.autoExec.client
+    local DrawLaserF = nil
+    
+    for I, V in pairs(getgc()) do
+        if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
+            DrawLaserF = V
+            break 
+        end
+    end
+    function DrawLaser(...)
+       DrawLaserF(...)
+       game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
+    end
+    
+        local Pos = target.Character.Torso.Position
+        DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
+        ["CanCollide"] = false,
+        ["Parent"] = workspace,
+        ["Anchored"] = true,
+        ["Name"] = "Part",
+        ["CastShadow"] = false,
+        ["Transparency"] = 0,
+        ["RotVelocity"] = Vector3.new(0,0,0),
+        ["Position"] = Pos,
+        ["BrickColor"] = BrickColor.new("Really red"),
+        ["Material"] = Enum.Material.Foil,
+        ["Shape"] = Enum.PartType.Ball,
+        ["Size"] = Vector3.new(8, 8, 8)
+    })
+    
+    
+    
+    
+        end
+    
+           
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    
+                    end)
+    
+                    tool.Deactivated:Connect(function()
+                        doing = false
+                    end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "Swing"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+	tool.Activated:connect(function()
+	    local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://218504594"
+local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+local FullSwingACTIVE = false
+
+    FullSwingACTIVE = not FullSwingACTIVE
+    if FullSwingACTIVE then
+      
+        while wait() do
+         if track.IsPlaying == false then
+            if FullSwingACTIVE then
+                track:Play(.1, 1, 1)
+            wait(999999999)
+               track:Stop()
+            end
+         end
+        end
+   end
+	    end)
+
+
+
+
+
+local function Character() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', workspace)
+--THE CAHARCTER
+local ch = game.Players.LocalPlayer.Character
+  
+  
+  
+  local a = Instance.new("Model")
+  a.Parent = game.Players.LocalPlayer.Character
+  a.Name = "SoldierOfGod"
+  local an = true
+  
+  
+  local jq = Instance.new("Part")
+   jq.Parent = game.Players.LocalPlayer.Character  
+  jq.Anchored = true
+  jq.CanCollide= false
+  jq.Name = "CharacterTP"
+  jq.CFrame = game.Players.LocalPlayer.Character.Torso.CFrame
+  jq.Transparency = 1
+  
+  local args = {
+      [1] = "removeHats"
+  }
+  
+  workspace.resources.RemoteEvent:FireServer(unpack(args))
+    
+    ch.HumanoidRootPart.CFrame = CFrame.new(-798.605835, -5.99868059, -426.678284, -0.759713292, -3.62488861e-09, -0.650258183, -1.08926179e-09, 1, -4.30192504e-09, 0.650258183, -2.55992827e-09, -0.759713292)
+    wait(0.5)
+  
+  
+  
+    local hg = Instance.new("Part")
+    hg.Anchored = true
+    hg.Size = Vector3.new(10, 10, 10 )
+    hg.Transparency = 1
+    hg.CanCollide = false
+    hg.Name = "Heed"
+    hg.Parent = game.Workspace
+    hg.Position = Vector3.new(0,3, 0)
+  
+    local jbb = Instance.new("Weld")
+    jbb.Parent = ch.HumanoidRootPart
+    jbb.Part0 = ch.HumanoidRootPart
+    jbb.Part1 = game.Workspace.Heed
+    wait(0.5)
+    game.Workspace.Heed.Anchored = false
+  game.Workspace.Heed.CanTouch = false
+  
+  
+  
+  ch["Torso"].Transparency = 1
+  ch["Head"].Transparency = 1
+  ch["Left Arm"].Transparency = 1
+  ch["Left Leg"].Transparency = 1
+  ch["Right Arm"].Transparency = 1
+  ch["Right Leg"].Transparency = 1
+  
+  local unn = false
+  
+  ch["Torso"].CanTouch = unn
+  ch["Head"].CanTouch = unn
+  ch["Left Arm"].CanTouch = unn
+  ch["Left Leg"].CanTouch = unn
+  ch["Right Arm"].CanTouch = unn
+  ch["Right Leg"].CanTouch = unn
+  
+  
+  --local COLOR = BrickColor.new("Institutional white")
+  local COLOR = BrickColor.new("Really black")
+  
+  
+  local char = a
+  
+  local  b =  Instance.new("Part")
+    b.Size = Vector3.new(1, 2, 1)
+    b.Parent = char
+    b.Material = Enum.Material.Slate 
+    b.CFrame = CFrame.new(53.3276939, 31.9998913, 46.1082077, 0.996468008, 1.48048471e-08, -0.0839731619, -1.69365073e-08, 1, -2.46726568e-08, 0.0839731619, 2.60077258e-08, 0.996468008)
+    b.BrickColor = COLOR
+    b.Transparency = 0
+    b.CanCollide = true
+    b.CanTouch = false
+    b.Anchored = an
+    b.Shape = Enum.PartType.Block
+     b.Name = "Right Leg"
+    
+    local c =  Instance.new("Part")
+    c.Size = Vector3.new(1, 2, 1)
+    c.Parent = char
+    c.Material = Enum.Material.Slate 
+    c.CFrame = CFrame.new(54.3341713, 34.0065193, 45.9404984, 0.996407032, 0.00123191602, -0.0846849456, -0.00112677983, 0.99999851, 0.00128928339, 0.0846864134, -0.00118922954, 0.996406972)
+    c.BrickColor = COLOR
+    c.Transparency = 0
+    c.CanCollide = true
+    c.CanTouch = false
+    c.Anchored = an
+    c.Shape = Enum.PartType.Block
+    c.Name = "Right Arm"
+    
+    local d =  Instance.new("Part")
+    d.Size = Vector3.new(1, 2, 1)
+    d.Parent = char
+    d.Material = Enum.Material.Slate 
+    d.CFrame = CFrame.new(52.3291588, 32.0002899, 46.0488167, 0.996468008, 0.00207173661, -0.0839475989, 1.17681136e-08, 0.999695599, 0.0246715527, 0.0839731619, -0.0245844144, 0.99616468)
+    d.BrickColor = COLOR
+    d.Transparency = 0
+    d.CanCollide = true
+    d.CanTouch = false
+    d.Anchored = an
+    d.Shape = Enum.PartType.Block
+    d.Name = "Left Leg"
+    
+    local e =  Instance.new("Part")
+    e.Size = Vector3.new(1, 2, 1)
+    e.Parent = char
+    e.Material = Enum.Material.Slate 
+    e.CFrame = CFrame.new(51.3341713, 34.0065193, 45.9404984, 0.996407032, 0.00123191602, -0.0846849456, -0.00112677983, 0.99999851, 0.00128928327, 0.0846864134, -0.00118922943, 0.996406972)
+    e.BrickColor = COLOR
+    e.Transparency = 0
+    e.CanCollide = true
+    e.CanTouch = false
+    e.Anchored = an
+    e.Shape = Enum.PartType.Block
+    e.Name = "Left Arm"
+    
+    local f =  Instance.new("Part")
+    f.Size = Vector3.new(2, 2, 1)
+    f.Parent = char
+    f.Material = Enum.Material.Slate 
+    f.CFrame = CFrame.new(52.8294601, 33.9800339, 46.0662193, 0.996468008, 1.37282683e-08, -0.0839731619, -1.57045132e-08, 1, -2.28736994e-08, 0.0839731619, 2.41116673e-08, 0.996468008)
+    f.BrickColor = COLOR
+    f.Transparency = 0
+    f.CanCollide = true
+    f.CanTouch = false
+   f.Anchored = an
+    f.Shape = Enum.PartType.Block
+    f.Name = "Torso"
+    
+    local g =  Instance.new("Part")
+    g.Size = Vector3.new(1.2999999523162842, 2, 1.600000023841858)
+    g.Parent = char
+   g.Material = Enum.Material.Slate 
+   g.Position = Vector3.new(52.829612731933594, 35.47393035888672, 46.06440353393555)
+    g.BrickColor = COLOR
+   g.Transparency = 0
+   g.CanCollide = true
+    g.CanTouch = false
+   g.Anchored = an
+   g.Shape = Enum.PartType.Cylinder
+    g.Name = "Head"
+  
+  
+  
+   b.Anchored = am
+  
+   c.Anchored = am
+  
+   d.Anchored = am
+  
+   e.Anchored = am
+  
+   f.Anchored = am
+  
+   g.Anchored = am
+  
+   
+  
+  
+   local n1 = Instance.new("Weld")
+   n1.Parent = workspace
+   n1.Part1 = ch["Left Arm"]
+   n1.Part0 = ch.SoldierOfGod["Left Arm"]
+   
+   local n2 = Instance.new("Weld")
+   n2.Parent = workspace
+   n2.Part1 = ch["Right Arm"]
+   n2.Part0 = 	ch.SoldierOfGod["Right Arm"]
+   
+   
+   local n3 = Instance.new("Weld")
+   n3.Parent = workspace
+   n3.Part1 = ch["Left Leg"]
+   n3.Part0 = ch.SoldierOfGod["Left Leg"]
+   
+   
+   local n4 = Instance.new("Weld")
+   n4.Parent = workspace
+   n4.Part1 = ch["Right Leg"]
+   n4.Part0 = ch.SoldierOfGod["Right Leg"]
+   
+   
+   local n5 = Instance.new("Weld")
+   n5.Parent = workspace
+   n5.Part1 = ch.Torso
+   n5.Part0 = 	ch.SoldierOfGod["Torso"]
+   
+   
+   local n6 = Instance.new("Weld")
+   n6.Parent = workspace
+   n6.Part1 = ch.Head
+   n6.Part0 = ch.SoldierOfGod["Head"]
+  
+  
+  
+  
+  wait(0.1)
+   g.Rotation = Vector3.new(0, 0, -90)
+  wait(0.1)
+  
+  
+  game.Workspace.Heed.Parent = ch
+  
+  
+  
+  
+  
+   local z = ch.SoldierOfGod
+  
+  
+  _G.light = true
+  while _G.light == true do
+      wait(0.05)
+     if ch.Humanoid.Health == 0 then
+    
+      ch.SoldierOfGod:Destroy()
      
+     else
+
+  
+  
+     local p = z["Left Arm"].Position
+  local tbl = {
+      ["CanCollide"] = true,
     
+      ["Parent"] = workspace,
+      ["Anchored"] = true,
+      ["Name"] = "Part",
+      ["CastShadow"] = false,
+      ["Transparency"] = 1,
+      ["RotVelocity"] = Vector3.new(0,0,0),
+      ["Position"] = p,
+      ["BrickColor"] = z["Left Arm"].BrickColor,
+      ["Material"] = Enum.Material.Slate,
+      ["Shape"] = Enum.PartType.Block,
+      ["Size"] = z["Left Arm"].Size,
+    ["Rotation"] = z["Left Arm"].Rotation,
+  }
+  
+  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+     
+     local p = z["Right Arm"].Position
+  local tbl = {
+      ["CanCollide"] = true,
     
-        coroutine.wrap(Last1)()
+      ["Parent"] = workspace,
+      ["Anchored"] = true,
+      ["Name"] = "Part",
+      ["CastShadow"] = false,
+      ["Transparency"] = 1,
+      ["RotVelocity"] = Vector3.new(0,0,0),
+      ["Position"] = p,
+      ["BrickColor"] = z["Right Arm"].BrickColor,
+      ["Material"] = Enum.Material.Slate,
+      ["Shape"] = Enum.PartType.Block,
+      ["Size"] = z["Right Arm"].Size,
+    ["Rotation"] = z["Right Arm"].Rotation,
+  }
+  
+  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+     
+     local p = z["Left Leg"].Position
+  local tbl = {
+      ["CanCollide"] = true,
+    
+      ["Parent"] = workspace,
+      ["Anchored"] = true,
+      ["Name"] = "Part",
+      ["CastShadow"] = false,
+      ["Transparency"] = 1,
+      ["RotVelocity"] = Vector3.new(0,0,0),
+      ["Position"] = p,
+      ["BrickColor"] = z["Left Leg"].BrickColor,
+      ["Material"] = Enum.Material.Slate,
+      ["Shape"] = Enum.PartType.Block,
+      ["Size"] = z["Left Leg"].Size,
+    ["Rotation"] = z["Left Leg"].Rotation,
+  }
+  
+  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+     
+     local p = z["Right Leg"].Position
+  local tbl = {
+      ["CanCollide"] = true,
+    
+      ["Parent"] = workspace,
+      ["Anchored"] = true,
+      ["Name"] = "Part",
+      ["CastShadow"] = false,
+      ["Transparency"] = 1,
+      ["RotVelocity"] = Vector3.new(0,0,0),
+      ["Position"] = p,
+      ["BrickColor"] = z["Right Leg"].BrickColor,
+      ["Material"] = Enum.Material.Slate,
+      ["Shape"] = Enum.PartType.Block,
+      ["Size"] = z["Right Leg"].Size,
+    ["Rotation"] = z["Right Leg"].Rotation,
+  }
+  
+  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+     
+     local p = z["Torso"].Position
+  local tbl = {
+      ["CanCollide"] = true,
+    
+      ["Parent"] = workspace,
+      ["Anchored"] = true,
+      ["Name"] = "Part",
+      ["CastShadow"] = false,
+      ["Transparency"] = 1,
+      ["RotVelocity"] = Vector3.new(0,0,0),
+      ["Position"] = p,
+      ["BrickColor"] = z["Torso"].BrickColor,
+      ["Material"] = Enum.Material.Slate,
+      ["Shape"] = Enum.PartType.Block,
+      ["Size"] = z["Torso"].Size,
+    ["Rotation"] = z["Torso"].Rotation,
+  }
+  
+  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+     
+     local p = z["Head"].Position
+  local tbl = {
+      ["CanCollide"] = true,
+    
+      ["Parent"] = workspace,
+      ["Anchored"] = true,
+      ["Name"] = "Part",
+      ["CastShadow"] = false,
+      ["Transparency"] = 1,
+      ["RotVelocity"] = Vector3.new(0,0,0),
+      ["Position"] = p,
+      ["BrickColor"] = z["Head"].BrickColor,
+      ["Material"] = Enum.Material.Slate,
+      ["Shape"] = Enum.PartType.Cylinder,
+      ["Size"] = z["Head"].Size,
+    ["Rotation"] = z["Head"].Rotation,
+  }
+  
+  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+  
+ 
+ 
+end
+end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local an = false
+
+
+
+local function FECannon() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', workspace)
+
+local COLOR = BrickColor.new("Really black")
+local COLOR2 = BrickColor.new("Really red")
+
+    local a = Instance.new("Model")
+a.Name = "Arm Cannon"
+a.Parent = game.Players.LocalPlayer.Character
+
+
+
+local b  =  Instance.new("Part")
+    b.Size = Vector3.new(0.7099000215530396, 0.6800000071525574, 0.7448999881744385)
+    b.Parent = a
+    b.Material = Enum.Material.SmoothPlastic 
+    b.CFrame = CFrame.new(2.48009992, 2.34929991, 23.2623997, -1, 0, -8.74227766e-08, 0, 1, 0, 8.74227766e-08, 0, -1)
+  
+    b.BrickColor = COLOR
+    b.Transparency = 1
+    b.CanCollide = false
+    b.CanTouch = false
+    b.Anchored = an
+    b.Shape = Enum.PartType.Block
+     b.Name = "Handle"
+
+
+    
+     local c  =  Instance.new("Part")
+     c.Size = Vector3.new(0.4350000023841858, 3.240000009536743, 1.0999000072479248)
+     c.Parent = a
+     c.Material = Enum.Material.SmoothPlastic 
+     c.CFrame = CFrame.new(2.87759995, 2.47429991, 23.2549, 0.99619472, 0.0871557444, 0, -0.0871557444, 0.99619472, 0, 0, 0, 1)
+     c.BrickColor = COLOR
+     c.Transparency = 0
+     c.CanCollide = false
+     c.CanTouch = false
+     c.Anchored = an
+     c.Shape = Enum.PartType.Block
+      c.Name = "Part1"
+ 
+
+      local w2 = Instance.new("WeldConstraint")
+      w2.Parent = a
+      w2.Part1 = b
+      w2.Part0 = c
+     
+
+      local d  =  Instance.new("Part")
+      d.Size = Vector3.new(0.4350000023841858, 3.240000009536743, 1.0999000072479248)
+      d.Parent = a
+      d.Material = Enum.Material.SmoothPlastic 
+      d.CFrame = CFrame.new(2.37260008, 2.47429991, 23.5699005, -4.35450538e-08, -3.80969878e-09, -1, -0.0871557444, 0.99619472, 0, 0.99619472, 0.0871557444, -4.37113883e-08)
+      d.BrickColor = COLOR
+      d.Transparency = 0
+      d.CanCollide = false
+      d.CanTouch = false
+      d.Anchored = an
+      d.Shape = Enum.PartType.Block
+       d.Name = "Part2"
+  
+
+
+       local w3 = Instance.new("WeldConstraint")
+       w3.Parent = a
+       w3.Part1 = b
+       w3.Part0 = d
+      
+       local e  =  Instance.new("Part")
+       e.Size = Vector3.new(0.4350000023841858, 3.240000009536743, 1.0999000072479248)
+       e.Parent = a
+       e.Material = Enum.Material.SmoothPlastic 
+       e.CFrame = CFrame.new(2.37260008, 2.47429991, 22.9099007, -4.35450538e-08, -3.80969878e-09, 1, -0.0871557444, 0.99619472, 0, -0.99619472, -0.0871557444, -4.37113883e-08)
+       e.BrickColor = COLOR
+       e.Transparency = 0
+       e.CanCollide = false
+       e.CanTouch = false
+       e.Anchored = an
+       e.Shape = Enum.PartType.Block
+        e.Name = "Part3"
+   
+
+
+        local w4 = Instance.new("WeldConstraint")
+        w4.Parent = a
+        w4.Part1 = b
+        w4.Part0 = e
+       
+        local f  =  Instance.new("Part")
+        f.Size = Vector3.new(0.4350000023841858, 3.240000009536743, 1.0999000072479248)
+        f.Parent = a
+        f.Material = Enum.Material.SmoothPlastic 
+        f.CFrame = CFrame.new(2.16759992, 2.47429991, 23.2549, -0.99619472, -0.0871557444, -8.74227766e-08, -0.0871557444, 0.99619472, 0, 8.70901076e-08, 7.61939756e-09, -1)
+        f.BrickColor = COLOR
+        f.Transparency = 0
+        f.CanCollide = false
+        f.CanTouch = false
+        f.Anchored = an
+        f.Shape = Enum.PartType.Block
+         f.Name = "Part4"
+    
+
+
+         local w5 = Instance.new("WeldConstraint")
+         w5.Parent = a
+         w5.Part1 = b
+         w5.Part0 = f
+        
+         local g  =  Instance.new("Part")
+         g.Size = Vector3.new(0.7099000215530396, 0.07500000298023224, 0.7448999881744385)
+         g.Parent = a
+         g.Material = Enum.Material.SmoothPlastic 
+         g.CFrame = CFrame.new(2.48009992, 0.871800005, 23.2623997, -1, 0, -8.74227766e-08, 0, 1, 0, 8.74227766e-08, 0, -1)
+         g.BrickColor = COLOR2
+         g.Transparency = 0
+         g.CanCollide = false
+         g.CanTouch = false
+         g.Anchored = an
+         g.Shape = Enum.PartType.Block
+          g.Name = "ShootPart"
+        
+        
+
+     local w6 = Instance.new("WeldConstraint")
+     w6.Parent = a
+     w6.Part1 = b
+     w6.Part0 = g
+    
+        
+        
+          local h  =  Instance.new("Part")
+          h.Size = Vector3.new(1.4098999500274658, 2.4750001430511475, 1.144899845123291)
+          h.Parent = a
+          h.Material = Enum.Material.SmoothPlastic 
+          h.CFrame = CFrame.new(2.43009996, 2.07179999, 23.2623997, -1, 0, -8.74227766e-08, 0, 1, 0, 8.74227766e-08, 0, -1)
+          h.BrickColor = COLOR
+          h.Transparency = 0
+          h.CanCollide = false
+          h.CanTouch = true
+          h.Anchored = an
+          h.Shape = Enum.PartType.Block
+           h.Name = "Blade"
+
+
+
+           local w7 = Instance.new("WeldConstraint")
+           w7.Parent = a
+           w7.Part1 = b
+           w7.Part0 = h
+          
+
+           local w = Instance.new("Weld")
+           w.Parent = a
+           w.Part1 = b
+           w.Part0 = game.Players.LocalPlayer.Character["Right Arm"]
+          w.C0 = CFrame.new(0, -0.699999988, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+
+          local Debounce = false
+          a.Blade.Touched:Connect(function(hit)
+          if game.Players.LocalPlayer.Character:FindFirstChild("Swing") then
+            if hit.Parent:FindFirstChild("Humanoid") and Debounce == false then
+          
+          
+          
+              local args = {
+                      [1] = "FireOtherClients",
+                      [2] = "drawLaser",
+                      [3] = Vector3.new(0, 0, 0),
+                      [4] = Vector3.new(0, 0, 0),
+                      [5] = {
+                          ["Name"] = "Head",
+                          ["Parent"] = hit.Parent,
+                          ["Material"] = Enum.Material.ForceField,
+                          ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+                          ["Size"] = Vector3.new(5, 1, 1)
+                      }
+                  }
+          
+                  workspace.resources.RemoteEvent:FireServer(unpack(args))
+                end
+          end
+          end)
+
+
+
+local x = a
+while task.wait(0.05) do
+
+
+    local p = x["Part1"].Position
+    local tbl = {
+        ["CanCollide"] = true,
+      
+        ["Parent"] = workspace,
+        ["Anchored"] = true,
+        ["Name"] = "Part",
+        ["CastShadow"] = false,
+        ["Transparency"] = 1,
+        ["RotVelocity"] = Vector3.new(0,0,0),
+        ["Position"] = p,
+        ["BrickColor"] = x["Part1"].BrickColor,
+        ["Material"] = Enum.Material.SmoothPlastic,
+        ["Shape"] = Enum.PartType.Block,
+        ["Size"] = x["Part1"].Size,
+      ["Rotation"] = x["Part1"].Rotation,
+    }
+    
+    workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+      
+
+
+    local p = x["Part2"].Position
+    local tbl = {
+        ["CanCollide"] = true,
+      
+        ["Parent"] = workspace,
+        ["Anchored"] = true,
+        ["Name"] = "Part",
+        ["CastShadow"] = false,
+        ["Transparency"] = 1,
+        ["RotVelocity"] = Vector3.new(0,0,0),
+        ["Position"] = p,
+        ["BrickColor"] = x["Part2"].BrickColor,
+        ["Material"] = Enum.Material.SmoothPlastic,
+        ["Shape"] = Enum.PartType.Block,
+        ["Size"] = x["Part2"].Size,
+      ["Rotation"] = x["Part2"].Rotation,
+    }
+    
+    workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+      
+
+    local p = x["Part3"].Position
+    local tbl = {
+        ["CanCollide"] = true,
+      
+        ["Parent"] = workspace,
+        ["Anchored"] = true,
+        ["Name"] = "Part",
+        ["CastShadow"] = false,
+        ["Transparency"] = 1,
+        ["RotVelocity"] = Vector3.new(0,0,0),
+        ["Position"] = p,
+        ["BrickColor"] = x["Part3"].BrickColor,
+        ["Material"] = Enum.Material.SmoothPlastic,
+        ["Shape"] = Enum.PartType.Block,
+        ["Size"] = x["Part3"].Size,
+      ["Rotation"] = x["Part3"].Rotation,
+    }
+    
+    workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+      
+
+    local p = x["Part4"].Position
+    local tbl = {
+        ["CanCollide"] = true,
+      
+        ["Parent"] = workspace,
+        ["Anchored"] = true,
+        ["Name"] = "Part",
+        ["CastShadow"] = false,
+        ["Transparency"] = 1,
+        ["RotVelocity"] = Vector3.new(0,0,0),
+        ["Position"] = p,
+        ["BrickColor"] = x["Part4"].BrickColor,
+        ["Material"] = Enum.Material.SmoothPlastic,
+        ["Shape"] = Enum.PartType.Block,
+        ["Size"] = x["Part4"].Size,
+      ["Rotation"] = x["Part4"].Rotation,
+    }
+    
+    workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+      
+
+    local p = x["ShootPart"].Position
+    local tbl = {
+        ["CanCollide"] = true,
+      
+        ["Parent"] = workspace,
+        ["Anchored"] = true,
+        ["Name"] = "Part",
+        ["CastShadow"] = false,
+        ["Transparency"] = 1,
+        ["RotVelocity"] = Vector3.new(0,0,0),
+        ["Position"] = p,
+        ["BrickColor"] = x["ShootPart"].BrickColor,
+        ["Material"] = Enum.Material.SmoothPlastic,
+        ["Shape"] = Enum.PartType.Block,
+        ["Size"] = x["ShootPart"].Size,
+      ["Rotation"] = x["ShootPart"].Rotation,
+    }
+    
+    workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+      
+
+
+
+
+
+
+
+        end
+    end
+
+
+
+
+
+local function FeEye() -- TextButton.LocalScript 
+            local script = Instance.new('LocalScript', workspace)
+        
+            local COLOR = BrickColor.new("Really black")
+            local COLOR2 = BrickColor.new("Really red")
+            
+            local i = Instance.new("Model")
+            i.Name = "Eye"
+            i.Parent = game.Players.LocalPlayer.Character
+            
+        
+            local j  =  Instance.new("Part")
+          j.Size = Vector3.new(1.1260000467300415, 0.9298999905586243, 0.45500001311302185)
+          j.Parent = i
+          j.Material = Enum.Material.SmoothPlastic 
+          j.CFrame = CFrame.new(0.782899976, 4.46710014, 23.1075001, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+          j.BrickColor = COLOR
+          j.Transparency = 0
+          j.CanCollide = false
+          j.CanTouch = false
+          j.Anchored = an
+          j.Shape = Enum.PartType.Block
+           j.Name = "MainPart"
+      
+
+           local k  =  Instance.new("Part")
+           k.Size = Vector3.new(0.2759999930858612, 1.2798999547958374, 0.7850000262260437)+ Vector3.new(0, 0, 2)
+           k.Parent = i
+           k.Material = Enum.Material.SmoothPlastic 
+           k.CFrame = CFrame.new(1.39789999, 4.44210005, 23.1324005, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+           k.BrickColor = COLOR
+           k.Transparency = 0
+           k.CanCollide = false
+           k.CanTouch = false
+           k.Anchored = an
+           k.Shape = Enum.PartType.Block
+            k.Name = "Part1"
+            
+            
+            
+            
+            local w8 = Instance.new("WeldConstraint")
+            w8.Parent = i
+            w8.Part1 = j
+            w8.Part0 = k
+           
+
+            local l  =  Instance.new("Part")
+            l.Size = Vector3.new(1.5758999586105347, 0.19990000128746033, 0.7850000262260437)+ Vector3.new(0, 0, 2)
+            l.Parent = i
+            l.Material = Enum.Material.SmoothPlastic 
+            l.CFrame = CFrame.new(0.742900014, 4.98210001, 23.1324005, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            l.BrickColor = COLOR
+            l.Transparency = 0
+            l.CanCollide = false
+            l.CanTouch = false
+            l.Anchored = an
+            l.Shape = Enum.PartType.Block
+             l.Name = "Part2"
+        
+                  
+            
+            
+            
+            local w9 = Instance.new("WeldConstraint")
+            w9.Parent = i
+            w9.Part1 = j
+            w9.Part0 = l
+              
+            local m  =  Instance.new("Part")
+            m.Size = Vector3.new(1.5758999586105347, 0.19990000128746033, 0.7850000262260437)+ Vector3.new(0, 0, 2)
+            m.Parent = i
+            m.Material = Enum.Material.SmoothPlastic 
+            m.CFrame = CFrame.new(0.742900014, 3.93210006, 23.1324005, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            m.BrickColor = COLOR
+            m.Transparency = 0
+            m.CanCollide = false
+            m.CanTouch = false
+            m.Anchored = an
+            m.Shape = Enum.PartType.Block
+             m.Name = "Part3"
+        
+            
+            
+            
+             local w10 = Instance.new("WeldConstraint")
+             w10.Parent = i
+             w10.Part1 = j
+             w10.Part0 = m
+            
+                     
+            local n  =  Instance.new("Part")
+            n.Size = Vector3.new(0.2759999930858612, 1.2798999547958374, 0.7850000262260437)+ Vector3.new(0, 0, 2)
+            n.Parent = i
+            n.Material = Enum.Material.SmoothPlastic 
+            n.CFrame = CFrame.new(0.0929000005, 4.44210005, 23.1324005, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            n.BrickColor = COLOR
+            n.Transparency = 0
+            n.CanCollide = false
+            n.CanTouch = false
+            n.Anchored = an
+            n.Shape = Enum.PartType.Block
+             n.Name = "Part4"
+        
+            
+            
+            
+             local w11 = Instance.new("WeldConstraint")
+             w11.Parent = i
+             w11.Part1 = j
+             w11.Part0 = n
+            
+                     
+            local o  =  Instance.new("Part")
+            o.Size = Vector3.new(1.1260000467300415, 0.9298999905586243, 0.45500001311302185) + Vector3.new(0, 0, 2)
+            o.Parent = i
+            o.Material = Enum.Material.SmoothPlastic 
+            o.CFrame = CFrame.new(0.782899976, 4.46710014, 23.1075001, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            o.BrickColor = COLOR2
+            o.Transparency = 0
+            o.CanCollide = false
+            o.CanTouch = false
+            o.Anchored = an
+            o.Shape = Enum.PartType.Block
+             o.Name = "Part5"
+        
+        
+               
+            
+            
+            
+            local w12 = Instance.new("WeldConstraint")
+            w12.Parent = i
+            w12.Part1 = j
+            w12.Part0 = o
+           
+            
+                    
+            local p  =  Instance.new("Part")
+           p.Size = Vector3.new(1.5758999586105347, 1.19990000128746033, 0.3850000262260437)+ Vector3.new(0, 0, 0.1)
+            p.Parent = i
+           p.Material = Enum.Material.SmoothPlastic 
+            p.CFrame = CFrame.new(0.742900014, 4.41710001, 24.6324005, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+            p.BrickColor = COLOR
+            p.Transparency = 0
+            p.CanCollide = false
+            p.CanTouch = false
+            p.Anchored = an
+            p.Shape = Enum.PartType.Block
+             p.Name = "Part6"
+        
+            
+               
+            
+            local w13 = Instance.new("WeldConstraint")
+            w13.Parent = i
+            w13.Part1 = j
+            w13.Part0 = p
+            
+            
+            
+ 
+            local w22 = Instance.new("Weld")
+            w22.Parent = i
+            w22.Part1 = j
+            w22.Part0 = game.Players.LocalPlayer.Character.Head
+           
+
+local x = i
+             while task.wait(0.05) do
+
+
+                local p = x["Part1"].Position
+                local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = x["Part1"].BrickColor,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = x["Part1"].Size,
+                  ["Rotation"] = x["Part1"].Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+                local p = x["Part2"].Position
+                local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = x["Part2"].BrickColor,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = x["Part2"].Size,
+                  ["Rotation"] = x["Part2"].Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+                local p = x["Part3"].Position
+                local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = x["Part3"].BrickColor,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = x["Part3"].Size,
+                  ["Rotation"] = x["Part3"].Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+                local p = x["Part4"].Position
+                local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = x["Part4"].BrickColor,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = x["Part4"].Size,
+                  ["Rotation"] = x["Part4"].Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+                local p = x["Part5"].Position
+                local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = x["Part5"].BrickColor,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = x["Part5"].Size,
+                  ["Rotation"] = x["Part5"].Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+                local p = x["Part6"].Position
+                local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = x["Part6"].BrickColor,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = x["Part6"].Size,
+                  ["Rotation"] = x["Part6"].Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+             end
+
+
+
+end
+
+coroutine.wrap(Character)()
+coroutine.wrap(FECannon)()
+
+coroutine.wrap(FeEye)()
