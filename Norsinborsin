@@ -8,7 +8,7 @@ local ch = game.Players.LocalPlayer.Character
   
   
   
-  
+  print("HH")
    local z = ch.SoldierOfGod
   local x = ch.LongSword
   
