@@ -1,97 +1,57 @@
-
---GUI FOR ULTIMUTE
 -- Gui to Lua
 -- Version: 3.2
 
 -- Instances:
+local args = {
+	[1] = "removeHats"
+}
 
+workspace.resources.RemoteEvent:FireServer(unpack(args))
 local ScreenGui = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local Character = Instance.new("TextButton")
-local Staff = Instance.new("TextButton")
+local Back = Instance.new("TextButton")
 local Eyes = Instance.new("TextButton")
 local Sword = Instance.new("TextButton")
-local Gun = Instance.new("TextButton")
-local GroundSlam = Instance.new("TextButton")
-local USESWORD = Instance.new("TextButton")
-local USEGUN = Instance.new("TextButton")
-local Teleport = Instance.new("TextButton")
+local UseSword = Instance.new("TextButton")
 local DeleteSword = Instance.new("TextButton")
-local DeleteGun = Instance.new("TextButton")
 local Abillity1 = Instance.new("TextButton")
 local Abillity2 = Instance.new("TextButton")
-local Abillity3 = Instance.new("TextButton")
-local TransForm = Instance.new("TextButton")
+local GroundSlam = Instance.new("TextButton")
+local TPToLocation = Instance.new("TextButton")
+
 --Properties:
 
 ScreenGui.Parent = game.CoreGui
 
 main.Name = "main"
 main.Parent = ScreenGui
-main.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
-main.Position = UDim2.new(0.0554878116, 0, 0.29004854, 0)
-main.Size = UDim2.new(0, 137, 0, 345)
+main.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+main.Position = UDim2.new(0.242682934, 0, 0.445388347, 0)
+main.Size = UDim2.new(0, 113, 0, 271)
 main.Active = true
 main.Draggable = true
 
+
+
+
 Character.Name = "Character"
 Character.Parent = main
-Character.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Character.Position = UDim2.new(0, 0, 0.0260869563, 0)
-Character.Size = UDim2.new(0, 36, 0, 44)
+Character.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Character.Position = UDim2.new(0, 0, 0.0221402217, 0)
+Character.Size = UDim2.new(0, 35, 0, 34)
 Character.Font = Enum.Font.SourceSans
 Character.Text = "Char"
 Character.TextColor3 = Color3.fromRGB(0, 0, 0)
-Character.TextScaled = true
 Character.TextSize = 14.000
-Character.TextWrapped = true
 Character.MouseButton1Down:connect(function()
 
-
-function dra() if game.Workspace.Dragon.Parent == game.Workspace then
-game.Workspace.Dragon:Destroy()
-end
-
-end
-dra()
+	local Name = game.Players.LocalPlayer.Name
 
 
+	workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]:FindFirstChild(Name):Destroy()
 
-local jq = Instance.new("Part")
- jq.Parent = game.Players.LocalPlayer.Character  
-jq.Anchored = true
-jq.CanCollide= false
-jq.Name = "CharacterTP"
-jq.CFrame = game.Players.LocalPlayer.Character.Torso.CFrame
-jq.Transparency = 1
-
-local args = {
-    [1] = "removeHats"
-}
-
-workspace.resources.RemoteEvent:FireServer(unpack(args))
-	local ch = game.Players.LocalPlayer.Character
-	ch.HumanoidRootPart.CFrame = CFrame.new(-798.605835, -5.99868059, -426.678284, -0.759713292, -3.62488861e-09, -0.650258183, -1.08926179e-09, 1, -4.30192504e-09, 0.650258183, -2.55992827e-09, -0.759713292)
-	wait(0.5)
-
-
-
-	local hg = Instance.new("Part")
-	hg.Anchored = true
-	hg.Size = Vector3.new(10, 10, 10 )
-	hg.Transparency = 1
-	hg.CanCollide = false
-	hg.Name = "Heed"
-	hg.Parent = game.Workspace
-	hg.Position = Vector3.new(0,3, 0)
-
-	local jbb = Instance.new("Weld")
-	jbb.Parent = ch.HumanoidRootPart
-	jbb.Part0 = ch.HumanoidRootPart
-	jbb.Part1 = game.Workspace.Heed
-	wait(0.5)
-	game.Workspace.Heed.Anchored = false
-game.Workspace.Heed.CanTouch = false
+	local ch = workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]
 	ch["Torso"].Transparency = 1
 	ch["Head"].Transparency = 1
 	ch["Left Arm"].Transparency = 1
@@ -99,7 +59,7 @@ game.Workspace.Heed.CanTouch = false
 	ch["Right Arm"].Transparency = 1
 	ch["Right Leg"].Transparency = 1
 
-	game.Workspace.Heed.Parent = ch
+
 	wait(0.3)
 	-- Converted using Mokiros's Model to Script plugin
 	-- Converted string size: 699
@@ -380,7 +340,7 @@ game.Workspace.Heed.CanTouch = false
 		Object.Parent = script and script.Parent==workspace and script or workspace
 	end
 	for _,f in pairs(ActualScripts) do f() end
-	local ch = game.Players.LocalPlayer.Character
+	local ch = workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]
 	ch.Head.CanTouch = false
 	ch.Torso.CanTouch = false
 	ch.HumanoidRootPart.CanTouch = false
@@ -388,12 +348,11 @@ game.Workspace.Heed.CanTouch = false
 	ch["Left Leg"].CanTouch = false
 	ch["Right Arm"].CanTouch = false
 	ch["Right Leg"].CanTouch = false
-	ch.Heed.CanTouch = false
 
 	wait(1)
 	game.Workspace.Characterr.Parent = ch
 	ch.Characterr["Head"].Size = Vector3.new(1.2, 1.5, 2)
-ch.Characterr["Left Arm"].Anchored = false
+	ch.Characterr["Left Arm"].Anchored = false
 	ch.Characterr["RightArm"].Anchored = false
 	ch.Characterr["RightLeg"].Anchored = false
 	ch.Characterr["LeftLeg"].Anchored = false
@@ -401,70 +360,99 @@ ch.Characterr["Left Arm"].Anchored = false
 	ch.Characterr["Torso"].Anchored = false
 	wait(0.5)
 
-	
-		local ch = game.Players.LocalPlayer.Character
-		local n1 = Instance.new("Weld")
-		n1.Parent = workspace
-		n1.Part1 = ch["Left Arm"]
-		n1.Part0 = ch.Characterr["Left Arm"]
-	
-		local n2 = Instance.new("Weld")
-		n2.Parent = workspace
-		n2.Part1 = ch["Right Arm"]
-		n2.Part0 = 	ch.Characterr["RightArm"]
-	
-	
-		local n3 = Instance.new("Weld")
-		n3.Parent = workspace
-		n3.Part1 = ch["Left Leg"]
-		n3.Part0 = ch.Characterr["LeftLeg"]
-	
-	
-		local n4 = Instance.new("Weld")
-		n4.Parent = workspace
-		n4.Part1 = ch["Right Leg"]
-		n4.Part0 = ch.Characterr["RightLeg"]
-	
-	
-		local n5 = Instance.new("Weld")
-		n5.Parent = workspace
-		n5.Part1 = ch.Torso
-		n5.Part0 = 	ch.Characterr["Torso"]
-	
-		
-			local n6 = Instance.new("Weld")
-		n6.Parent = workspace
-		n6.Part1 = ch.Head
-		n6.Part0 = ch.Characterr["Head"]
-		ch.Characterr["Head"].Rotation = Vector3.new(0, 0, -90)
-		game.Players.LocalPlayer.Character.Heed.CFrame = game.Players.LocalPlayer.Character.CharacterTP.CFrame+Vector3.new(0, 4, 0)
-game.Players.LocalPlayer.Character.CharacterTP:Destroy()
 
-	
+
+	local n1 = Instance.new("Weld")
+	n1.Parent = workspace
+	n1.Part1 = ch["Left Arm"]
+	n1.Part0 = ch.Characterr["Left Arm"]
+
+	local n2 = Instance.new("Weld")
+	n2.Parent = workspace
+	n2.Part1 = ch["Right Arm"]
+	n2.Part0 = 	ch.Characterr["RightArm"]
+
+
+	local n3 = Instance.new("Weld")
+	n3.Parent = workspace
+	n3.Part1 = ch["Left Leg"]
+	n3.Part0 = ch.Characterr["LeftLeg"]
+
+
+	local n4 = Instance.new("Weld")
+	n4.Parent = workspace
+	n4.Part1 = ch["Right Leg"]
+	n4.Part0 = ch.Characterr["RightLeg"]
+
+
+	local n5 = Instance.new("Weld")
+	n5.Parent = workspace
+	n5.Part1 = ch.Torso
+	n5.Part0 = 	ch.Characterr["Torso"]
+
+
+	local n6 = Instance.new("Weld")
+	n6.Parent = workspace
+	n6.Part1 = ch.Head
+	n6.Part0 = ch.Characterr["Head"]
+	ch.Characterr["Head"].Rotation = Vector3.new(0, 0, -90)
+
+
+
+local args = {
+    [1] = "killMeNOW"
+}
+
+workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+wait(0.1)
+
+local args = {
+    [1] = "killMeNOW"
+}
+
+workspace.resources.RemoteEvent:FireServer(unpack(args))
+wait(2)
+
+
+local args = {
+    [1] = "killMeNOW"
+}
+
+workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+  game.Players.LocalPlayer.Character:FindFirstChildOfClass("Accessory"):Destroy()
+
+
+
+
+
 end)
 
-
-
-Staff.Name = "Staff"
-Staff.Parent = main
-Staff.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Staff.Position = UDim2.new(0.364963502, 0, 0.0260869563, 0)
-Staff.Size = UDim2.new(0, 36, 0, 44)
-Staff.Font = Enum.Font.SourceSans
-Staff.Text = "Staff"
-Staff.TextColor3 = Color3.fromRGB(0, 0, 0)
-Staff.TextScaled = true
-Staff.TextSize = 14.000
-Staff.TextWrapped = true
-Staff.MouseButton1Down:connect(function()
-
+Back.Name = "Back"
+Back.Parent = main
+Back.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Back.Position = UDim2.new(0.345132738, 0, 0.0221402217, 0)
+Back.Size = UDim2.new(0, 35, 0, 34)
+Back.Font = Enum.Font.SourceSans
+Back.Text = "Back"
+Back.TextColor3 = Color3.fromRGB(0, 0, 0)
+Back.TextSize = 14.000
+Back.MouseButton1Down:connect(function()
 	-- Converted using Mokiros's Model to Script plugin
-	-- Converted string size: 1823
+	-- Converted string size: 1633
 	local genv={}
 	local Scripts = {
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -482,11 +470,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -504,11 +491,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -526,11 +512,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -548,11 +533,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -570,11 +554,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -592,11 +575,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -614,11 +596,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -636,11 +617,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -658,11 +638,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -680,11 +659,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -702,11 +680,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -724,11 +701,10 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
+			end  end;
+		function() _G.Back = true
+			while _G.Back == true do
+				wait(0.05)
 				local p = game.Players.LocalPlayer.Character.Torso.Position
 				local tbl = {
 					["CanCollide"] = true,
@@ -746,30 +722,7 @@ Staff.MouseButton1Down:connect(function()
 				}
 
 				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.Voltaris = true
-			while _G.Voltaris == true do
-				wait()
-				local p = game.Players.LocalPlayer.Character.Torso.Position
-				local tbl = {
-					["CanCollide"] = true,
-					["Parent"] = workspace,
-					["Anchored"] = true,
-					["Name"] = "Part",
-					["CastShadow"] = false,
-					["Transparency"] = 0,
-					["RotVelocity"] = Vector3.new(0,0,0),
-					["CFrame"] =  script.Parent.CFrame,
-					["BrickColor"] =  script.Parent.BrickColor,
-					["Material"] =  script.Parent.Material,
-					["Shape"] =  script.Parent.Shape,
-					["Size"] = script.Parent.Size
-				}
-
-				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;}local ActualScripts = {}
+			end  end;}local ActualScripts = {}
 	function s(var)
 		local func = table.remove(Scripts,1)
 		setfenv(func,setmetatable({script=var,require=fake_require or require,global=genv},{
@@ -910,30 +863,49 @@ Staff.MouseButton1Down:connect(function()
 		return Model:GetChildren()
 	end
 
-	local Objects = Decode('Name,Color,Position,Orientation,Size,CanCollide,BottomSurface,TopSurface,Transparency,Part0,Part1,Material,Shape;Part,Model,Script,WeldConstraint;Part|VoltarisCommandStaff|0.0666,0.0666,0.0666|37.2813'
-		..',2.9777,67.3|-40,-90,90|6.724,0.4637,0.3477|0|0|MainPart|1|37.3,3,67.3|1.4491,0.4637,0.3477|38.9509,5.6269,67.213|10,-90,90|1.3332,0.2898,0.1738|39.0105,6.4687,67.213|-20,-90,90|0.8694,0.2898,0.1738|3'
-		..'9.4468,6.9884,67.213|-60,-90,90|40.9327,5.8317,67.213|20,90,90|40.4968,5.3118,67.213|60,90,90|39.678,5.1068,67.213|90,0,0|37.6004,4.4307,67.213|-20,-90,-90|0.6826,0.2275,0.1365|38.5856,4.9998,67.213|-'
-		..'90,-180,0|1.0467,0.2275,0.1365|37.9427,4.8389,67.213|-60,-90,-90|39.1097,3.9305,67.213|20,90,-90|Part8|38.7671,3.5225,67.213|60,90,-90|39.1565,4.5915,67.213|-10,90,-90|0.2392,0.0823,0.5215|288|39.8558'
-		..',6.0009,67.3|0.6955,0.6955,0.6955;0,5>10>4,5>11>2,6>10>4,6>11>19,7>10>4,7>11>23,8>10>4,8>11>21,9>10>4,9>11>39,10>10>4,10>11>27,11>10>4,11>11>25,12>10>4,12>11>29,13>10>4,13>11>33,14>10>4,14>11>31,15>10'
-		..'>4,15>11>41,16>10>4,16>11>35,17>10>4,17>11>43,18>10>4,18>11>37;2|1:2;n;1|2:3|3:4|4:5|5:6|6:7|7:8|8:8|2:3|2:3;n;3;p;1|1:9|2:3|9:10|3:11|5:12|6:7|7:8|8:8|2:3|2:3;n;4;4;4;4;4;4;4;4;4;4;4;4;4;4;p;1|2:3|3:'
-		..'13|4:14|5:15|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:16|4:17|5:18|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:19|4:20|5:18|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:21|4:22|5:18|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:23|4:24|5:18'
-		..'|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:25|4:26|5:15|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:27|4:28|5:29|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:30|4:31|5:32|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:33|4:34|5:29|6:7|7:8|8:8'
-		..'|2:3|2:3;n;3;p;1|2:3|3:35|4:36|5:29|6:7|7:8|8:8|2:3|2:3;n;3;p;1|1:37|2:3|3:38|4:39|5:29|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:3|3:40|4:41|5:32|6:7|7:8|8:8|2:3|2:3;n;3;p;1|2:42|12:43|3:44|4:5|5:45|13:8|6:7|7:8'
-		..'|8:8|2:42|2:42;n;3;p;p;')
+	local Objects = Decode('Name,Color,Position,Orientation,Size,CanCollide,BottomSurface,TopSurface,Part0,Part1,Transparency;Part,Model,WeldConstraint,Script;Part|BackAccesory|0.0666,0.0666,0.0666|2.4081,4.0782,13.6999|0,0,-50|'
+		..'5.6999,0.5,0.4|0|0|1,0,0|0.1905,6.7211,13.6999|1.3999,0.5,0.4|-0.2143,6.7995,13.6999|0,0,-115|1.7999,0.5,0.4|-0.5062,5.797,13.6999|0,0,-80|0.8999,0.5,0.4|5.3174,2.5177,13.6999|0,0,110|5.2041,1.4798,13'
+		..'.6999|0,0,75|4.7918,1.4867,13.6999|0,0,140|3.9187,5.8784,13.6999|0,0,-130|2.5999,0.5,0.4|2.9866,4.7676,13.6999|0.2999,1.1,0.4|2.4469,4.8983,13.6999|0,0,170|0.2999,0.6,0.4|3.1221,4.3728,13.6999|0,0,120'
+		..'|1.3532,2.7377,13.6999|0,0,-122.5|4.9999,0.3,0.4|1.4207,2.6691,13.6999|0,0,-127.5|MainPart|1|2.376,4.1165,13.6999|1.9999,0.5,0.4;0,3>9>41,3>10>2,6>9>41,6>10>5,9>9>41,9>10>8,12>9>41,12>10>11,15>9>41,15'
+		..'>10>14,18>9>41,18>10>17,21>9>41,21>10>20,24>9>41,24>10>23,27>9>41,27>10>26,30>9>41,30>10>29,33>9>41,33>10>32,36>9>41,36>10>35,39>9>41,39>10>38;2|1:2;n;1|2:3|3:4|4:5|5:6|6:7|7:8|8:8|2:3|2:3;n;3;4;p;1|2'
+		..':9|3:10|4:5|5:11|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:9|3:12|4:13|5:14|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:9|3:15|4:16|5:17|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:9|3:18|4:19|5:17|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:9|3:'
+		..'20|4:21|5:14|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:9|3:22|4:23|5:11|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:3|3:24|4:25|5:26|6:7|7:8|8:8|2:3|2:3;n;3;4;p;1|2:3|3:27|4:25|5:28|6:7|7:8|8:8|2:3|2:3;n;3;4;p;1|2:3|3:29|4'
+		..':30|5:31|6:7|7:8|8:8|2:3|2:3;n;3;4;p;1|2:3|3:32|4:33|5:31|6:7|7:8|8:8|2:3|2:3;n;3;4;p;1|2:9|3:34|4:35|5:36|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|2:9|3:37|4:38|5:36|6:7|7:8|8:8|2:9|2:9;n;3;4;p;1|1:39|2:3|11:40'
+		..'|3:41|5:42|6:7|7:8|8:8|2:3|2:3;p;')
 	for _,Object in pairs(Objects) do
 		Object.Parent = script and script.Parent==workspace and script or workspace
 	end
 	for _,f in pairs(ActualScripts) do f() end
+	local ch = workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]
+
+	workspace.BackAccesory.Parent = ch
 
 
 
-	local ch = game.Players.LocalPlayer.Character
-	local w = Instance.new("Weld")
-	w.Parent  = ch
-	w.Part1 = ch.Torso
-	w.Part0 = game.Workspace.VoltarisCommandStaff.MainPart
-	w.C0= CFrame.new(0, 0, -0.5, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	game.Workspace.VoltarisCommandStaff.Parent = game.Players.LocalPlayer.Character
+	local n1 = Instance.new("Weld")
+	n1.Parent = ch
+	n1.Part1 = ch["Torso"]
+	n1.Part0 = ch.BackAccesory.MainPart
+	n1.C0 = CFrame.new(0, 0, -0.5, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -941,18 +913,15 @@ Staff.MouseButton1Down:connect(function()
 
 end)
 
-
 Eyes.Name = "Eyes"
 Eyes.Parent = main
-Eyes.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Eyes.Position = UDim2.new(0.737226248, 0, 0.0260869563, 0)
-Eyes.Size = UDim2.new(0, 36, 0, 44)
+Eyes.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Eyes.Position = UDim2.new(0.690265477, 0, 0.0221402217, 0)
+Eyes.Size = UDim2.new(0, 35, 0, 34)
 Eyes.Font = Enum.Font.SourceSans
 Eyes.Text = "Eyes"
 Eyes.TextColor3 = Color3.fromRGB(0, 0, 0)
-Eyes.TextScaled = true
 Eyes.TextSize = 14.000
-Eyes.TextWrapped = true
 Eyes.MouseButton1Down:connect(function()
 	-- Converted using Mokiros's Model to Script plugin
 	-- Converted string size: 430
@@ -1149,26 +1118,32 @@ Eyes.MouseButton1Down:connect(function()
 		Object.Parent = script and script.Parent==workspace and script or workspace
 	end
 	for _,f in pairs(ActualScripts) do f() end
+	local ch = workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]
+
+
 
 	local wl = Instance.new("Weld")
-	wl.Parent = game.Players.LocalPlayer.Character.Head
-	wl.Part1 = game.Players.LocalPlayer.Character.Head
-	wl.Part0 = game.Workspace.Eyes.MainPart
+	wl.Parent = ch.Head
+	wl.Part1 = ch.Head
+	wl.Part0 = workspace.Eyes.MainPart
 	wl.C0 = CFrame.new(-0.1, -0.1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	game.Workspace.Eyes.Parent = game.Players.LocalPlayer.Character
+	workspace.Eyes.Parent = ch
+
+	ch.Eyes.Part.Name = "Part1"
+	ch.Eyes.Part.BrickColor =  BrickColor.new("Really red")
+	ch.Eyes.Part1.BrickColor = BrickColor.new("Really red")
 
 end)
+
 Sword.Name = "Sword"
 Sword.Parent = main
-Sword.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Sword.Position = UDim2.new(0, 0, 0.220289856, 0)
-Sword.Size = UDim2.new(0, 36, 0, 44)
+Sword.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Sword.Position = UDim2.new(0, 0, 0.188191876, 0)
+Sword.Size = UDim2.new(0, 35, 0, 34)
 Sword.Font = Enum.Font.SourceSans
-Sword.Text = "Sord"
+Sword.Text = "Sword"
 Sword.TextColor3 = Color3.fromRGB(0, 0, 0)
-Sword.TextScaled = true
 Sword.TextSize = 14.000
-Sword.TextWrapped = true
 Sword.MouseButton1Down:connect(function()
 	-- Converted using Mokiros's Model to Script plugin
 	-- Converted string size: 380
@@ -1390,492 +1365,35 @@ Sword.MouseButton1Down:connect(function()
 		Object.Parent = script and script.Parent==workspace and script or workspace
 	end
 	for _,f in pairs(ActualScripts) do f() end
+	local ch = workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]
 	game.Workspace["Megatrons Sword"].Part.CanCollide = false
 	game.Workspace["Megatrons Sword"].Part.CanTouch = false
 	local wl = Instance.new("Weld")
-	wl.Parent = game.Players.LocalPlayer.Character.Head
-	wl.Part1 = game.Players.LocalPlayer.Character["Right Arm"]
+	wl.Parent = ch.Head
+	wl.Part1 = ch["Right Arm"]
 	wl.Part0 = game.Workspace["Megatrons Sword"].MainPart
 	wl.C0 = CFrame.new(-0.5, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	game.Workspace["Megatrons Sword"].Parent = game.Players.LocalPlayer.Character
 
-end)
-Gun.Name = "Gun"
-Gun.Parent = main
-Gun.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Gun.Position = UDim2.new(0.364963502, 0, 0.220289856, 0)
-Gun.Size = UDim2.new(0, 36, 0, 44)
-Gun.Font = Enum.Font.SourceSans
-Gun.Text = "Gun"
-Gun.TextColor3 = Color3.fromRGB(0, 0, 0)
-Gun.TextScaled = true
-Gun.TextSize = 14.000
-Gun.TextWrapped = true
-Gun.MouseButton1Down:connect(function()
-	-- Converted using Mokiros's Model to Script plugin
-	-- Converted string size: 580
-	local genv={}
-	local Scripts = {
-		function() _G.UGun = true
-			while _G.UGun == true do
-				wait(0.1)
-				local p = game.Players.LocalPlayer.Character.Torso.Position
-				local tbl = {
-					["CanCollide"] = true,
-					["Parent"] = workspace,
-					["Anchored"] = true,
-					["Name"] = "Part",
-					["CastShadow"] = false,
-					["Transparency"] = 0,
-					["RotVelocity"] = Vector3.new(0,0,0),
-					["CFrame"] =  script.Parent.CFrame,
-					["BrickColor"] =  script.Parent.BrickColor,
-					["Material"] =  script.Parent.Material,
-					["Shape"] =  script.Parent.Shape,
-					["Size"] = script.Parent.Size
-				}
+	game.Workspace["Megatrons Sword"].Part.BrickColor = BrickColor.new("Really red")
+	game.Workspace["Megatrons Sword"].Part.Material = Enum.Material.Neon
 
-				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;
-		function() _G.UGun = true
-			while _G.UGun == true do
-				wait(0.1)
-				local p = game.Players.LocalPlayer.Character.Torso.Position
-				local tbl = {
-					["CanCollide"] = true,
-					["Parent"] = workspace,
-					["Anchored"] = true,
-					["Name"] = "Part",
-					["CastShadow"] = false,
-					["Transparency"] = 0,
-					["RotVelocity"] = Vector3.new(0,0,0),
-					["CFrame"] =  script.Parent.CFrame,
-					["BrickColor"] =  script.Parent.BrickColor,
-					["Material"] =  script.Parent.Material,
-					["Shape"] =  script.Parent.Shape,
-					["Size"] = script.Parent.Size
-				}
-
-				workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-			end
-		end;}local ActualScripts = {}
-	function s(var)
-		local func = table.remove(Scripts,1)
-		setfenv(func,setmetatable({script=var,require=fake_require or require,global=genv},{
-			__index = getfenv(func),
-		}))
-		table.insert(ActualScripts,coroutine.wrap(func))
-	end
-	Decode =  function(str,t,props,classes,values,ICList,Model,CurPar,LastIns,split,RemoveAndSplit,InstanceList)
-		local tonum,table_remove,inst,parnt,comma,table_foreach = tonumber,table.remove,Instance.new,"Parent",",",
-		function(t,f)
-			for a,b in pairs(t) do
-				f(a,b)
-			end
-		end
-		local Types = {
-			Color3 = Color3.new,
-			Vector3 = Vector3.new,
-			Vector2 = Vector2.new,
-			UDim = UDim.new,
-			UDim2 = UDim2.new,
-			CFrame = CFrame.new,
-			Rect = Rect.new,
-			NumberRange = NumberRange.new,
-			BrickColor = BrickColor.new,
-			PhysicalProperties = PhysicalProperties.new,
-			NumberSequence = function(...)
-				local a = {...}
-				local t = {}
-				repeat
-					t[#t+1] = NumberSequenceKeypoint.new(table_remove(a,1),table_remove(a,1),table_remove(a,1))
-				until #a==0
-				return NumberSequence.new(t)
-			end,
-			ColorSequence = function(...)
-				local a = {...}
-				local t = {}
-				repeat
-					t[#t+1] = ColorSequenceKeypoint.new(table_remove(a,1),Color3.new(table_remove(a,1),table_remove(a,1),table_remove(a,1)))
-				until #a==0
-				return ColorSequence.new(t)
-			end,
-			number = tonumber,
-			boolean = function(a)
-				return a=="1"
-			end
-		}
-		split = function(str,sep)
-			if not str then return end
-			local fields = {}
-			local ConcatNext = false
-			str:gsub(("([^%s]+)"):format(sep),function(c)
-				if ConcatNext == true then
-					fields[#fields] = fields[#fields]..sep..c
-					ConcatNext = false
-				else
-					fields[#fields+1] = c
-				end
-				if c:sub(#c)=="\\" then
-					c = fields[#fields]
-					fields[#fields] = c:sub(1,#c-1)
-					ConcatNext = true
-				end
-			end)
-			return fields
-		end
-		RemoveAndSplit = function(t)
-			return split(table_remove(t,1),comma)
-		end
-		t = split(str,";")
-		props = RemoveAndSplit(t)
-		classes = RemoveAndSplit(t)
-		values = split(table_remove(t,1),'|')
-		ICList = RemoveAndSplit(t)
-		InstanceList = {}
-		Model = inst"Model"
-		CurPar = Model
-		table_foreach(t,function(ct,c)
-			if c=="n" or c=="p" then
-				CurPar = c=="n" and LastIns or CurPar[parnt]
-			else
-				ct = split(c,"|")
-				local class = classes[tonum(table_remove(ct,1))]
-				if class=="UnionOperation" then
-					LastIns = {UsePartColor="1"}
-				else
-					LastIns = inst(class)
-					if LastIns:IsA"Script" then
-						s(LastIns)
-					elseif LastIns:IsA("ModuleScript") then
-						ms(LastIns)
-					end
-				end
-
-				local function SetProperty(LastIns,p,str,s)
-					s = Types[typeof(LastIns[p])]
-					if p=="CustomPhysicalProperties" then
-						s = PhysicalProperties.new
-					end
-					if s then
-						LastIns[p] = s(unpack(split(str,comma)))
-					else
-						LastIns[p] = str
-					end
-				end
-
-				local UnionData
-				table_foreach(ct,function(s,p,a,str)
-					a = p:find":"
-					p,str = props[tonum(p:sub(1,a-1))],values[tonum(p:sub(a+1))]
-					if p=="UnionData" then
-						UnionData = split(str," ")
-						return
-					end
-					if class=="UnionOperation" then
-						LastIns[p] = str
-						return
-					end
-					SetProperty(LastIns,p,str)
-				end)
-
-				if UnionData then
-					local LI_Data = LastIns
-					LastIns = DecodeUnion(UnionData)
-					table_foreach(LI_Data,function(p,str)
-						SetProperty(LastIns,p,str)
-					end)
-				end
-				table.insert(InstanceList,LastIns)
-				LastIns[parnt] = CurPar
-			end
-		end)
-		table_remove(ICList,1)
-		table_foreach(ICList,function(a,b)
-			b = split(b,">")
-			InstanceList[tonum(b[1])][props[tonum(b[2])]] = InstanceList[tonum(b[3])]
-		end)
-
-		return Model:GetChildren()
-	end
-
-	local Objects = Decode('Name,Color,Material,Transparency,Position,Size,BottomSurface,TopSurface,Part0,Part1,Orientation,Shape;Part,Model,WeldConstraint,Script;Part|Unicrons Gun|MainPart|0.2392,0.0823,0.5215|1088|1|18.5036,2.'
-		..'887,66.8|0.3999,0.0999,0.6|0|Base|0.3843,0.145,0.8196|288|18.0683,2.287,66.7353|0,90,-90|1.8,1.4999,1.3999|2|Tip|18.1183,1.487,66.7353|1.3999,1.4999,0.9;0,3>9>2,3>10,4>9>2,4>10>8,5>9>2,5>10>6;2|1:2;n;'
-		..'1|1:3|2:4|3:5|4:6|5:7|6:8|7:9|8:9|2:4|2:4;n;3;3;3;p;1|1:10|2:11|3:12|5:13|11:14|6:15|12:16|7:9|8:9|2:11|2:11;n;4;p;1|1:17|2:11|3:12|5:18|11:14|6:19|12:16|7:9|8:9|2:11|2:11;n;4;p;p;')
-	for _,Object in pairs(Objects) do
-		Object.Parent = script and script.Parent==workspace and script or workspace
-	end
-	for _,f in pairs(ActualScripts) do f() end
-	wait(0.2)
-	local wl = Instance.new("Weld")
-	wl.Parent = game.Players.LocalPlayer.Character["Right Arm"]
-	wl.Part1 = game.Players.LocalPlayer.Character["Right Arm"]
-	wl.Part0 = game.Workspace["Unicrons Gun"].MainPart
-	wl.C0 = CFrame.new(-0.5, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-	game.Workspace["Unicrons Gun"].Parent = game.Players.LocalPlayer.Character
-
-	if game.Players.LocalPlayer.Character["Humanoid"].Health == 0 then
-		game.Players.LocalPlayer.Character["Unicrons Gun"]:Destroy()
-	end
-
-end)
-GroundSlam.Name = "GroundSlam"
-GroundSlam.Parent = main
-GroundSlam.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-GroundSlam.Position = UDim2.new(0.737226248, 0, 0.220289856, 0)
-GroundSlam.Size = UDim2.new(0, 36, 0, 44)
-GroundSlam.Font = Enum.Font.SourceSans
-GroundSlam.Text = "Slm"
-GroundSlam.TextColor3 = Color3.fromRGB(0, 0, 0)
-GroundSlam.TextScaled = true
-GroundSlam.TextSize = 14.000
-GroundSlam.TextWrapped = true
-GroundSlam.MouseButton1Down:connect(function()
-	local plr = game.Players.LocalPlayer
-	local mouse = plr:GetMouse()
-	local tool = Instance.new("Tool", plr.Backpack)
-	tool.Name = "Ground Slam"
-	tool.CanBeDropped = false
-	tool.RequiresHandle = false
-	tool.Activated:connect(function()
-
-
-
-		local Anim = Instance.new("Animation")
-		Anim.AnimationId = "rbxassetid://184574340"
-		local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
-		local HeroJumpACTIVE = false
-
-		HeroJumpACTIVE = not HeroJumpACTIVE
-		if HeroJumpACTIVE then
-
-			while wait() do
-				if track.IsPlaying == false then
-					if HeroJumpACTIVE then
-						track:Play(.1, 1, 1)
-						wait(1.2)
-
-						local ch = game.Players.LocalPlayer.Character
-
-						-- Converted using Mokiros's Model to Script plugin
-						-- Converted string size: 255
-						local genv={}
-						local Scripts = {
-							function() _G.Ground = true
-								while _G.Ground == true do
-									wait()
-									local p = game.Players.LocalPlayer.Character.Torso.Position
-									local tbl = {
-										["CanCollide"] = false,
-										["Parent"] = workspace,
-										["Anchored"] = true,
-										["Name"] = "Part",
-										["CastShadow"] = false,
-										["Transparency"] = 0,
-										["RotVelocity"] = Vector3.new(0,0,0),
-										["CFrame"] =  script.Parent.CFrame,
-										["BrickColor"] =  script.Parent.BrickColor,
-										["Material"] =  script.Parent.Material,
-										["Shape"] =  script.Parent.Shape,
-										["Size"] = script.Parent.Size
-									}
-
-									workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-								end
-							end;}local ActualScripts = {}
-						function s(var)
-							local func = table.remove(Scripts,1)
-							setfenv(func,setmetatable({script=var,require=fake_require or require,global=genv},{
-								__index = getfenv(func),
-							}))
-							table.insert(ActualScripts,coroutine.wrap(func))
-						end
-						Decode =  function(str,t,props,classes,values,ICList,Model,CurPar,LastIns,split,RemoveAndSplit,InstanceList)
-							local tonum,table_remove,inst,parnt,comma,table_foreach = tonumber,table.remove,Instance.new,"Parent",",",
-							function(t,f)
-								for a,b in pairs(t) do
-									f(a,b)
-								end
-							end
-							local Types = {
-								Color3 = Color3.new,
-								Vector3 = Vector3.new,
-								Vector2 = Vector2.new,
-								UDim = UDim.new,
-								UDim2 = UDim2.new,
-								CFrame = CFrame.new,
-								Rect = Rect.new,
-								NumberRange = NumberRange.new,
-								BrickColor = BrickColor.new,
-								PhysicalProperties = PhysicalProperties.new,
-								NumberSequence = function(...)
-									local a = {...}
-									local t = {}
-									repeat
-										t[#t+1] = NumberSequenceKeypoint.new(table_remove(a,1),table_remove(a,1),table_remove(a,1))
-									until #a==0
-									return NumberSequence.new(t)
-								end,
-								ColorSequence = function(...)
-									local a = {...}
-									local t = {}
-									repeat
-										t[#t+1] = ColorSequenceKeypoint.new(table_remove(a,1),Color3.new(table_remove(a,1),table_remove(a,1),table_remove(a,1)))
-									until #a==0
-									return ColorSequence.new(t)
-								end,
-								number = tonumber,
-								boolean = function(a)
-									return a=="1"
-								end
-							}
-							split = function(str,sep)
-								if not str then return end
-								local fields = {}
-								local ConcatNext = false
-								str:gsub(("([^%s]+)"):format(sep),function(c)
-									if ConcatNext == true then
-										fields[#fields] = fields[#fields]..sep..c
-										ConcatNext = false
-									else
-										fields[#fields+1] = c
-									end
-									if c:sub(#c)=="\\" then
-										c = fields[#fields]
-										fields[#fields] = c:sub(1,#c-1)
-										ConcatNext = true
-									end
-								end)
-								return fields
-							end
-							RemoveAndSplit = function(t)
-								return split(table_remove(t,1),comma)
-							end
-							t = split(str,";")
-							props = RemoveAndSplit(t)
-							classes = RemoveAndSplit(t)
-							values = split(table_remove(t,1),'|')
-							ICList = RemoveAndSplit(t)
-							InstanceList = {}
-							Model = inst"Model"
-							CurPar = Model
-							table_foreach(t,function(ct,c)
-								if c=="n" or c=="p" then
-									CurPar = c=="n" and LastIns or CurPar[parnt]
-								else
-									ct = split(c,"|")
-									local class = classes[tonum(table_remove(ct,1))]
-									if class=="UnionOperation" then
-										LastIns = {UsePartColor="1"}
-									else
-										LastIns = inst(class)
-										if LastIns:IsA"Script" then
-											s(LastIns)
-										elseif LastIns:IsA("ModuleScript") then
-											ms(LastIns)
-										end
-									end
-
-									local function SetProperty(LastIns,p,str,s)
-										s = Types[typeof(LastIns[p])]
-										if p=="CustomPhysicalProperties" then
-											s = PhysicalProperties.new
-										end
-										if s then
-											LastIns[p] = s(unpack(split(str,comma)))
-										else
-											LastIns[p] = str
-										end
-									end
-
-									local UnionData
-									table_foreach(ct,function(s,p,a,str)
-										a = p:find":"
-										p,str = props[tonum(p:sub(1,a-1))],values[tonum(p:sub(a+1))]
-										if p=="UnionData" then
-											UnionData = split(str," ")
-											return
-										end
-										if class=="UnionOperation" then
-											LastIns[p] = str
-											return
-										end
-										SetProperty(LastIns,p,str)
-									end)
-
-									if UnionData then
-										local LI_Data = LastIns
-										LastIns = DecodeUnion(UnionData)
-										table_foreach(LI_Data,function(p,str)
-											SetProperty(LastIns,p,str)
-										end)
-									end
-									table.insert(InstanceList,LastIns)
-									LastIns[parnt] = CurPar
-								end
-							end)
-							table_remove(ICList,1)
-							table_foreach(ICList,function(a,b)
-								b = split(b,">")
-								InstanceList[tonum(b[1])][props[tonum(b[2])]] = InstanceList[tonum(b[3])]
-							end)
-
-							return Model:GetChildren()
-						end
-
-						local Objects = Decode('Name,Anchored,Color,Material,Position,Orientation,Size,Shape,CanCollide,BottomSurface,TopSurface;Part,Script;Part|q|1|0.2392,0.0823,0.5215|288|-42.5001,0.5,109.6999|0,0,90|0.5,10,10|2|0|0;0;1|1:2|2:3|'
-							..'3:4|4:5|5:6|6:7|7:8|8:9|9:10|10:11|11:11|3:4|3:4;n;2;p;')
-						for _,Object in pairs(Objects) do
-							Object.Parent = script and script.Parent==workspace and script or workspace
-						end
-						for _,f in pairs(ActualScripts) do f() end
-
-						workspace.q.Position = ch.Torso.Position+Vector3.new(0,-2.9, 0 )
-						local TweenService = game:GetService("TweenService")
-						local part = workspace.q
-						local info = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, true)
-
-						local tween = TweenService:Create(part,info, {Size = Vector3.new(0.5, 30, 30)} )
-
-						tween:Play()
-
-
-
-
-
-
-						wait(1)
-						workspace.q:Destroy()
-						wait(99999999999)
-					end
-
-
-
-
-				end
-			end
-		else
-			track:Stop()
-
-		end
-	end)
+	game.Workspace["Megatrons Sword"].Parent = ch
 
 
 end)
-USESWORD.Name = "USESWORD"
-USESWORD.Parent = main
-USESWORD.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-USESWORD.Position = UDim2.new(0, 0, 0.391304344, 0)
-USESWORD.Size = UDim2.new(0, 36, 0, 44)
-USESWORD.Font = Enum.Font.SourceSans
-USESWORD.Text = "SWD USE"
-USESWORD.TextColor3 = Color3.fromRGB(0, 0, 0)
-USESWORD.TextScaled = true
-USESWORD.TextSize = 14.000
-USESWORD.TextWrapped = true
-USESWORD.MouseButton1Down:connect(function()
 
+UseSword.Name = "Use Sword"
+UseSword.Parent = main
+UseSword.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+UseSword.Position = UDim2.new(0, 0, 0.346863449, 0)
+UseSword.Size = UDim2.new(0, 35, 0, 34)
+UseSword.Font = Enum.Font.SourceSans
+UseSword.Text = "Use Sword"
+UseSword.TextColor3 = Color3.fromRGB(0, 0, 0)
+UseSword.TextScaled = true
+UseSword.TextSize = 14.000
+UseSword.TextWrapped = true
+UseSword.MouseButton1Down:connect(function()
 	local plr = game.Players.LocalPlayer
 	local mouse = plr:GetMouse()
 	local tool = Instance.new("Tool", plr.Backpack)
@@ -1903,607 +1421,32 @@ USESWORD.MouseButton1Down:connect(function()
 		end
 	end)
 end)
-USEGUN.Name = "USEGUN"
-USEGUN.Parent = main
-USEGUN.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-USEGUN.Position = UDim2.new(0.364963502, 0, 0.391304344, 0)
-USEGUN.Size = UDim2.new(0, 36, 0, 44)
-USEGUN.Font = Enum.Font.SourceSans
-USEGUN.Text = "GUN USE"
-USEGUN.TextColor3 = Color3.fromRGB(0, 0, 0)
-USEGUN.TextScaled = true
-USEGUN.TextSize = 14.000
-USEGUN.TextWrapped = true
-USEGUN.MouseButton1Down:connect(function()
-	local plr = game.Players.LocalPlayer
-	local mouse = plr:GetMouse()
-	local tool = Instance.new("Tool", plr.Backpack)
-	tool.Name = "Gun Shoot"
-	tool.CanBeDropped = false
-	tool.RequiresHandle = false
-	local Handle = Instance.new("Part")	
-	Handle.Name = "Handle"
-	Handle.Parent = game.Players.LocalPlayer.Backpack["Gun Shoot"]
-	Handle.Size = Vector3.new(1, 1, 1)
-	Handle.Transparency = 1
-	tool.Activated:connect(function()
-		local jj = Instance.new("Part")
-		jj.Parent = workspace
-		jj.Anchored = true
-		jj.CanTouch = false
-		jj.Transparency = 1
-		jj.CanCollide = false
-		jj.Size = Vector3.new(1, 1, 1)
-		jj.Name = "jj"
 
 
 
-		local pos = mouse.Hit+Vector3.new(0, 0, 0)
-		pos = Vector3.new(pos.X, pos.Y, pos.Z)
-		workspace.jj.Position = pos
-		local genv={}
-		local Scripts = {
-			function() _G.Bullet = true
-				while _G.Bullet == true do
-					wait()
-					local p = game.Players.LocalPlayer.Character.Torso.Position
-					local tbl = {
-						["CanCollide"] = false,
-						["Parent"] = workspace,
-						["Anchored"] = true,
-						["Name"] = "Part",
-						["CastShadow"] = false,
-						["Transparency"] = 0,
-						["RotVelocity"] = Vector3.new(0,0,0),
-						["CFrame"] =  script.Parent.CFrame,
-						["BrickColor"] =  script.Parent.BrickColor,
-						["Material"] =  script.Parent.Material,
-						["Shape"] =  script.Parent.Shape,
-						["Size"] = script.Parent.Size
-					}
-
-					workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-				end
-			end;
-			function() local part = script.Parent
-
-				function findPlayer()
-					local distance = 2
-					local target = nil
-					for i, v in pairs(game.Workspace:GetChildren()) do
-						local humanoid = v:FindFirstChild("Humanoid")
-						local HumanoidRootPart = v:FindFirstChild("HumanoidRootPart")
-						if humanoid and HumanoidRootPart and v ~= part then
-							if (part.Position - HumanoidRootPart.Position).magnitude < distance then
-								distance = (part.Position - HumanoidRootPart.Position).magnitude
-								target = HumanoidRootPart
-
-							end
-
-						end
-					end
-					return target
-				end
-
-				while wait(0) do
-					local PlayerFound = findPlayer()
-					if PlayerFound then
-						if part.Parent:GetChildren("SoundWave") then	
-							print("found")
-
-							local args = {
-								[1] = "FireOtherClients",
-								[2] = "drawLaser",
-								[3] = Vector3.new(0, 0, 0),
-								[4] = Vector3.new(0, 0, 0),
-								[5] = {
-									["Name"] = "Head",
-									["Parent"] = PlayerFound.Parent,
-									["Material"] = Enum.Material.ForceField,
-									["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-									["Size"] = Vector3.new(5, 1, 1)
-								}
-							}
-
-							workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-
-
-							local tbl = {
-								["CanCollide"] = false,
-								["Parent"] = workspace,
-								["Anchored"] = true,
-								["Name"] = "Part",
-								["CastShadow"] = false,
-								["Transparency"] = 0,
-								["RotVelocity"] = Vector3.new(0,0,0),
-								["CFrame"] = PlayerFound.Parent.Torso.CFrame,
-								["BrickColor"] = BrickColor.new("Dark indigo"),
-								["Material"] = Enum.Material.Neon,
-								["Shape"] = Enum.PartType.Ball,
-								["Size"] = Vector3.new(10, 10, 10),
-
-
-							}
-
-							workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-
-
-						else
-							print("not found")
-						end
-					end
-				end  end;}local ActualScripts = {}
-		function s(var)
-			local func = table.remove(Scripts,1)
-			setfenv(func,setmetatable({script=var,require=fake_require or require,global=genv},{
-				__index = getfenv(func),
-			}))
-			table.insert(ActualScripts,coroutine.wrap(func))
-		end
-		Decode =  function(str,t,props,classes,values,ICList,Model,CurPar,LastIns,split,RemoveAndSplit,InstanceList)
-			local tonum,table_remove,inst,parnt,comma,table_foreach = tonumber,table.remove,Instance.new,"Parent",",",
-			function(t,f)
-				for a,b in pairs(t) do
-					f(a,b)
-				end
-			end
-			local Types = {
-				Color3 = Color3.new,
-				Vector3 = Vector3.new,
-				Vector2 = Vector2.new,
-				UDim = UDim.new,
-				UDim2 = UDim2.new,
-				CFrame = CFrame.new,
-				Rect = Rect.new,
-				NumberRange = NumberRange.new,
-				BrickColor = BrickColor.new,
-				PhysicalProperties = PhysicalProperties.new,
-				NumberSequence = function(...)
-					local a = {...}
-					local t = {}
-					repeat
-						t[#t+1] = NumberSequenceKeypoint.new(table_remove(a,1),table_remove(a,1),table_remove(a,1))
-					until #a==0
-					return NumberSequence.new(t)
-				end,
-				ColorSequence = function(...)
-					local a = {...}
-					local t = {}
-					repeat
-						t[#t+1] = ColorSequenceKeypoint.new(table_remove(a,1),Color3.new(table_remove(a,1),table_remove(a,1),table_remove(a,1)))
-					until #a==0
-					return ColorSequence.new(t)
-				end,
-				number = tonumber,
-				boolean = function(a)
-					return a=="1"
-				end
-			}
-			split = function(str,sep)
-				if not str then return end
-				local fields = {}
-				local ConcatNext = false
-				str:gsub(("([^%s]+)"):format(sep),function(c)
-					if ConcatNext == true then
-						fields[#fields] = fields[#fields]..sep..c
-						ConcatNext = false
-					else
-						fields[#fields+1] = c
-					end
-					if c:sub(#c)=="\\" then
-						c = fields[#fields]
-						fields[#fields] = c:sub(1,#c-1)
-						ConcatNext = true
-					end
-				end)
-				return fields
-			end
-			RemoveAndSplit = function(t)
-				return split(table_remove(t,1),comma)
-			end
-			t = split(str,";")
-			props = RemoveAndSplit(t)
-			classes = RemoveAndSplit(t)
-			values = split(table_remove(t,1),'|')
-			ICList = RemoveAndSplit(t)
-			InstanceList = {}
-			Model = inst"Model"
-			CurPar = Model
-			table_foreach(t,function(ct,c)
-				if c=="n" or c=="p" then
-					CurPar = c=="n" and LastIns or CurPar[parnt]
-				else
-					ct = split(c,"|")
-					local class = classes[tonum(table_remove(ct,1))]
-					if class=="UnionOperation" then
-						LastIns = {UsePartColor="1"}
-					else
-						LastIns = inst(class)
-						if LastIns:IsA"Script" then
-							s(LastIns)
-						elseif LastIns:IsA("ModuleScript") then
-							ms(LastIns)
-						end
-					end
-
-					local function SetProperty(LastIns,p,str,s)
-						s = Types[typeof(LastIns[p])]
-						if p=="CustomPhysicalProperties" then
-							s = PhysicalProperties.new
-						end
-						if s then
-							LastIns[p] = s(unpack(split(str,comma)))
-						else
-							LastIns[p] = str
-						end
-					end
-
-					local UnionData
-					table_foreach(ct,function(s,p,a,str)
-						a = p:find":"
-						p,str = props[tonum(p:sub(1,a-1))],values[tonum(p:sub(a+1))]
-						if p=="UnionData" then
-							UnionData = split(str," ")
-							return
-						end
-						if class=="UnionOperation" then
-							LastIns[p] = str
-							return
-						end
-						SetProperty(LastIns,p,str)
-					end)
-
-					if UnionData then
-						local LI_Data = LastIns
-						LastIns = DecodeUnion(UnionData)
-						table_foreach(LI_Data,function(p,str)
-							SetProperty(LastIns,p,str)
-						end)
-					end
-					table.insert(InstanceList,LastIns)
-					LastIns[parnt] = CurPar
-				end
-			end)
-			table_remove(ICList,1)
-			table_foreach(ICList,function(a,b)
-				b = split(b,">")
-				InstanceList[tonum(b[1])][props[tonum(b[2])]] = InstanceList[tonum(b[3])]
-			end)
-
-			return Model:GetChildren()
-		end
-
-		local Objects = Decode('Name,Color,Material,Position,Size,BottomSurface,TopSurface;Part,Script;Part|kk|0.2392,0.0823,0.5215|288|22.8999,0.5,61.8999|2,1,1|0;0;1|1:2|2:3|3:4|4:5|5:6|6:7|7:7|2:3|2:3;n;2;2;p;'
-			..'')
-		for _,Object in pairs(Objects) do
-			Object.Parent = script and script.Parent==workspace and script or workspace
-		end
-		for _,f in pairs(ActualScripts) do f() end
-		workspace.kk.Anchored = true
-		workspace.kk.CanTouch = false
-		workspace.kk.CanCollide = false
-		workspace.kk.CFrame = game.Players.LocalPlayer.Character["Unicrons Gun"].Tip.CFrame
-
-		wait(0.1)
-		local TweenService = game:GetService("TweenService")
-		local part = workspace.kk
-		local info = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, true)
-
-		local tween = TweenService:Create(part,info, {Position = workspace.jj.Position} )
-
-		tween:Play()
-		wait(1)
-		workspace.kk.Position = Vector3.new(99999999, 0, 0)
-		wait(0.1)
-		workspace.kk:Destroy()
-
-		workspace.jj:Destroy()
-
-	end)
-
-end)
-Teleport.Name = "Teleport"
-Teleport.Parent = main
-Teleport.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Teleport.Position = UDim2.new(0.737226248, 0, 0.391304344, 0)
-Teleport.Size = UDim2.new(0, 36, 0, 44)
-Teleport.Font = Enum.Font.SourceSans
-Teleport.Text = "TP"
-Teleport.TextColor3 = Color3.fromRGB(0, 0, 0)
-Teleport.TextScaled = true
-Teleport.TextSize = 14.000
-Teleport.TextWrapped = true
-Teleport.MouseButton1Down:connect(function()
-
-	local plr = game.Players.LocalPlayer
-	local mouse = plr:GetMouse()
-	local tool = Instance.new("Tool", plr.Backpack)
-	tool.Name = "TP Abillity"
-	tool.CanBeDropped = false
-	tool.RequiresHandle = false
-	tool.Activated:connect(function()
-		local COLOR1 = BrickColor.new("Dark indigo")
-		local COLOR2 = BrickColor.new("Really black")
-		local ch = game.Players.LocalPlayer.Character
-		local i = Instance.new("Part")
-		i.Shape = Enum.PartType.Cylinder
-		i.Rotation = Vector3.new(0, 0, -90)
-		i.Size = Vector3.new(2000,16,30)
-		i.Position = ch.Torso.Position+Vector3.new(0, 996, 0)
-		i.BrickColor = COLOR1
-		i.CanTouch = false
-		i.CanCollide = false
-		i.Anchored = true
-		i.Transparency = 0.1
-		i.Material = Enum.Material.Neon
-		i.Parent = ch
-		i.Name = "SKY"
-
-
-		local p = game.Players.LocalPlayer.Character.Torso.Position
-		local tbl = {
-			["CanCollide"] = false,
-			["Parent"] = workspace,
-			["Anchored"] = true,
-			["Name"] = "Part",
-			["CastShadow"] = false,
-			["Transparency"] = 0,
-			["RotVelocity"] = Vector3.new(0,0,0),
-			["CFrame"] = i.CFrame,
-			["BrickColor"] = i.BrickColor,
-			["Material"] = i.Material,
-			["Shape"] = i.Shape,
-			["Size"] = i.Size
-		}
-
-		workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-		wait(0.05)
-		ch.SKY:Destroy()
-
-
-		local i = Instance.new("Part")
-		i.Shape = Enum.PartType.Cylinder
-		i.Rotation = Vector3.new(0, 0, -90)
-		i.Size = Vector3.new(2000,14,28)
-		i.Position = ch.Torso.Position+Vector3.new(0, 996, 0)
-		i.BrickColor = COLOR2
-		i.CanTouch = false
-		i.CanCollide = false
-		i.Anchored = true
-		i.Transparency = 0.1
-		i.Material = Enum.Material.Neon
-		i.Parent = ch
-		i.Name = "SKY"
-
-
-		local p = game.Players.LocalPlayer.Character.Torso.Position
-		local tbl = {
-			["CanCollide"] = false,
-			["Parent"] = workspace,
-			["Anchored"] = true,
-			["Name"] = "Part",
-			["CastShadow"] = false,
-			["Transparency"] = 0,
-			["RotVelocity"] = Vector3.new(0,0,0),
-			["CFrame"] = i.CFrame,
-			["BrickColor"] = i.BrickColor,
-			["Material"] = i.Material,
-			["Shape"] = i.Shape,
-			["Size"] = i.Size
-		}
-
-		workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-		wait(0.05)
-		ch.SKY:Destroy()
-
-
-
-
-		local i = Instance.new("Part")
-		i.Shape = Enum.PartType.Cylinder
-		i.Rotation = Vector3.new(0, 0, -90)
-		i.Size = Vector3.new(2000,12,26)
-		i.Position = ch.Torso.Position+Vector3.new(0, 996, 0)
-		i.BrickColor = COLOR1
-		i.CanTouch = false
-		i.CanCollide = false
-		i.Anchored = true
-		i.Transparency = 0.1
-		i.Material = Enum.Material.Neon
-		i.Parent = ch
-		i.Name = "SKY"
-
-
-		local p = game.Players.LocalPlayer.Character.Torso.Position
-		local tbl = {
-			["CanCollide"] = false,
-			["Parent"] = workspace,
-			["Anchored"] = true,
-			["Name"] = "Part",
-			["CastShadow"] = false,
-			["Transparency"] = 0,
-			["RotVelocity"] = Vector3.new(0,0,0),
-			["CFrame"] = i.CFrame,
-			["BrickColor"] = i.BrickColor,
-			["Material"] = i.Material,
-			["Shape"] = i.Shape,
-			["Size"] = i.Size
-		}
-
-		workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-		wait(0.05)
-		ch.SKY:Destroy()
-
-		local pt = Instance.new("Part")
-		pt.Parent = plr.Character
-		pt.Anchored = true
-		pt.CanCollide= false
-		pt.Name = "FixedTP"
-		pt.CFrame = plr.Character.Torso.CFrame
-
-
-
-		local pos = mouse.Hit+Vector3.new(0, 3, 0)
-		pos = Vector3.new(pos.X, pos.Y, pos.Z)
-		game.Players.LocalPlayer.Character.FixedTP.Position = pos
-		game.Players.LocalPlayer.Character.Heed.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
-		game.Players.LocalPlayer.Character.FixedTP:Destroy()
-
-		local i = Instance.new("Part")
-		i.Shape = Enum.PartType.Cylinder
-		i.Rotation = Vector3.new(0, 0, -90)
-		i.Size = Vector3.new(2000,16,30)
-		i.Position = ch.Torso.Position+Vector3.new(0, 996, 0)
-		i.BrickColor = COLOR1
-		i.CanTouch = false
-		i.CanCollide = false
-		i.Anchored = true
-		i.Transparency = 0.1
-		i.Material = Enum.Material.Neon
-		i.Parent = ch
-		i.Name = "SKY"
-
-
-		local p = game.Players.LocalPlayer.Character.Torso.Position
-		local tbl = {
-			["CanCollide"] = false,
-			["Parent"] = workspace,
-			["Anchored"] = true,
-			["Name"] = "Part",
-			["CastShadow"] = false,
-			["Transparency"] = 0,
-			["RotVelocity"] = Vector3.new(0,0,0),
-			["CFrame"] = i.CFrame,
-			["BrickColor"] = i.BrickColor,
-			["Material"] = i.Material,
-			["Shape"] = i.Shape,
-			["Size"] = i.Size
-		}
-
-		workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-		wait(0.05)
-		ch.SKY:Destroy()
-
-
-		local i = Instance.new("Part")
-		i.Shape = Enum.PartType.Cylinder
-		i.Rotation = Vector3.new(0, 0, -90)
-		i.Size = Vector3.new(2000,14,28)
-		i.Position = ch.Torso.Position+Vector3.new(0, 996, 0)
-		i.BrickColor = COLOR2
-		i.CanTouch = false
-		i.CanCollide = false
-		i.Anchored = true
-		i.Transparency = 0.1
-		i.Material = Enum.Material.Neon
-		i.Parent = ch
-		i.Name = "SKY"
-
-
-		local p = game.Players.LocalPlayer.Character.Torso.Position
-		local tbl = {
-			["CanCollide"] = false,
-			["Parent"] = workspace,
-			["Anchored"] = true,
-			["Name"] = "Part",
-			["CastShadow"] = false,
-			["Transparency"] = 0,
-			["RotVelocity"] = Vector3.new(0,0,0),
-			["CFrame"] = i.CFrame,
-			["BrickColor"] = i.BrickColor,
-			["Material"] = i.Material,
-			["Shape"] = i.Shape,
-			["Size"] = i.Size
-		}
-
-		workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-		wait(0.05)
-		ch.SKY:Destroy()
-
-
-
-
-		local i = Instance.new("Part")
-		i.Shape = Enum.PartType.Cylinder
-		i.Rotation = Vector3.new(0, 0, -90)
-		i.Size = Vector3.new(2000,12,26)
-		i.Position = ch.Torso.Position+Vector3.new(0, 996, 0)
-		i.BrickColor = COLOR1
-		i.CanTouch = false
-		i.CanCollide = false
-		i.Anchored = true
-		i.Transparency = 0.1
-		i.Material = Enum.Material.Neon
-		i.Parent = ch
-		i.Name = "SKY"
-
-
-		local p = game.Players.LocalPlayer.Character.Torso.Position
-		local tbl = {
-			["CanCollide"] = false,
-			["Parent"] = workspace,
-			["Anchored"] = true,
-			["Name"] = "Part",
-			["CastShadow"] = false,
-			["Transparency"] = 0,
-			["RotVelocity"] = Vector3.new(0,0,0),
-			["CFrame"] = i.CFrame,
-			["BrickColor"] = i.BrickColor,
-			["Material"] = i.Material,
-			["Shape"] = i.Shape,
-			["Size"] = i.Size
-		}
-
-		workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-
-		wait(0.05)
-		ch.SKY:Destroy()    
-	end)
-end)
-DeleteSword.Name = "DeleteSword"
+DeleteSword.Name = "Delete Sword"
 DeleteSword.Parent = main
-DeleteSword.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-DeleteSword.Position = UDim2.new(0, 0, 0.56811595, 0)
-DeleteSword.Size = UDim2.new(0, 36, 0, 44)
+DeleteSword.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+DeleteSword.Position = UDim2.new(0, 0, 0.516605139, 0)
+DeleteSword.Size = UDim2.new(0, 35, 0, 34)
 DeleteSword.Font = Enum.Font.SourceSans
-DeleteSword.Text = "DEL SORD"
+DeleteSword.Text = "Delete Sword"
 DeleteSword.TextColor3 = Color3.fromRGB(0, 0, 0)
 DeleteSword.TextScaled = true
 DeleteSword.TextSize = 14.000
 DeleteSword.TextWrapped = true
 DeleteSword.MouseButton1Down:connect(function()
-
-	game.Players.LocalPlayer.Character["Megatrons Sword"]:Destroy()
+	local ch = workspace[" 69\240\157\154\137\240\157\154\142\240\157\154\151\240\157\154\141\240\157\154\142\240\157\154\162"]
+	ch["Megatrons Sword"]:Destroy()
 end)
-DeleteGun.Name = "DeleteGun"
-DeleteGun.Parent = main
-DeleteGun.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-DeleteGun.Position = UDim2.new(0.364963502, 0, 0.56811595, 0)
-DeleteGun.Size = UDim2.new(0, 36, 0, 44)
-DeleteGun.Font = Enum.Font.SourceSans
-DeleteGun.Text = "DEL GUN"
-DeleteGun.TextColor3 = Color3.fromRGB(0, 0, 0)
-DeleteGun.TextScaled = true
-DeleteGun.TextSize = 14.000
-DeleteGun.TextWrapped = true
-DeleteGun.MouseButton1Down:connect(function()
-	game.Players.LocalPlayer.Character["Unicrons Gun"]:Destroy()
 
-end)
-Abillity1.Name = "Abillity1"
+Abillity1.Name = "Abillity 1"
 Abillity1.Parent = main
-Abillity1.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Abillity1.Position = UDim2.new(0, 0, 0.779710174, 0)
-Abillity1.Size = UDim2.new(0, 36, 0, 68)
+Abillity1.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Abillity1.Position = UDim2.new(0.345132768, 0, 0.188191861, 0)
+Abillity1.Size = UDim2.new(0, 35, 0, 34)
 Abillity1.Font = Enum.Font.SourceSans
-Abillity1.Text = "1"
+Abillity1.Text = "Abillity 1"
 Abillity1.TextColor3 = Color3.fromRGB(0, 0, 0)
 Abillity1.TextScaled = true
 Abillity1.TextSize = 14.000
@@ -2534,7 +1477,7 @@ Abillity1.MouseButton1Down:connect(function()
 						pos = Vector3.new(pos.X, pos.Y, pos.Z)
 
 
-						local COLOR = BrickColor.new("Royal purple")
+						local COLOR = BrickColor.new("Really red")
 						local J = Instance.new("Part")
 						J.BrickColor = COLOR
 						J.CanCollide = false
@@ -3430,30 +2373,29 @@ Abillity1.MouseButton1Down:connect(function()
 			end
 		end
 	end)
-
 end)
-Abillity2.Name = "Abillity2"
+
+Abillity2.Name = "Abillity 2"
 Abillity2.Parent = main
-Abillity2.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Abillity2.Position = UDim2.new(0.364963502, 0, 0.779710174, 0)
-Abillity2.Size = UDim2.new(0, 36, 0, 68)
+Abillity2.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Abillity2.Position = UDim2.new(0.345132768, 0, 0.346863449, 0)
+Abillity2.Size = UDim2.new(0, 35, 0, 34)
 Abillity2.Font = Enum.Font.SourceSans
-Abillity2.Text = "2"
+Abillity2.Text = "Abillity 2"
 Abillity2.TextColor3 = Color3.fromRGB(0, 0, 0)
 Abillity2.TextScaled = true
 Abillity2.TextSize = 14.000
 Abillity2.TextWrapped = true
 Abillity2.MouseButton1Down:connect(function()
-
 	local plr = game.Players.LocalPlayer
 	local mouse = plr:GetMouse()
 	local tool = Instance.new("Tool", plr.Backpack)
-	tool.Name = "Sound Waves"
+	tool.Name = "Abillity 2"
 	tool.CanBeDropped = false
 	tool.RequiresHandle = false
 	local Handle = Instance.new("Part")	
 	Handle.Name = "Handle"
-	Handle.Parent = game.Players.LocalPlayer.Backpack["Sound Waves"]
+	Handle.Parent = game.Players.LocalPlayer.Backpack["Abillity 2"]
 	Handle.Size = Vector3.new(1, 1, 1)
 	Handle.Transparency = 1
 
@@ -3699,12 +2641,14 @@ Abillity2.MouseButton1Down:connect(function()
 
 		workspace.SoundWave.Shape = Enum.PartType.Ball
 		workspace.SoundWave.Size =Vector3.new(6, 6, 6)
+		workspace.SoundWave.BrickColor = BrickColor.new("Really red")
+
 		workspace.SoundWave.Anchored = true
 		workspace.SoundWave.CanTouch = false
 		workspace.SoundWave.CanCollide = false
 
 
-		workspace.SoundWave.Position = game.Players.LocalPlayer.Character["Sound Waves"].Handle.Position
+		workspace.SoundWave.Position = game.Players.LocalPlayer.Character["Abillity 2"].Handle.Position
 		wait(0.1)
 		local TweenService1 = game:GetService("TweenService")
 		local part1 = workspace.SoundWave
@@ -3736,1896 +2680,1387 @@ Abillity2.MouseButton1Down:connect(function()
 
 	end)
 end)
-Abillity3.Name = "Abillity3"
-Abillity3.Parent = main
-Abillity3.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-Abillity3.Position = UDim2.new(0.737226248, 0, 0.779710174, 0)
-Abillity3.Size = UDim2.new(0, 36, 0, 68)
-Abillity3.Font = Enum.Font.SourceSans
-Abillity3.Text = "3"
-Abillity3.TextColor3 = Color3.fromRGB(0, 0, 0)
-Abillity3.TextScaled = true
-Abillity3.TextSize = 14.000
-Abillity3.TextWrapped = true
-Abillity3.MouseButton1Down:connect(function()
 
-	---Fire Ability Tool---
+
+GroundSlam.Name = "Ground Slam"
+GroundSlam.Parent = main
+GroundSlam.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+GroundSlam.Position = UDim2.new(0.345132768, 0, 0.516605139, 0)
+GroundSlam.Size = UDim2.new(0, 35, 0, 34)
+GroundSlam.Font = Enum.Font.SourceSans
+GroundSlam.Text = "Ground Slam"
+GroundSlam.TextColor3 = Color3.fromRGB(0, 0, 0)
+GroundSlam.TextScaled = true
+GroundSlam.TextSize = 14.000
+GroundSlam.TextWrapped = true
+GroundSlam.MouseButton1Down:connect(function()
 	local plr = game.Players.LocalPlayer
 	local mouse = plr:GetMouse()
 	local tool = Instance.new("Tool", plr.Backpack)
-	tool.Name = "Abillity 3"
+	tool.Name = "Ground Slam"
 	tool.CanBeDropped = false
 	tool.RequiresHandle = false
-	local Handle = Instance.new("Part")	
-	Handle.Name = "Handle"
-	Handle.Parent = game.Players.LocalPlayer.Backpack["Abillity 3"]
-	Handle.Size = Vector3.new(1, 1, 1)
-	Handle.Transparency = 1
 	tool.Activated:connect(function()
 
-		local t = mouse.Target
-		local target = nil
-		if t then
-			for i, v in pairs(game.Players:GetPlayers()) do
-				if v.Character and v.Character:FindFirstChild("Torso") then
-					if t:IsDescendantOf(v.Character) then
-						target = v
-						break
+
+
+		local Anim = Instance.new("Animation")
+		Anim.AnimationId = "rbxassetid://184574340"
+		local track = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+		local HeroJumpACTIVE = false
+
+		HeroJumpACTIVE = not HeroJumpACTIVE
+		if HeroJumpACTIVE then
+
+			while wait() do
+				if track.IsPlaying == false then
+					if HeroJumpACTIVE then
+						track:Play(.1, 1, 1)
+						wait(1.2)
+
+						local ch = game.Players.LocalPlayer.Character
+
+						-- Converted using Mokiros's Model to Script plugin
+						-- Converted string size: 255
+						local genv={}
+						local Scripts = {
+							function() _G.Ground = true
+								while _G.Ground == true do
+									wait()
+									local p = game.Players.LocalPlayer.Character.Torso.Position
+									local tbl = {
+										["CanCollide"] = false,
+										["Parent"] = workspace,
+										["Anchored"] = true,
+										["Name"] = "Part",
+										["CastShadow"] = false,
+										["Transparency"] = 0,
+										["RotVelocity"] = Vector3.new(0,0,0),
+										["CFrame"] =  script.Parent.CFrame,
+										["BrickColor"] =  script.Parent.BrickColor,
+										["Material"] =  script.Parent.Material,
+										["Shape"] =  script.Parent.Shape,
+										["Size"] = script.Parent.Size
+									}
+
+									workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
+								end
+							end;}local ActualScripts = {}
+						function s(var)
+							local func = table.remove(Scripts,1)
+							setfenv(func,setmetatable({script=var,require=fake_require or require,global=genv},{
+								__index = getfenv(func),
+							}))
+							table.insert(ActualScripts,coroutine.wrap(func))
+						end
+						Decode =  function(str,t,props,classes,values,ICList,Model,CurPar,LastIns,split,RemoveAndSplit,InstanceList)
+							local tonum,table_remove,inst,parnt,comma,table_foreach = tonumber,table.remove,Instance.new,"Parent",",",
+							function(t,f)
+								for a,b in pairs(t) do
+									f(a,b)
+								end
+							end
+							local Types = {
+								Color3 = Color3.new,
+								Vector3 = Vector3.new,
+								Vector2 = Vector2.new,
+								UDim = UDim.new,
+								UDim2 = UDim2.new,
+								CFrame = CFrame.new,
+								Rect = Rect.new,
+								NumberRange = NumberRange.new,
+								BrickColor = BrickColor.new,
+								PhysicalProperties = PhysicalProperties.new,
+								NumberSequence = function(...)
+									local a = {...}
+									local t = {}
+									repeat
+										t[#t+1] = NumberSequenceKeypoint.new(table_remove(a,1),table_remove(a,1),table_remove(a,1))
+									until #a==0
+									return NumberSequence.new(t)
+								end,
+								ColorSequence = function(...)
+									local a = {...}
+									local t = {}
+									repeat
+										t[#t+1] = ColorSequenceKeypoint.new(table_remove(a,1),Color3.new(table_remove(a,1),table_remove(a,1),table_remove(a,1)))
+									until #a==0
+									return ColorSequence.new(t)
+								end,
+								number = tonumber,
+								boolean = function(a)
+									return a=="1"
+								end
+							}
+							split = function(str,sep)
+								if not str then return end
+								local fields = {}
+								local ConcatNext = false
+								str:gsub(("([^%s]+)"):format(sep),function(c)
+									if ConcatNext == true then
+										fields[#fields] = fields[#fields]..sep..c
+										ConcatNext = false
+									else
+										fields[#fields+1] = c
+									end
+									if c:sub(#c)=="\\" then
+										c = fields[#fields]
+										fields[#fields] = c:sub(1,#c-1)
+										ConcatNext = true
+									end
+								end)
+								return fields
+							end
+							RemoveAndSplit = function(t)
+								return split(table_remove(t,1),comma)
+							end
+							t = split(str,";")
+							props = RemoveAndSplit(t)
+							classes = RemoveAndSplit(t)
+							values = split(table_remove(t,1),'|')
+							ICList = RemoveAndSplit(t)
+							InstanceList = {}
+							Model = inst"Model"
+							CurPar = Model
+							table_foreach(t,function(ct,c)
+								if c=="n" or c=="p" then
+									CurPar = c=="n" and LastIns or CurPar[parnt]
+								else
+									ct = split(c,"|")
+									local class = classes[tonum(table_remove(ct,1))]
+									if class=="UnionOperation" then
+										LastIns = {UsePartColor="1"}
+									else
+										LastIns = inst(class)
+										if LastIns:IsA"Script" then
+											s(LastIns)
+										elseif LastIns:IsA("ModuleScript") then
+											ms(LastIns)
+										end
+									end
+
+									local function SetProperty(LastIns,p,str,s)
+										s = Types[typeof(LastIns[p])]
+										if p=="CustomPhysicalProperties" then
+											s = PhysicalProperties.new
+										end
+										if s then
+											LastIns[p] = s(unpack(split(str,comma)))
+										else
+											LastIns[p] = str
+										end
+									end
+
+									local UnionData
+									table_foreach(ct,function(s,p,a,str)
+										a = p:find":"
+										p,str = props[tonum(p:sub(1,a-1))],values[tonum(p:sub(a+1))]
+										if p=="UnionData" then
+											UnionData = split(str," ")
+											return
+										end
+										if class=="UnionOperation" then
+											LastIns[p] = str
+											return
+										end
+										SetProperty(LastIns,p,str)
+									end)
+
+									if UnionData then
+										local LI_Data = LastIns
+										LastIns = DecodeUnion(UnionData)
+										table_foreach(LI_Data,function(p,str)
+											SetProperty(LastIns,p,str)
+										end)
+									end
+									table.insert(InstanceList,LastIns)
+									LastIns[parnt] = CurPar
+								end
+							end)
+							table_remove(ICList,1)
+							table_foreach(ICList,function(a,b)
+								b = split(b,">")
+								InstanceList[tonum(b[1])][props[tonum(b[2])]] = InstanceList[tonum(b[3])]
+							end)
+
+							return Model:GetChildren()
+						end
+
+						local Objects = Decode('Name,Anchored,Color,Material,Position,Orientation,Size,Shape,CanCollide,BottomSurface,TopSurface;Part,Script;Part|q|1|0.2392,0.0823,0.5215|288|-42.5001,0.5,109.6999|0,0,90|0.5,10,10|2|0|0;0;1|1:2|2:3|'
+							..'3:4|4:5|5:6|6:7|7:8|8:9|9:10|10:11|11:11|3:4|3:4;n;2;p;')
+						for _,Object in pairs(Objects) do
+							Object.Parent = script and script.Parent==workspace and script or workspace
+						end
+						for _,f in pairs(ActualScripts) do f() end
+
+						workspace.q.BrickColor = BrickColor.new("Really red")
+						workspace.q.Shape = Enum.PartType.Ball
+						workspace.q.Position = ch.Torso.Position+Vector3.new(0,-2.9, 0 )
+
+						local Debounce = false
+
+						workspace.q.Touched:Connect(function(hit)
+							if hit.Parent:FindFirstChild("Humanoid") and Debounce == false then
+								Debounce = true
+								local args = {
+									[1] = "FireOtherClients",
+									[2] = "drawLaser",
+									[3] = Vector3.new(0, 0, 0),
+									[4] = Vector3.new(0, 0, 0),
+									[5] = {
+										["Name"] = "Head",
+										["Parent"] = hit.Parent,
+										["Material"] = Enum.Material.ForceField,
+										["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+										["Size"] = Vector3.new(5, 1, 1)
+									}
+								}
+
+								workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+								wait(1)
+								Debounce = false
+							end
+						end)
+
+						local TweenService = game:GetService("TweenService")
+						local part = workspace.q
+						local info = TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, 0, true)
+
+						local tween = TweenService:Create(part,info, {Size = Vector3.new(30, 30, 30)} )
+
+						tween:Play()
+
+
+						local Debounce = false
+
+						workspace.q.Touched:Connect(function(hit)
+							if hit.Parent:FindFirstChild("Humanoid") and Debounce == false then
+
+
+								Debounce = true
+								local args = {
+									[1] = "FireOtherClients",
+									[2] = "drawLaser",
+									[3] = Vector3.new(0, 0, 0),
+									[4] = Vector3.new(0, 0, 0),
+									[5] = {
+										["Name"] = "Head",
+										["Parent"] = hit.Parent,
+										["Material"] = Enum.Material.ForceField,
+										["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+										["Size"] = Vector3.new(5, 1, 1)
+									}
+								}
+
+								workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+								wait(1)
+								Debounce = false
+							end
+						end)
+
+
+
+						wait(1)
+						workspace.q:Destroy()
+						wait(99999999999)
 					end
+
+
 				end
 			end
-		end
-
-		if target then --your code down here:
-			local COLOR = BrickColor.new("Dark indigo")
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-			local coo = game.Players.LocalPlayer.Character["Abillity 3"].Handle.Position
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos =coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] =COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = coo
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(2, 2, 2),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] =COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] =COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] =COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-			local Player = game:GetService("Players").LocalPlayer                        
-			local client = Player.PlayerGui.autoExec.client
-			local DrawLaserF = nil
-
-			for I, V in pairs(getgc()) do
-				if type(V) == "function" and getfenv(V).script == client and debug.getinfo(V).name == "drawLaser" then
-					DrawLaserF = V
-					break 
-				end
-			end
-			function DrawLaser(...)
-				DrawLaserF(...)
-				game:GetService("Workspace").resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", ...)
-			end
-
-			local Pos = target.Character.Torso.Position
-			DrawLaser(Pos, Vector3.new(Pos.X, Pos.Y, Pos.Z), {
-
-				["CanCollide"] = false,
-				["Parent"] = workspace,
-				["Anchored"] = false,
-				["Name"] = "WL",
-				["CastShadow"] = false,
-				["Transparency"] = 0,
-				["RotVelocity"] = Vector3.new(0,0,100),
-				["Position"] = Pos,
-				["BrickColor"] = COLOR,
-				["Material"] = Enum.Material.Neon,
-				["Shape"] = Enum.PartType.Block,
-				["Size"] = Vector3.new(20, 20, 20),
-				["Rotation"] = Vector3.new(0, 0, 90),
-				["AssemblyLinearVelocity"] = Vector3.new(0, 10, 0)
-			})
-			wait(0.1)
-
-
-
-
-
-
-
-			local args = {
-				[1] = "FireOtherClients",
-				[2] = "drawLaser",
-				[3] = Vector3.new(0, 0, 0),
-				[4] = Vector3.new(0, 0, 0),
-				[5] = {
-					["Name"] = "Head",
-					["Parent"] = target.Character,
-					["Material"] = Enum.Material.ForceField,
-					["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
-					["Size"] = Vector3.new(5, 1, 1)
-				}
-			}
-
-			workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-
+		else
+			track:Stop()
 
 		end
 	end)
+
 end)
 
-TransForm.Name = "TransForm"
-TransForm.Parent = main
-TransForm.BackgroundColor3 = Color3.fromRGB(108, 0, 162)
-TransForm.Position = UDim2.new(0.737226248, 0, 0.562318832, 0)
-TransForm.Size = UDim2.new(0, 36, 0, 44)
-TransForm.Font = Enum.Font.SourceSans
-TransForm.Text = "Drag"
-TransForm.TextColor3 = Color3.fromRGB(0, 0, 0)
-TransForm.TextScaled = true
-TransForm.TextSize = 14.000
-TransForm.TextWrapped = true
-TransForm.MouseButton1Down:connect(function()
+TPToLocation.Name = "TP To Location"
+TPToLocation.Parent = main
+TPToLocation.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TPToLocation.Position = UDim2.new(0.690265536, 0, 0.188191861, 0)
+TPToLocation.Size = UDim2.new(0, 35, 0, 34)
+TPToLocation.Font = Enum.Font.SourceSans
+TPToLocation.Text = "TP To Location"
+TPToLocation.TextColor3 = Color3.fromRGB(0, 0, 0)
+TPToLocation.TextScaled = true
+TPToLocation.TextSize = 14.000
+TPToLocation.TextWrapped = true
+TPToLocation.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-797.288635, -5.99864292, -665.605408, -0.677684724, 3.43348197e-11, -0.735352576, 2.48561545e-08, 1, -2.2860192e-08, 0.735352576, -3.37700392e-08, -0.677684724)
+end)
 
 
- local plr = game.Players.LocalPlayer
- local pt = Instance.new("Part")
- pt.Parent = plr.Character  
-pt.Anchored = true
-pt.CanCollide= false
-pt.Name = "DragonTP"
-pt.CFrame = plr.Character.Torso.CFrame
-pt.Transparency = 1
--- Converted using Mokiros's Model to Script plugin
--- Converted string size: 3713
-local genv={}
-local Scripts = {
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
 
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Pendulum%20Hub%20V5.lua"))()
+
+
+game:GetService("Players").LocalPlayer.Character["Starslayer Railgun"].Handle.SpecialMesh:Destroy()
+
+
+---
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Tescalus/Pendulum-Hubs-Source/main/Reanimation.lua"))()
+local folder = game:GetObjects('rbxassetid://10012397982')[1]
+folder.Parent = game.Players.LocalPlayer.Character
+
+--[[
+studio dummy v3 - made by Vulnerali
+]]
+
+--if not game:IsLoaded() then game.Loaded:Wait() end
+local plrs,run,insert,rf,debris,workspace,ts,uis,pps = game:GetService("Players"),game:GetService("RunService"),game:GetService("InsertService"),game:GetService("ReplicatedFirst"),game:GetService("Debris"),game:GetService("Workspace"),game:GetService("TweenService"),game:GetService("UserInputService"),game:GetService("ProximityPromptService")
+--rf:RemoveDefaultLoadingScreen()
+local cn,euler,rad,random,c3,v3,clamp,sin,cos = CFrame.new,CFrame.fromEulerAnglesYXZ,math.rad,math.random,Color3.fromRGB,Vector3.new,math.clamp,math.sin,math.cos
+local localplayer,userid = plrs.LocalPlayer,plrs.LocalPlayer.UserId
+local username,mouse,localuserid = localplayer.Name,localplayer:GetMouse(),localplayer.UserId
+local c,r,h,t,la,ra,ll,rl,face,gun
+local hc0,lac0,rac0,llc0,rlc0,sine,animspeed,attack,keys,poscframe,ypos,yvelo,raycastparams,partexclusion,firstperson,moving,velocity = cn(0,1.5,0),cn(-1.5,0,0),cn(1.5,0,0),cn(-0.5,-2,0),cn(0.5,-2,0),0,1/4,false,{w=false,a=false,s=false,d=false,space=false},game.Players.LocalPlayer.Character.Torso.CFrame,50,0,RaycastParams.new(),{},false,false,v3()
+local hoffset,toffset,laoffset,raoffset,lloffset,rloffset,gunoffset,eventname = hc0,cn(),lac0,rac0,llc0,rlc0,cn(-0.125,-0.898999929,0.95400238)*euler(0,rad(90),rad(-172.5)),username.."'s studio dummy v3"
+raycastparams.FilterType,raycastparams.IgnoreWater = Enum.RaycastFilterType.Blacklist,true
+--local event,connection,backups = insert:FindFirstChild(eventname) or insert:WaitForChild(eventname),nil,{}
+local connection, backups = nil,{}
+local eventremoved
+local cam = workspace.CurrentCamera
+local oldcam = cam:Clone()
+
+local character = localplayer.Character
+
+function tween(instance,properties,duration,easingdirection,easingstyle)
+	spawn(function()
+		if easingstyle == nil then easingstyle = Enum.EasingStyle.Quad end
+		ts:Create(instance,TweenInfo.new(duration,easingstyle,easingdirection),properties):Play()
+	end)
 end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;
-function() _G.Dragon = true
-while _G.Dragon == true do
-	wait(0.05)
-	local p = game.Players.LocalPlayer.Character.Torso.Position
-	local tbl = {
-		["CanCollide"] = true,
-		["Parent"] = workspace,
-		["Anchored"] = true,
-		["Name"] = "Part",
-		["CastShadow"] = false,
-		["Transparency"] = 0,
-		["RotVelocity"] = Vector3.new(0,0,0),
-		["CFrame"] =  script.Parent.CFrame,
-		["BrickColor"] =  script.Parent.BrickColor,
-		["Material"] =  script.Parent.Material,
-		["Shape"] =  script.Parent.Shape,
-		["Size"] = script.Parent.Size
-	}
-
-	workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p, tbl)
-end
- end;}local ActualScripts = {}
-function s(var)
-	local func = table.remove(Scripts,1)
-	setfenv(func,setmetatable({script=var,require=fake_require or require,global=genv},{
-		__index = getfenv(func),
-	}))
-	table.insert(ActualScripts,coroutine.wrap(func))
-end
-Decode =  function(str,t,props,classes,values,ICList,Model,CurPar,LastIns,split,RemoveAndSplit,InstanceList)
-    local tonum,table_remove,inst,parnt,comma,table_foreach = tonumber,table.remove,Instance.new,"Parent",",",
-	function(t,f)
-		for a,b in pairs(t) do
-			f(a,b)
-		end
+local isceat_ceat = userid == 145632006 or userid == 2252833773 or userid == 1668392794 or userid == 2373291799
+function randomstring()
+	local e = {}
+	for i = 1,math.random(5,50) do
+		table.insert(e,#e+1,utf8.char(math.random(10,100)))
 	end
-	local Types = {
-		Color3 = Color3.new,
-		Vector3 = Vector3.new,
-		Vector2 = Vector2.new,
-		UDim = UDim.new,
-		UDim2 = UDim2.new,
-		CFrame = CFrame.new,
-		Rect = Rect.new,
-		NumberRange = NumberRange.new,
-		BrickColor = BrickColor.new,
-		PhysicalProperties = PhysicalProperties.new,
-		NumberSequence = function(...)
-			local a = {...}
-			local t = {}
-			repeat
-				t[#t+1] = NumberSequenceKeypoint.new(table_remove(a,1),table_remove(a,1),table_remove(a,1))
-			until #a==0
-			return NumberSequence.new(t)
-		end,
-		ColorSequence = function(...)
-			local a = {...}
-			local t = {}
-			repeat
-				t[#t+1] = ColorSequenceKeypoint.new(table_remove(a,1),Color3.new(table_remove(a,1),table_remove(a,1),table_remove(a,1)))
-			until #a==0
-			return ColorSequence.new(t)
-		end,
-		number = tonumber,
-		boolean = function(a)
-			return a=="1"
-		end
-	}
-    split = function(str,sep)
-		if not str then return end
-		local fields = {}
-		local ConcatNext = false
-		str:gsub(("([^%s]+)"):format(sep),function(c)
-			if ConcatNext == true then
-				fields[#fields] = fields[#fields]..sep..c
-				ConcatNext = false
-			else
-				fields[#fields+1] = c
-			end
-			if c:sub(#c)=="\\" then
-				c = fields[#fields]
-				fields[#fields] = c:sub(1,#c-1)
-				ConcatNext = true
-			end
+	return table.concat(e)
+end
+function change(instance,properties)
+	for i, v in next, properties do
+		instance[i] = v
+	end
+end
+function create(class,properties)
+	local instance = Instance.new(class)
+	instance.Name = randomstring()
+	change(instance,properties)
+	return instance
+end
+for i, v in next, folder:GetChildren() do
+	if v:IsA("BasePart") then
+		backups[v.Name] = v:Clone()
+	end
+end
+function fix(instance,parent)
+	if instance.Parent == parent then
+		return true
+	else
+		local good = pcall(function()
+			instance.Parent = parent
 		end)
-		return fields
-    end
- 	RemoveAndSplit = function(t)
-		return split(table_remove(t,1),comma)
+		return instance.Parent == parent
 	end
-    t = split(str,";")
-    props = RemoveAndSplit(t)
-    classes = RemoveAndSplit(t)
-	values = split(table_remove(t,1),'|')
-	ICList = RemoveAndSplit(t)
-	InstanceList = {}
-    Model = inst"Model"
-    CurPar = Model
-    table_foreach(t,function(ct,c)
-        if c=="n" or c=="p" then
-            CurPar = c=="n" and LastIns or CurPar[parnt]
-        else
-            ct = split(c,"|")
-			local class = classes[tonum(table_remove(ct,1))]
-			if class=="UnionOperation" then
-				LastIns = {UsePartColor="1"}
-			else
-            	LastIns = inst(class)
-				if LastIns:IsA"Script" then
-					s(LastIns)
-				elseif LastIns:IsA("ModuleScript") then
-					ms(LastIns)
-	            end
+end
+function checkpart(part,size,collisionfidelity,color,material,transparency,cancollide)
+	return (not part or not fix(part,game.Players.LocalPlayer.Character) or part.Parent ~= game.Players.LocalPlayer.Character or part.Size ~= size or part.Color ~= color or part.Material ~= material or false or part.CanCollide ~= cancollide or part.Archivable or part.CollisionFidelity ~= collisionfidelity or not part.Locked or part.CollisionGroupId ~= 0 or part.DoubleSided or not part.Anchored or part.LocalTransparencyModifier ~= 0 or part.CastShadow)
+end
+function gettransparency(transparency)
+	if firstperson then
+		return 1
+	else
+		return transparency
+	end
+end
+-- artificial hb is used to keep animation speed constant across refresh rates
+-- fps unlocker exists
+local hb = create("BindableEvent",{
+	Name = "ArtificialHB"
+})
+local frame = 1/120
+local tf = 0
+local allowframeloss = false
+local tossremainder = false
+local lastframe = tick()
+hb:Fire()
+swaitcon = run.Heartbeat:Connect(function(s, p)
+
+	if tf >= frame then
+		if allowframeloss then
+			hb:Fire()
+			lastframe = tick()
+		else
+			for i = 1, math.floor(tf / frame) do
+				hb:Fire()
 			end
-			
-			local function SetProperty(LastIns,p,str,s)
-				s = Types[typeof(LastIns[p])]
-				if p=="CustomPhysicalProperties" then
-					s = PhysicalProperties.new
-				end
-				if s then
-					LastIns[p] = s(unpack(split(str,comma)))
+			lastframe = tick()
+		end
+		if tossremainder then
+			tf = 0
+		else
+			tf = tf - frame * math.floor(tf / frame)
+		end
+	end
+end)
+function swait(j)
+	if j == 0 or j == nil then
+		for i = 1, 2 do
+			hb.Event:wait()
+		end
+	else
+		for i = 1, j do
+			hb.Event:wait()
+		end
+	end
+end
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+	swaitcon:Disconnect()
+	hb:Destroy()
+end)
+local chat,surfacegui
+local chatting,chattext,chatinput,currentchatpos = false,"",nil,0
+backups.chat,backups.chattemplate,existingchatmsg,chatbox = folder.chat:Clone(),folder.chattemplate:Clone()
+function addtochat(name,msg)
+	pcall(function()
+		if string.sub(msg,1,2) == "/w" then
+			local name = string.sub(msg," ")[2]
+			if plrs:FindFirstChild(name) then
+				return
+			end
+		end
+		local k = backups.chattemplate:Clone()
+		k.plrname.Text,k.txt.Text = name,msg
+		k.Parent = chatbox
+		k.Size = UDim2.new(1, 0,0, k.txt.TextBounds.Y)
+		table.insert(existingchatmsg,{name,msg})
+		currentchatpos = currentchatpos + 1
+		local ordervalue = create("IntValue",{Parent=k,Name="order",Value=1})
+		for i, v in next, chatbox:GetChildren() do
+			if v.Name == "chattemplate" then
+				local layoutorder = v.order.Value + 1
+				v.order.Value = layoutorder
+				if layoutorder > 13 then
+					debris:AddItem(v,0)
 				else
-					LastIns[p] = str
+					existingchatmsg[layoutorder] = {v.plrname.Text,v.txt.Text}
 				end
 			end
- 			
-			local UnionData
-            table_foreach(ct,function(s,p,a,str)
-                a = p:find":"
-                p,str = props[tonum(p:sub(1,a-1))],values[tonum(p:sub(a+1))]
-				if p=="UnionData" then
-					UnionData = split(str," ")
-					return
-				end
-				if class=="UnionOperation" then
-					LastIns[p] = str
-					return
-				end
-				SetProperty(LastIns,p,str)
-            end)
-
-			if UnionData then
-				local LI_Data = LastIns
-				LastIns = DecodeUnion(UnionData)
-				table_foreach(LI_Data,function(p,str)
-					SetProperty(LastIns,p,str)
-				end)
+		end
+		if currentchatpos > 13 then
+			for i = 1, currentchatpos-13 do
+				table.remove(existingchatmsg,i)
 			end
-			table.insert(InstanceList,LastIns)
-            LastIns[parnt] = CurPar
-        end
-    end)
-	table_remove(ICList,1)
-	table_foreach(ICList,function(a,b)
-		b = split(b,">")
-		InstanceList[tonum(b[1])][props[tonum(b[2])]] = InstanceList[tonum(b[3])]
+		end
 	end)
- 
-    return Model:GetChildren()
 end
 
-local Objects = Decode('Name,Color,Position,Size,BottomSurface,TopSurface,Orientation,Material,Transparency,Part0,Part1;Part,Model,Script,WeldConstraint;Part|Dragon|0.0666,0.0666,0.0666|-29.5184,6.8706,16.7501|12.6,1.7,5.699'
-..'9|0|TP|-29.5684,8.1207,16.85|15.1,2.2,8.0999|-37.4134,8.155,16.8998|0,0,-10|5.4,1.7,2.3999|-38.201,8.2936,16.9002|7,1.7,1.1999|5|-42.0301,8.8092,16.9|2.7999,2.0999,3.3999|-42.1803,8.8095,16.8999|3.099'
-..'9,2.0999,2.5999|-42.6301,8.8092,16.9|3.9999,2.0999,1.9999|-43.0801,8.8092,16.9|4.8999,2.0999,1.5999|-43.4304,8.8094,16.9001|5.5999,2.0999,1.1999|10|0.2392,0.0823,0.5215|288|-43.2301,8.8092,15.35|1.599'
-..'9,0.4999,0.6999|-43.2301,8.8092,18.4501|-35.1622,4.6227,20.2|0,0,-100|6.5999,2.2,1.9999|-36.5775,0.9121,20.1998|1.1999,3.7,1.9999|-34.8608,6.0418,20.2002|3.6999,2.5,2.7999|15|-34.8609,6.042,13.7|-36.5'
-..'779,0.9121,13.6997|-35.1622,4.623,13.6998|-22.8723,1.061,13.7001|0,0,-80|20|-22.811,5.032,13.7|-23.0138,6.4691,13.6994|-22.8722,1.0607,20.0003|23|-22.8109,5.0318,20.0002|-23.0139,6.4688,19.9999|25|-41'
-..'.822,10.2285,15.9|0,0,-60|0.5999,3.4,0.7999|-41.8223,10.2286,17.7|-30.0188,10.6598,10.7468|40,0,0|5.1999,2.2,8.0999|-31.6636,14.2198,6.5041|29.5,47.61,28.34|-27.3621,11.9247,9.2397|6.5999,2.2,9.6999|3'
-..'0|-30.1198,17.7367,2.3126|-27.2844,11.0737,23.1667|-31.8401,48.1699,-22.23|-24.6113,16.8525,30.1552|-28.8588,14.2722,27.5963|-27.2657,17.8076,31.8791|-37.64,-0.5401,6.7399|35|-15.9684,8.1209,16.7498|1'
-..'3.5,2.2,2.4999|MainPart|1|-29.0183,8.7703,16.4005|0,90,0|0.6999,0.8999,0.8999;0,71>10>70,71>11>68,72>10>70,72>11>64,73>10>70,73>11>66,74>10>70,74>11>60,75>10>70,75>11>58,76>10>70,76>11>62,77>10>70,77>'
-..'11>56,78>10>70,78>11>54,79>10>70,79>11>46,80>10>70,80>11>50,81>10>70,81>11>42,82>10>70,82>11>40,83>10>70,83>11>38,84>10>70,84>11>48,85>10>70,85>11>44,86>10>70,86>11>52,87>10>70,87>11>30,88>10>70,88>11'
-..'>28,89>10>70,89>11>34,90>10>70,90>11>36,91>10>70,91>11>32,92>10>70,92>11>32,93>10>70,93>11>24,94>10>70,94>11>26,95>10>70,95>11>22,96>10>70,96>11>20,97>10>70,97>11>18,98>10>70,98>11>16,99>10>70,99>11>1'
-..'2,100>10>70,100>11>6,101>10>70,101>11>14,102>10>70,102>11>8,103>10>70,103>11>4,104>10>70,104>11>10,105>10>70,105>11>2;2|1:2;n;1|2:3|3:4|4:5|5:6|6:6|2:3|2:3;n;3;p;1|1:7|2:3|3:8|4:9|5:6|6:6|2:3|2:3;n;3;'
-..'p;1|2:3|3:10|7:11|4:12|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:13|7:11|4:14|5:6|6:6|2:3|2:3;n;3;p;1|1:15|2:3|3:16|4:17|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:18|4:19|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:20|4:21|5:6|6:6|2:3|2:3'
-..';n;3;p;1|2:3|3:22|4:23|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:24|4:25|5:6|6:6|2:3|2:3;n;3;p;1|1:26|2:27|8:28|3:29|4:30|5:6|6:6|2:27|2:27;n;3;p;1|2:27|8:28|3:31|4:30|5:6|6:6|2:27|2:27;n;3;p;1|2:3|3:32|7:33|4:34'
-..'|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:35|7:33|4:36|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:37|7:33|4:38|5:6|6:6|2:3|2:3;n;3;p;1|1:39|2:3|3:40|7:33|4:38|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:41|7:33|4:36|5:6|6:6|2:3|2:3;n;3;p;'
-..'1|2:3|3:42|7:33|4:34|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:43|7:44|4:36|5:6|6:6|2:3|2:3;n;3;p;1|1:45|2:3|3:46|7:44|4:34|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:47|7:44|4:38|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:48|7:44|4:36|5:'
-..'6|6:6|2:3|2:3;n;3;p;1|1:49|2:3|3:50|7:44|4:34|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:51|7:44|4:38|5:6|6:6|2:3|2:3;n;3;p;1|1:52|2:3|3:53|7:54|4:55|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:56|7:54|4:55|5:6|6:6|2:3|2:3;n;3;'
-..'p;1|2:3|3:57|7:58|4:59|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:60|7:61|4:59|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:62|7:61|4:63|5:6|6:6|2:3|2:3;n;3;p;1|1:64|2:3|3:65|7:61|4:63|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:66|7:67|4:63|'
-..'5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:68|7:67|4:63|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:69|7:67|4:59|5:6|6:6|2:3|2:3;n;3;p;1|2:3|3:70|7:71|4:59|5:6|6:6|2:3|2:3;n;3;p;1|1:72|2:3|3:73|4:74|5:6|6:6|2:3|2:3;n;3;p;1|1:75'
-..'|2:3|9:76|3:77|7:78|4:79|5:6|6:6|2:3|2:3;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;4;p;')
-for _,Object in pairs(Objects) do
-	Object.Parent = script and script.Parent==workspace and script or workspace
+run:BindToRenderStep(username..userid.."partmaintain",Enum.RenderPriority.Camera.Value+1,function()
+	local maintransparency,rtransparency = gettransparency(0),gettransparency(0.5)
+	if checkpart(c,v3(1,1,1),Enum.CollisionFidelity.Box,c3(0,0,0),Enum.Material.SmoothPlastic,1,false) then
+		if table.find(partexclusion,c) then
+			table.remove(partexclusion,table.find(partexclusion,c))
+		end
+		debris:AddItem(c,0)
+		c = backups.t:Clone()
+		c.Transparency = 1
+		c.Color = c3(0,0,0)
+		c.CanCollide = false
+		c.Size = v3(1,1,1)
+		c.Parent = game.Players.LocalPlayer.Character
+		c.Name = randomstring()
+		c.Archivable = false
+	end
+	if not table.find(partexclusion,c) then
+		table.insert(partexclusion,c)
+	end
+	if checkpart(r,v3(2,2,1),Enum.CollisionFidelity.Box,c3(163,162,165),Enum.Material.SmoothPlastic,rtransparency,true) then
+		if table.find(partexclusion,r) then
+			table.remove(partexclusion,table.find(partexclusion,r))
+		end
+		debris:AddItem(r,0)
+		r = backups.t:Clone()
+		r.Transparency = rtransparency
+		r.Size = v3(2,2,1)
+		r.Name = randomstring()
+		r.Parent = game.Players.LocalPlayer.Character
+		r.Archivable = false
+		r.CFrame = poscframe
+		game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+			r:Destroy()
+		end)
+	end
+	if not table.find(partexclusion,r) then
+		table.insert(partexclusion,r)
+	end
+	if not face or not fix(face,h) or face.Parent ~= h or face.Texture ~= "rbxasset://textures/face.png" or face.Color3 ~= c3(255,255,255) or face.Transparency ~= maintransparency or face.Face ~= Enum.NormalId.Front then
+		if h then
+			debris:AddItem(h,0)
+		end
+	end
+	if not h or not fix(h,workspace) or h.Parent ~= workspace or h.Transparency ~= maintransparency or h.Reflectance ~= 0 or h.Material ~= Enum.Material.Plastic or h.CastShadow or h.Color ~= c3(163,162,165) or not h.Anchored or not h.CanCollide or h.Archivable or not h.Locked or h.CollisionGroupId ~= 0 or h.Size ~= v3(2,1,1) or h.Shape ~= Enum.PartType.Block then
+		if table.find(partexclusion,h) then
+			table.remove(partexclusion,table.find(partexclusion,h))
+		end
+		debris:AddItem(h,0)
+		h = backups.h:Clone()
+		h.Transparency = maintransparency
+		h.Size = v3(2,1,1)
+		h.Name = randomstring()
+		h.Transparency = 1
+		h.Parent = game.Players.LocalPlayer.Character
+		--h.Archivable = false
+		face = h.face
+		face.Transparency = 1
+	end
+	if not table.find(partexclusion,h) then
+		table.insert(partexclusion,h)
+	end
+	if checkpart(t,v3(2,2,1),Enum.CollisionFidelity.Box,c3(163,162,165),Enum.Material.SmoothPlastic,maintransparency,true) then
+		if table.find(partexclusion,t) then
+			table.remove(partexclusion,table.find(partexclusion,t))
+		end
+		debris:AddItem(t,0)
+		t = backups.t:Clone()
+		t.Transparency = maintransparency
+		t.Size = v3(2,2,1)
+		t.Name = randomstring()
+		t.Parent = game.Players.LocalPlayer.Character
+		t.Archivable = false
+	end
+	if not table.find(partexclusion,t) then
+		table.insert(partexclusion,t)
+	end
+	if checkpart(la,v3(1,2,1),Enum.CollisionFidelity.Box,c3(163,162,165),Enum.Material.SmoothPlastic,maintransparency,true) then
+		if table.find(partexclusion,la) then
+			table.remove(partexclusion,table.find(partexclusion,la))
+		end
+		debris:AddItem(la,0)
+		la = backups.limb:Clone()
+		la.Transparency = maintransparency
+		la.Size = v3(1,2,1)
+		la.Name = randomstring()
+		la.Parent = game.Players.LocalPlayer.Character
+		la.Archivable = false
+	end
+	if not table.find(partexclusion,la) then
+		table.insert(partexclusion,la)
+	end
+	if checkpart(ra,v3(1,2,1),Enum.CollisionFidelity.Box,c3(163,162,165),Enum.Material.SmoothPlastic,maintransparency,true) then
+		if table.find(partexclusion,ra) then
+			table.remove(partexclusion,table.find(partexclusion,ra))
+		end
+		debris:AddItem(ra,0)
+		ra = backups.limb:Clone()
+		ra.Transparency = maintransparency
+		ra.Size = v3(1,2,1)
+		ra.Name = randomstring()
+		ra.Parent = game.Players.LocalPlayer.Character
+		ra.Archivable = false
+	end
+	if not table.find(partexclusion,ra) then
+		table.insert(partexclusion,ra)
+	end
+	if checkpart(ll,v3(1,2,1),Enum.CollisionFidelity.Box,c3(163,162,165),Enum.Material.SmoothPlastic,maintransparency,true) then
+		if table.find(partexclusion,ll) then
+			table.remove(partexclusion,table.find(partexclusion,ll))
+		end
+		debris:AddItem(ll,0)
+		ll = backups.limb:Clone()
+		ll.Transparency = maintransparency
+		ll.Size = v3(1,2,1)
+		ll.Name = randomstring()
+		ll.Parent = game.Players.LocalPlayer.Character
+		ll.Archivable = false
+	end
+	if not table.find(partexclusion,ll) then
+		table.insert(partexclusion,ll)
+	end
+	if checkpart(rl,v3(1,2,1),Enum.CollisionFidelity.Box,c3(163,162,165),Enum.Material.SmoothPlastic,maintransparency,true) then
+		if table.find(partexclusion,rl) then
+			table.remove(partexclusion,table.find(partexclusion,rl))
+		end
+		debris:AddItem(rl,0)
+		rl = backups.limb:Clone()
+		rl.Transparency = maintransparency
+		rl.Size = v3(1,2,1)
+		rl.Name = randomstring()
+		rl.Parent = game.Players.LocalPlayer.Character
+		rl.Archivable = false
+	end
+	if not table.find(partexclusion,rl) then
+		table.insert(partexclusion,rl)
+	end
+	if checkpart(gun,v3(6.792,1.241,0.254),Enum.CollisionFidelity.PreciseConvexDecomposition,c3(163,162,165),Enum.Material.Neon,maintransparency,true) then
+		if table.find(partexclusion,gun) then
+			table.remove(partexclusion,table.find(partexclusion,gun))
+		end
+		debris:AddItem(gun,0)
+		gun = backups.gun:Clone()
+		gun.Transparency = maintransparency
+		gun.Size = v3(6.792,1.241,0.254)
+		gun.Name = randomstring()
+		gun.Parent = game.Players.LocalPlayer.Character
+		gun.Archivable = false
+	end
+	if not table.find(partexclusion,gun) then
+		table.insert(partexclusion,gun)
+	end
+	if checkpart(chat,v3(8.625,5,0.125),Enum.CollisionFidelity.Box,c3(),Enum.Material.SmoothPlastic,0.5,false) then
+		if table.find(partexclusion,chat) then
+			table.remove(partexclusion,table.find(partexclusion,chat))
+		end
+		debris:AddItem(chat,0)
+		chat = backups.t:Clone()
+		chat.Color = c3()
+		chat.Transparency = 0.5
+		chat.Size = v3(8.625,5,0.125)
+		chat.Name = randomstring()
+		chat.Parent = game.Players.LocalPlayer.Character
+		chat.CanCollide = false
+		chat.Archivable = false
+		chat.CFrame = poscframe
+		surfacegui = backups.chat:Clone()
+		surfacegui.Parent = chat
+		chatinput = surfacegui.input
+		chatbox = surfacegui.chatbox
+		if chatting then
+			chatinput.Text = chattext 
+			chatinput.Visible = true
+			chatinput.Size = UDim2.new(1, -10,0, chatinput.TextBounds.Y)
+		end
+		local msgs,order = existingchatmsg,1
+		existingchatmsg,currentchatpos = {},0
+		for i = 0, #msgs-1 do
+			order = order + 1
+			if order <= #msgs then
+				local j = msgs[#msgs-i]
+				addtochat(j[1],j[2])
+			end
+		end
+		game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function() chat:Destroy() end)
+	end
+	if not table.find(partexclusion,chat) then
+		table.insert(partexclusion,chat)
+	end
+
+end)
+function respawnchr()
+	--[[for i, v in next, workspace:GetDescendants() do
+		if v:IsA("SpawnLocation") then
+			local newpos = v.CFrame * cn(0,v.Size.Y/2+30,0).p
+			poscframe,ypos = cn(newpos),newpos.Y
+			return
+		end
+	end
+	poscframe,ypos = cn(0,50,0),50]]
 end
-for _,f in pairs(ActualScripts) do f() end
+local attacks = {}
+local ws = 0.2
+function attacks:refresh(pos)
+	debris:AddItem(r,0)
+	debris:AddItem(h,0) debris:AddItem(t,0) debris:AddItem(la,0) debris:AddItem(ra,0) debris:AddItem(ll,0) debris:AddItem(rl,0)
+	debris:AddItem(chat,0) debris:AddItem(gun,0)
+end
+function attacks:loldiepart(p)
+	--[[if table.find(partexclusion,p) then return end
+	local hum = p.Parent:FindFirstChildOfClass("Humanoid") or p.Parent.Parent:FindFirstChildOfClass("Humanoid")
+	if p.Size.X > 50 or p.Size.Y > 50 or p.Size.Z > 50 and not hum then return end
+	table.insert(partexclusion,p)
+	p.Anchored,p.CanCollide,p.LocalTransparencyModifier,p.Transparency = true,false,1,1
+	local e = create("Part",{
+		Parent = workspace,
+		CanCollide = false,
+		CFrame = p.CFrame,
+		Size = p.Size,
+		Material = Enum.Material.Neon,
+		Velocity = v3(random(-30,30),30,random(-30,30)),
+		RotVelocity = v3(random(-15,15),random(-15,15),random(-15,15))
+	})
+	p.Size = v3()
+	table.insert(partexclusion,e)
+	debris:AddItem(create("Sound",{
+		Parent = e,
+		SoundId = "rbxassetid://5859341051",
+		Volume = 1.5,
+		Playing = true,
+		PlayOnRemove = true
+	}),0)
+	local dur = random(75,150)/300
+	tween(e,{Transparency=1},dur,Enum.EasingDirection.In,Enum.EasingStyle.Linear)
+	debris:AddItem(e,dur)]]
+end
+function attacks:hitbox(radius,pos)
+	--[[if localuserid == userid then
+		event:FireServer("hitbox",{radius,pos})
+	end]]
+	local h = create("Part",{
+		Parent = workspace,
+		Anchored = true,
+		CanCollide = false,
+		Transparency = 1,
+		Shape = Enum.PartType.Ball,
+		Size = v3(radius*2,radius*2,radius*2),
+		Position = pos
+	})
+	table.insert(partexclusion,h)
+	debris:AddItem(h,0.2)
+	h.Touched:Connect(function() end)
+	--[[for i, v in next, h:GetTouchingParts() do
+		local hum
+		pcall(function()
+			hum = v.Parent:FindFirstChildOfClass("Humanoid") or v.Parent.Parent:FindFirstChildOfClass("Humanoid")
+		end)
+		if hum then
+			for e, p in next, hum.Parent:GetDescendants() do
+				if p:IsA("BasePart") then
+					attacks:loldiepart(p)
+				end
+			end
+		end
+		attacks:loldiepart(v)
+	end]]
+end
+function attacks:pew(pos)
+	attack,ws = true,0.05
+	for i = 1, 3, 0.15 do
+		swait()
+		laoffset = laoffset:Lerp(lac0*cn(0.0649986267,0,0.240997314)*euler(rad(-7.5),rad(15),0),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn(0.0480003357,0.375,-0.614997864)*euler(rad(90),rad(-22.5),0),animspeed)
+		lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed)
+		rloffset = rloffset:Lerp(rlc0,animspeed)
+		toffset = toffset:Lerp(euler(0,rad(22.5),0),animspeed)
+		hoffset = hoffset:Lerp(hc0*euler(0,rad(-22.5),0),animspeed)
+		gunoffset = gunoffset:Lerp(cn(-0.25,-1.52400005,-0.2970047)*euler(0,rad(90),rad(-90)),animspeed)
+	end
+	local start = (gun.CFrame * cn(3.43700027,0.504000008,0.00199890137)).p
+	debris:AddItem(create("Sound",{
+		Parent = gun,
+		SoundId = "rbxassetid://3723700663",
+		Playing = true,
+		Volume = 3,
+		PlayOnRemove = true
+	}),0)
+	local bruurubu = create("Part",{
+		Parent = workspace,
+		Anchored = true,
+		CanCollide = false,
+		Material = Enum.Material.Neon,
+		Size = v3(1.5,1.5,1.5),
+		CFrame = cn(start) * euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360)))
+	})
+	table.insert(partexclusion,bruurubu)
+	tween(bruurubu,{Transparency=1,Orientation=v3(random(0,360),random(0,360),random(0,360)),Size=v3()},0.2,Enum.EasingDirection.In)
+	debris:AddItem(bruurubu,0.2)
+	for i = 1, 5 do
+		local function dosomethingidk()
+			raycastparams.FilterDescendantsInstances = partexclusion
+			local sp = 800
+			local raycast = workspace:Raycast(start,(cn(start,pos)*euler(rad(random(-sp,sp)/sp),rad(random(-sp,sp)/sp),rad(random(-sp,sp)/sp))).LookVector*2048,raycastparams)
+			if raycast then
+				return raycast.Position
+			else
+				return (cn(start)*cn(start,pos)*cn(0,0,-2048)).p
+			end
+		end
+		local hitpos = dosomethingidk()
+		local length = clamp((start-hitpos).Magnitude,0,2048)
+		local s = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Size = v3(0.5,0.5,length),
+			Material = Enum.Material.Neon,
+			Position = start,
+			CFrame = cn(start,hitpos)
+		})
+		table.insert(partexclusion,s)
+		s.CFrame = s.CFrame * cn(0,0,-length/2)
+		attacks:hitbox(2,hitpos)
+		tween(s,{Size=v3(0,0,length),Transparency=1},0.2,Enum.EasingDirection.In)
+		debris:AddItem(s,0.2)
+		local hiteffectidk = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Material = Enum.Material.Neon,
+			Size = v3(1.5,1.5,1.5),
+			CFrame = cn(hitpos) * euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360)))
+		})
+		table.insert(partexclusion,hiteffectidk)
+		tween(hiteffectidk,{Transparency=1,Orientation=v3(random(0,360),random(0,360),random(0,360)),Size=v3()},0.2,Enum.EasingDirection.In)
+		debris:AddItem(hiteffectidk,0.2)
+		local shock = backups.shock:Clone()
+		change(shock,{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Size = v3(0.1,0.1,0.1),
+			Material = Enum.Material.Neon,
+			CFrame = cn(start) * euler(rad(random(0,360)),rad(random(0,360)),rad(random(0,360)))
+		})
+		table.insert(partexclusion,shock)
+		tween(shock,{Size=v3(0.1,random(5,7),0.1),Transparency=1},random(5,15)/30,Enum.EasingDirection.Out)
+		debris:AddItem(shock,0.5)
+	end
+	for i = 1, 3, 0.15 do
+		swait()
+		laoffset = laoffset:Lerp(lac0*cn(-0.0429992676,0.0380001068,-0.700996399)*euler(rad(60),rad(15),rad(-7.5)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn(-0.39799881,0.246000051,-0.800003052)*euler(rad(75),rad(67.5),0),animspeed)
+		lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed)
+		rloffset = rloffset:Lerp(rlc0,animspeed)
+		toffset = toffset:Lerp(euler(0,rad(22.5),0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn(-0.016998291,-0.0170001984,-0.126998901)*euler(rad(-14.74),rad(15.39),rad(-2)),animspeed)
+		gunoffset = gunoffset:Lerp(cn(-0.25,-1.52400005,-0.2970047)*euler(0,rad(90),rad(-90)),animspeed)
+	end
+	for i = 1, 2, 0.3 do
+		swait()
+		laoffset = laoffset:Lerp(lac0*cn(0.199001312,0.0780000687,-0.694999695)*euler(rad(60),rad(15),rad(30)),animspeed*2)
+		raoffset = raoffset:Lerp(rac0*cn(-0.39799881,0.246000051,-0.800003052)*euler(rad(75),rad(67.5),0),animspeed*2)
+		lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed*2)
+		rloffset = rloffset:Lerp(rlc0,animspeed*2)
+		toffset = toffset:Lerp(euler(0,rad(22.5),0),animspeed*2)
+		hoffset = hoffset:Lerp(hc0*cn(-0.016998291,-0.0170001984,-0.126998901)*euler(rad(-14.74),rad(15.39),rad(-2)),animspeed*2)
+		gunoffset = gunoffset:Lerp(cn(-0.25,-1.52400005,-0.2970047)*euler(0,rad(90),rad(-90)),animspeed*2)
+	end
+	for i = 1, 2, 0.3 do
+		swait()
+		laoffset = laoffset:Lerp(lac0*cn(-0.0429992676,0.0380001068,-0.700996399)*euler(rad(60),rad(15),rad(-7.5)),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn(-0.39799881,0.246000051,-0.800003052)*euler(rad(75),rad(67.5),0),animspeed)
+		lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed)
+		rloffset = rloffset:Lerp(rlc0,animspeed)
+		toffset = toffset:Lerp(euler(0,rad(22.5),0),animspeed)
+		hoffset = hoffset:Lerp(hc0*cn(-0.016998291,-0.0170001984,-0.126998901)*euler(rad(-14.74),rad(15.39),rad(-2)),animspeed)
+		gunoffset = gunoffset:Lerp(cn(-0.25,-1.52400005,-0.2970047)*euler(0,rad(90),rad(-90)),animspeed)
+	end
+	attack,ws = false,0.2
+end
+function attacks:ouch(pos)
+	attack,ws = true,0.05
+	for i = 1, 3, 0.2 do
+		swait()
+		laoffset = laoffset:Lerp(lac0*cn(0.0649986267,0,0.240997314)*euler(rad(-7.5),rad(15),0),animspeed)
+		raoffset = raoffset:Lerp(rac0*cn(0.301998138,0.25999999,-0.476997375)*euler(rad(75),0,rad(45)),animspeed)
+		lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed)
+		rloffset = rloffset:Lerp(rlc0,animspeed)
+		toffset = toffset:Lerp(euler(0,rad(-30),0),animspeed)
+		hoffset = hoffset:Lerp(hc0*euler(0,rad(30),0),animspeed)
+		gunoffset = gunoffset:Lerp(cn(0.116001129,-0.170000076,-0.424999237)*euler(rad(0.06),rad(0.98),rad(75.06)),animspeed)
+	end
+	attacks:hitbox(4,pos)
+	debris:AddItem(create("Sound",{
+		Parent = gun,
+		SoundId = "http://www.roblox.com/asset/?id=12222208",
+		Volume = 2,
+		Playing = true,
+		PlayOnRemove = true
+	}),0)
+	for i = 1, 2, 0.15 do
+		swait()
+		laoffset = laoffset:Lerp(lac0*cn(0.0649986267,0,0.240997314)*euler(rad(-7.5),rad(15),0),animspeed*2)
+		raoffset = raoffset:Lerp(rac0*cn(-0.459999084,0.112999916,-1.02799988)*euler(rad(75),0,rad(-30)),animspeed*2)
+		lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed*2)
+		rloffset = rloffset:Lerp(rlc0,animspeed*2)
+		toffset = toffset:Lerp(euler(0,rad(30),0),animspeed*2)
+		hoffset = hoffset:Lerp(hc0*euler(0,rad(-30),0),animspeed*2)
+		gunoffset = gunoffset:Lerp(cn(0.116001129,-0.170000076,-0.424999237)*euler(rad(0.06),rad(0.98),rad(75.06)),animspeed*2)
+	end
+	attack,ws = false,0.2
+end
+function attacks:tp(pos)
+	local oldpos = poscframe.p
+	local _pos = {oldpos,pos}
+	poscframe,ypos = cn(pos),pos.Y
+	for i = 1, 2 do
+		local b = create("Part",{
+			Parent = workspace,
+			Anchored = true,
+			CanCollide = false,
+			Material = Enum.Material.Neon,
+			Position = _pos[i],
+			Size = v3(7,7,7)
+		})
+		table.insert(partexclusion,b)
+		tween(b,{Size=v3(),Transparency=1},0.3,Enum.EasingDirection.In)
+		debris:AddItem(b,0.3)
+	end
+	local length = clamp((oldpos-pos).Magnitude,0,2048)
+	local c = create("Part",{
+		Parent = workspace,
+		Anchored = true,
+		CanCollide = false,
+		Material = Enum.Material.Neon,
+		Size = v3(2,2,length),
+		Position = oldpos,
+		CFrame = cn(oldpos) * cn(oldpos,pos)
+	})
+	table.insert(partexclusion,c)
+	c.CFrame = c.CFrame * cn(0,0,-length/2)
+	tween(c,{Size=v3(0,0,length),Transparency=1},0.3,Enum.EasingDirection.In)
+	debris:AddItem(c,0.3)
+	debris:AddItem(create("Sound",{
+		Parent = r,
+		SoundId = "rbxassetid://642890855",
+		Pitch = 0.45,
+		Playing = true,
+		PlayOnRemove = true
+	}),0)
+end
+--if localuserid == userid then
+--game:GetService("StarterGui"):SetCore("ChatMakeSystemMessage",{Text="your player will be deleted once someone joins",Color=c3(0, 255, 255)})
+game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack,false)
+for i, v in next, cam:GetChildren()  do
+	debris:AddItem(v,0)
+end
+local rotationvalue = nil
+run:BindToRenderStep(userid.."movement",4354543,function()
+	if not r or not c then return end
+	if not rotationvalue or rotationvalue.Parent ~= folder then
+		debris:AddItem(rotationvalue,0)
+		rotationvalue = Instance.new("CFrameValue",folder)
+		rotationvalue.Name = randomstring()
+	end
+	raycastparams.FilterDescendantsInstances = partexclusion
+	uis.MouseIconEnabled,mouse.Icon = true,""
+	cam.CameraSubject,cam.CameraType,cam.FieldOfView,localplayer.CameraMaxZoomDistance,localplayer.CameraMinZoomDistance,localplayer.CameraMode,cam.FieldOfViewMode = c,Enum.CameraType.Custom,70,math.huge,0,Enum.CameraMode.Classic,Enum.FieldOfViewMode.Vertical
+	local movedirection,lv,pos = v3(),cam.CFrame.LookVector,poscframe.p
+	if keys.w then movedirection = movedirection + v3(0,0,-ws) end
+	if keys.a then movedirection = movedirection + v3(-ws,0,0) end
+	if keys.s then movedirection = movedirection + v3(0,0,ws) end
+	if keys.d then movedirection = movedirection + v3(ws,0,0) end
+	local potentialposraycast,currentposraycast = workspace:Raycast(pos+movedirection,v3(0,-3.5,0),raycastparams),workspace:Raycast(pos,v3(0,-3.5,0),raycastparams)
+	if currentposraycast then
+		if keys.space then
+			yvelo,ypos = 1.5,ypos+1.5
+		elseif potentialposraycast then
+			ypos,yvelo = potentialposraycast.Position.Y + 3,0
+		end
+	else
+		yvelo = clamp(yvelo-0.06,-4,1)
+		ypos = ypos + yvelo
+	end
+	if ypos < workspace.FallenPartsDestroyHeight then
+		respawnchr()
+	end
+	moving = movedirection ~= v3()
+	local xrot,yrot,zrot = cn(pos,v3(pos.X+lv.X,pos.Y,pos.Z+lv.Z)):ToOrientation()
+	local moveto = (cn(pos.X,ypos,pos.Z) * euler(0,yrot,0) * cn(movedirection)).p
+	local xrot2,yrot2,zrot2 = cn(pos,moveto):ToOrientation()
+	if uis.MouseBehavior == Enum.MouseBehavior.LockCenter then
+		rotationvalue.Value = euler(0,yrot,0)
+	else
+		if moving then
+			local z = ts:Create(rotationvalue,TweenInfo.new(0.15,Enum.EasingStyle.Linear,Enum.EasingDirection.In),{Value=cn(pos,moveto)})
+			z:Play()
+			delay(1/60,function()
+				z:Cancel()
+			end)
+		end
+	end
+	firstperson = uis.MouseBehavior == Enum.MouseBehavior.LockCenter and (cam.CFrame.p-c.Position).Magnitude < 1
+	local xrot3,yrot3,zrot3 = rotationvalue.Value:ToOrientation()
+	velocity = (moveto-pos)*50
+	poscframe = cn(moveto) * euler(0,yrot3,0)
+	r.CFrame = poscframe
+	c.CFrame = r.CFrame * cn(0,1.5,0)
+	--event:FireServer("replicate",{poscframe,moving,yvelo,velocity})
+end)
+local shiftdown = false
+local keysupport = {
+	[false] = {
+		["space"] = " ",
+		["leftbracket"] = "[",
+		["rightbracket"] = "]",
+		["minus"] = "-",
+		["equals"] = "=",
+		["period"] = ".",
+		["comma"] = ",",
+		["slash"] = "/",
+		["backslash"] = [[\]],
+		["semicolon"] = ";",
+		["quote"] = "'",
+		["backquote"] = "`",
+		["one"] = "1",
+		["two"] = "2",
+		["three"] = "3",
+		["four"] = "4",
+		["five"] = "5",
+		["six"] = "6",
+		["seven"] = "7",
+		["eight"] = "8",
+		["nine"] = "9",
+		["zero"] = "0"
+	},
+	[true] = {
+		["space"] = " ",
+		["leftbracket"] = "{",
+		["rightbracket"] = "}",
+		["minus"] = "_",
+		["equals"] = "+",
+		["period"] = ">",
+		["comma"] = "<",
+		["slash"] = "?",
+		["backslash"] = "|",
+		["semicolon"] = ":",
+		["backquote"] = "~",
+		["quote"] = '"',
+		["one"] = "!",
+		["two"] = "@",
+		["three"] = "#",
+		["four"] = "4",
+		["five"] = "%",
+		["six"] = "^",
+		["seven"] = "&",
+		["eight"] = "*",
+		["nine"] = "(",
+		["zero"] = ")"
+	}
+}
+local uisthng;
+uisthng = uis.InputBegan:Connect(function(a,gp)
+	local key = string.lower(string.split(tostring(a.KeyCode),".")[3])
+	if key == "leftshift" then
+		shiftdown = true
+	end
+	if chatting then
+		local newinput = key
+		for i, v in next, keysupport[shiftdown] do
+			if i == key then
+				newinput = v
+				break
+			end
+		end
+		if shiftdown then newinput = string.upper(newinput) end
+		if #newinput == 1 then
+			chattext = chattext .. newinput
+			chatinput.Text = chattext
+			chatinput.Size = UDim2.new(1, -10,0, chatinput.TextBounds.Y)
+		end
+		if key == "backspace" then
+			chattext = string.sub(chattext,1,#chattext-1)
+			chatinput.Text = chattext
+			chatinput.Size = UDim2.new(1, -10,0, chatinput.TextBounds.Y)
+		elseif key == "return" then
+			local txt = chattext
+			chattext,chatinput.Visible,chatinput.Text = "",false,""
+			chatting = false
+			if txt ~= "" and txt ~= " " then
+				--event:FireServer("chat",{txt})
+			end
+		end
+	else
+		if key == "slash" and not gp then
+			chatting = true
+			chatinput.Visible = true
+		end
+	end
+end)
+local uisthng2;
+uisthng2 = uis.InputEnded:Connect(function(a)
+	local key = string.lower(string.split(tostring(a.KeyCode),".")[3])
+	if key == "leftshift" then
+		shiftdown = false
+	end
+end)
+local mthing;
+mthing = mouse.KeyDown:Connect(function(key)
+	if not chatting then
+		if key == "w" or key == "a" or key == "s" or key == "d" then
+			keys[key] = true
+		elseif key == " " then
+			keys.space = true
+		elseif key == "q" then
+			--event:FireServer("keydown",{"q"})
+			--attacks:refresh()
+		elseif key == "e" then
+			if not attack then
+				local pos = (r.CFrame * cn(0,-2,-2)).p
+				--event:FireServer("keydown",{"e",pos})
+				attacks:ouch(pos)
+			end
+		elseif key == "z" then
+			local pos = mouse.Hit.p+v3(0,3,0)
+			--event:FireServer("keydown",{"z",pos})
+			attacks:tp(pos)
+		end
+	end
+end)
+local mthing2;
+mthing2 = mouse.KeyUp:Connect(function(key)
+	if key == "w" or key == "a" or key == "s" or key == "d" then
+		keys[key] = false
+	elseif key == " " then
+		keys.space = false
+	end
+end)
+local mthing3;
+mthing3 = mouse.Button1Down:Connect(function()
+	if mouse.Target ~= chat then
+		chatting = false
+		chatinput.Visible = false
+	end
+	if not attack then
+		local mousepos = mouse.Hit.p
+		attacks:pew(mousepos)
+		--event:FireServer("keydown",{"mouse1",mousepos})
+	end
+end)
+--end
+local bgm,bgmstartime,bgmtimelength = create("Sound",{Parent=cam}),tick(),68.555   
+local bgmremoved = cam.ChildRemoved:Connect(function(instance)
+	if instance == bgm then
+		bgm = create("Sound",{Parent=cam})
+		local changed,fixing = nil,false
+		changed = bgm.Changed:Connect(function(property)
+			if not bgm or bgm.Parent ~= cam then changed:Disconnect() debris:AddItem(bgm,0) return end
+			if property == "Volume" or fixing then return end
+			fixing = true
+			local diff = tick()-bgmstartime
+			change(bgm,{
+				SoundId = "rbxassetid://4550046224",
+				Looped = true,
+				Name = randomstring(),
+				Pitch = 1,
+				Playing = true,
+				RollOffMaxDistance = 10000,
+				RollOffMinDistance = 10,
+				RollOffMode = Enum.RollOffMode.Inverse,
+				TimePosition = clamp(bgm.TimePosition,diff-0.2,diff+0.2),
+				Archivable = false,
+				PlayOnRemove = false
+			})
+			bgm.SoundGroup = nil
+			fixing = false
+		end)
+		bgm.Name = "bru"
+	end
+end)
+debris:AddItem(bgm,0)
+local cameratilt = cn()
+local animthng;
 
-local wl = Instance.new("Weld")
-wl.Parent = game.Players.LocalPlayer.Character.Torso
-wl.Part1 = game.Players.LocalPlayer.Character["Torso"]
-wl.Part0 = game.Workspace["Dragon"].MainPart
-game.Workspace.Dragon.Parent = game.Players.LocalPlayer.Character
+animthng = run.RenderStepped:Connect(function()
+	sine = workspace.DistributedGameTime * 60
+	bgm.Volume = clamp(25/(cam.CFrame.p-r.Position).Magnitude,0,10)
+	if tick()-bgmstartime > bgmtimelength then
+		bgmstartime,bgm.Name = tick(),"sdjfhsjdkhfkjsdhfsdjfyusdg"
+	end
+	c.CFrame = r.CFrame * cn(0,1.5,0)
+	local _tilt = cn(r.CFrame:VectorToObjectSpace(velocity))
+	local tilt = {X=clamp(_tilt.X,-7,7),Y=0,Z=clamp(_tilt.Z,-7,7)}
+	if localuserid == userid then
+		cameratilt = cameratilt:Lerp(cn(-tilt.X*3,-yvelo/2,0),0.03)
+		cam.CFrame  = cam.CFrame * euler(rad(-cameratilt.Y/1.5),0,rad(cameratilt.X/4))
+	end
+	if not attack then
+		if yvelo > 0 then
+			laoffset = laoffset:Lerp(lac0*cn(-0.325000763,0.187000036,0)*euler(0,0,rad(-30)),animspeed)
+			raoffset = raoffset:Lerp(rac0*cn(0.325000763,0.187000036,0)*euler(0,0,rad(30)),animspeed)
+			lloffset = lloffset:Lerp(llc0*cn(0,0.57099998,-0.45300293)*euler(rad(-7.5),0,0),animspeed)
+			rloffset = rloffset:Lerp(rlc0,animspeed)
+			toffset = toffset:Lerp(cn(),animspeed)
+			hoffset = hoffset:Lerp(hc0,animspeed)
+		elseif yvelo < 0 then
+			laoffset = laoffset:Lerp(lac0*cn(-0.187999725,0.161999941,-0.46900177)*euler(rad(60),0,rad(-30)),animspeed)
+			raoffset = raoffset:Lerp(rac0*cn(0.187999725,0.161999941,-0.46900177)*euler(rad(60),0,rad(30)),animspeed)
+			lloffset = lloffset:Lerp(llc0,animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn(0,0.57099998,-0.45300293)*euler(rad(-7.5),0,0),animspeed)
+			toffset = toffset:Lerp(euler(rad(-20),0,0),animspeed)
+			hoffset = hoffset:Lerp(hc0*cn(0,-0.0170001984,-0.128997803)*euler(rad(-7.5),0,0),animspeed)
+		elseif moving then
+			laoffset = laoffset:Lerp(lac0*cn(-0.1,0,-sin(sine/10)/20*tilt.Z)*euler(rad(sin(sine/10)*3*tilt.Z),0,rad(-10)),animspeed)
+			raoffset = raoffset:Lerp(rac0*cn(0.1,0,sin(sine/10)/20*tilt.Z)*euler(-rad(sin(sine/10)*3*tilt.Z),0,rad(10)),animspeed)
+			lloffset = lloffset:Lerp(llc0*cn(sin(sine/10)/20*tilt.X,0,sin(sine/10)/20*tilt.Z)*euler(-rad(sin(sine/10)*3*tilt.Z),0,rad(sin(sine/10)*3*tilt.X)),animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn(-sin(sine/10)/20*tilt.X,0,-sin(sine/10)/20*tilt.Z)*euler(rad(sin(sine/10)*3*tilt.Z),0,-rad(sin(sine/10)*3*tilt.X)),animspeed)
+			toffset = toffset:Lerp(cn(0,sin(sine/5)/10,0)*euler(rad(tilt.Z*2),0,rad(-tilt.X)),animspeed)
+			hoffset = hoffset:Lerp(hc0*euler(0,-rad(tilt.X*5),0),animspeed)
+			gunoffset = gunoffset:Lerp(cn(-0.125,-0.898999929-cos(sine/10)/70*tilt.Z,0.95400238)*euler(0,rad(90),rad(-172.5+cos(sine/10)*tilt.Z*1.5)),animspeed)
+		else
+			laoffset = laoffset:Lerp(lac0*cn(0.262001038-sin(sine/30)/10,-0.0739998817,-0.13999939)*euler(rad(7.44),0,rad(7.56-sin(sine/30)*7)),animspeed)
+			raoffset = raoffset:Lerp(rac0*cn(-0.125,-0.125,0.217002869-sin(sine/30)/10)*euler(rad(-7.5+sin(sine/30)*7),rad(-30),0),animspeed)
+			lloffset = lloffset:Lerp(llc0*euler(0,rad(15),0),animspeed)
+			rloffset = rloffset:Lerp(rlc0*cn(0,0.0160000324,0.124000549)*euler(rad(-7.5),0,0),animspeed)
+			toffset = toffset:Lerp(euler(rad(cos(sine/30)*2.5-2),rad(-15),0),animspeed)
+			hoffset = hoffset:Lerp(cn(0,1,0)*euler(rad(cos(sine/30)*5),rad(15),rad(cos(sine/60)*10))*cn(0,0.5,0),animspeed)
+			gunoffset = gunoffset:Lerp(cn(-0.6,-0.898999929+cos(sine/30)/5,0.95400238)*euler(0,rad(60),rad(-172.5-cos(sine/30)*10)),animspeed)
+		end
+	end
+	tween(chat,{CFrame=r.CFrame*cn(3.13899994+sin(sine/30)/2,3.16800022+sin(sine/20)/2,-1.19099998+sin(sine/40)/2)*euler(rad(-14.48+cos(sine/30)*10),rad(127+cos(sine/20)*10),rad(-3.97+cos(sine/40)*10))},0.5,Enum.EasingDirection.Out)
 
-game.Players.LocalPlayer.Character.Dragon.TP.CFrame = game.Players.LocalPlayer.Character.DragonTP.CFrame
-game.Players.LocalPlayer.Character.DragonTP:Destroy()
-game.Players.LocalPlayer.Character.Dragon.Parent = workspace
-game.Players.LocalPlayer.Character.Heed:Destroy()
-game.Players.LocalPlayer.Character.Characterr:Destroy()
-game.Players.LocalPlayer.Character.VoltarisCommandStaff:Destroy()
-game.Players.LocalPlayer.Character.Eyes:Destroy()
+	t.CFrame = r.CFrame * toffset
 
 
+	-- h,t,la,ra,ll and rl are the fake character limbs
+	h.CFrame,la.CFrame,ra.CFrame,ll.CFrame,rl.CFrame = t.CFrame*hoffset,t.CFrame*laoffset,t.CFrame*raoffset,t.CFrame*lloffset,t.CFrame*rloffset
+	--rh.CFrame,rla.CFrame,rra.CFrame,rll.CFrame,rrl.CFrame = h.CFrame,la.CFrame,ra.CFrame,ll.CFrame,rl.CFrame
+
+
+	gun.CFrame = ra.CFrame*gunoffset
+	if sine/20 == math.floor(sine/20) then
+		debris:AddItem(r,0)
+		debris:AddItem(h,0) debris:AddItem(t,0) debris:AddItem(la,0) debris:AddItem(ra,0) debris:AddItem(ll,0) debris:AddItem(rl,0)
+	end
 end)
 
 
+local ev
+function bindevent()
+	--[[connection = event.OnClientEvent:Connect(function(mode,data)
+            if mode == "keydown" then
+				if data[1] == "q" then
+					attacks:refresh()
+				elseif data[1] == "mouse1" then
+					attacks:pew(data[2])
+				elseif data[1] == "e" then
+					attacks:ouch(data[2])
+				elseif data[1] == "z" then
+					attacks:tp(data[2])
+				end
+			end
+	end)]]
+end
+eventremoved = insert.ChildRemoved:Connect(function(instance)
+	if instance == event then
+		event = insert:WaitForChild(eventname)
+		bindevent()
+	end
+end)
+bindevent()
+function trackcancollide(p)
+	local function checkcancollide()
+		if p.CanCollide then
+			local s = table.find(partexclusion,p)
+			if s then table.remove(partexclusion,s) end
+		else
+			local s = table.find(partexclusion,p)
+			if not s then table.insert(partexclusion,p) end
+		end
+	end
+	local changed
+	changed = p.Changed:Connect(function(prop)
+		if not p or p.Parent ~= workspace then
+			changed:Disconnect()
+			local s = table.find(partexclusion,p)
+			if s then table.remove(partexclusion,s) end
+			return
+		end
+		if prop == "CanCollide" then
+			checkcancollide()
+		end
+	end)
+	checkcancollide()
+end
+for i, v in next, workspace:GetDescendants() do
+	if v:IsA("BasePart") then
+		trackcancollide(v)
+	end
+end
+local workspacethng;
+workspacethng = workspace.DescendantAdded:Connect(function(p)
+	if p:IsA("BasePart") then
+		trackcancollide(p)
+	end
+end)
+--event:FireServer("ready")
+for i = 1, 2 do
+	run.RenderStepped:Wait()
+end
+local addons,showname = "","someone lol"
+if isceat_ceat then
+	addons,showname = " the creator wow!!!","Vulnerali"
+end
+addtochat("studio dummy v3","studio dummy v3 - by Vulnerali")
+addtochat("studio dummy v3","current user is '"..showname.."'"..addons)
+addtochat("credit", "converted by padero for pendulum hub / coffeeware")
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "studio dummy v3",
+	Text = "created by Vulnerali",
+})
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+	run:UnbindFromRenderStep(username..userid.."partmaintain")
+	debris:AddItem(chat.Parent,0)
+	r:Destroy()
+	h:Destroy()
+	t:Destroy()
+	la:Destroy()
+	ra:Destroy()
+	ll:Destroy()
+	rl:Destroy()
+	gun:Destroy()
+	c:Destroy()
+	r:Destroy()
+	animthng:Disconnect()
+	mthing:Disconnect()
+	workspacethng:Disconnect()
+	eventremoved:Disconnect()
+	mthing2:Disconnect()
+	mthing3:Disconnect()
+	uisthng:Disconnect()
+	uisthng2:Disconnect()
+	cam:Destroy()
+	workspace.CurrentCamera = oldcam
+
+	run:UnbindFromRenderStep(userid..'movement')
+	partexclusion={}
+	script:Destroy()
+end)
+game.Players.LocalPlayer.Character:FindFirstChild('Animate'):Destroy()
+game.Players.LocalPlayer.Character.Humanoid:FindFirstChild('Animator'):Destroy()
+for i, v in next, folder:GetChildren() do
+	debris:AddItem(v,0)
+end
+local _chr = game.Players.LocalPlayer.Character
+
+local rh,rla,rra,rll,rrl,rt = _chr.Head,_chr['Left Arm'],_chr['Right Arm'],_chr['Left Leg'],_chr['Right Leg'], _chr.Torso
+
+local function _weld(a,b)
+	local w = Instance.new('Weld')
+	w.Part0 = a
+	w.Part1 = b
+	w.C0 = a.CFrame:inverse() * b.CFrame
+	w.C1 = w.C0
+	w.Parent = a
+	local nc = Instance.new('NoCollisionConstraint')
+	a.Transparency = 1
+	nc.Part0 = a
+	nc.Part1 = b
+	return w
+end
+_weld(h,rh)
+_weld(la,rla)
+_weld(ra,rra)
+_weld(ll,rll)
+_weld(rl,rrl)
+_weld(t,rt)
+h.Transparency=1
+h.face.Transparency=1
+
+for _,v in next, game.Players.LocalPlayer.Character:GetDescendants() do
+	if v:IsA('BasePart') then
+		table.insert(partexclusion,v)
+	end
+end
+
+local hat = _chr['MeshPartAccessory'].Handle
+hat:BreakJoints()
+local weld = Instance.new('Weld',hat)
+weld.Part1 = hat
+weld.Part0 = gun
+weld.C0 = CFrame.new(0.1,0,0)*CFrame.Angles(0,math.rad(180),0)
 
 
-game.Players.LocalPlayer.Character["Head"].face:Destroy()
-game.Players.LocalPlayer.Character["Pal Hair"]:Destroy()
+local hat2 = _chr['Starslayer Railgun'].Handle
+hat2:BreakJoints()
+local weld2 = Instance.new('Weld',hat2)
+weld2.Part1 = hat2
+weld2.Part0 = chat
+weld2.C0 = CFrame.new(0,0,0)*CFrame.Angles(0,0,0)
+
+
