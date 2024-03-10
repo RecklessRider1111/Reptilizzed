@@ -412,7 +412,7 @@ local args = {
 }
 
 workspace.resources.RemoteEvent:FireServer(unpack(args))
-wait(2)
+wait(0.1)
 
 
 local args = {
