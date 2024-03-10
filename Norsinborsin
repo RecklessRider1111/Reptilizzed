@@ -1,1 +1,909 @@
-1
+
+      
+	local word = "A black hole has been spotted"
+	local lib = require(game:GetService("Workspace").upsilonLibrary)
+	firesignal(game.Workspace.resources.RemoteEvent.OnClientEvent,"displayChoice",'returnToMenu',word)
+	lib.FireOtherClients("displayChoice",'returnToMenu',word)
+      
+      wait(2)
+      
+      local word = "Make sure to take...#.#%%%..##%%%%%"
+	local lib = require(game:GetService("Workspace").upsilonLibrary)
+	firesignal(game.Workspace.resources.RemoteEvent.OnClientEvent,"displayChoice",'returnToMenu',word)
+	lib.FireOtherClients("displayChoice",'returnToMenu',word)
+
+
+    wait(5)
+     
+    
+    
+    local a = Instance.new("Model")
+        a.Name = "BlackHole"
+        a.Parent = workspace
+    
+    local an = true
+      local am = false
+
+
+local function Start() -- ClickFling.LocalScript 
+    
+       
+        local b  =  Instance.new("Part")
+        b.Size = Vector3.new(1750, 250, 1484)
+        b.Parent = a
+        b.Material = Enum.Material.ForceField 
+        b.CFrame = CFrame.new(-128.380066, -1.5, -386.209351, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+        b.BrickColor = BrickColor.new("Dark stone grey")
+        b.Transparency = 0
+        b.CanCollide = false
+        b.CanTouch = false
+        b.Anchored = an
+        b.Shape = Enum.PartType.Block
+         b.Name = "SuckPart"
+        b.AssemblyLinearVelocity = Vector3.new(0, 0, -99)
+       
+    game.Workspace:WaitForChild("BlackHole")
+    game.Workspace.BlackHole:WaitForChild("SuckPart")
+    local z = game.Workspace.BlackHole.SuckPart
+    
+    _G.BlackHole = true
+    while _G.BlackHole == true do
+        wait()
+    
+    if game.Workspace.BlackHole:FindFirstChild("SuckPart") then
+    
+        
+        local p = z.Position
+        local tbl = {
+            ["CanCollide"] = true,
+          
+            ["Parent"] = workspace,
+            ["Anchored"] = true,
+            ["Name"] = "Part",
+            ["CastShadow"] = false,
+            ["Transparency"] = 1,
+            ["RotVelocity"] = Vector3.new(0,0,0),
+            ["Position"] = p,
+            ["BrickColor"] = z.BrickColor,
+            ["Material"] = Enum.Material.ForceField,
+            ["Shape"] = Enum.PartType.Block,
+            ["Size"] = z.Size,
+          ["Rotation"] = z.Rotation,
+       ["AssemblyLinearVelocity"] = z.AssemblyLinearVelocity
+        }
+        
+        workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+          
+    
+    else
+        _G.BlackHole = false
+        while _G.BlackHole == true do
+            wait()
+    
+    end
+    end
+    end
+    end
+    coroutine.wrap(Start)()
+    
+    
+    
+
+local function BlackHoleItself() -- ClickFling.LocalScript 
+
+local c  =  Instance.new("Part")
+c.Size = Vector3.new(2042, 2042, 2042)
+c.Parent = a
+c.Material = Enum.Material.SmoothPlastic 
+c.CFrame = CFrame.new(-40.7982483, 123.5, -2038.271, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+c.BrickColor = BrickColor.new("Really black")
+c.Transparency = 0
+c.CanCollide = true
+c.CanTouch = true
+c.Anchored = an
+c.Shape = Enum.PartType.Ball
+ c.Name = "Hole"
+
+
+ game.Workspace:WaitForChild("BlackHole")
+ game.Workspace.BlackHole:WaitForChild("Hole")
+ local z = game.Workspace.BlackHole.Hole
+ 
+ _G.Hole = true
+ while _G.Hole == true do
+     wait()
+ 
+ if game.Workspace.BlackHole:FindFirstChild("Hole") then
+ 
+     
+     local p = z.Position
+     local tbl = {
+         ["CanCollide"] = true,
+       
+         ["Parent"] = workspace,
+         ["Anchored"] = true,
+         ["Name"] = "Part",
+         ["CastShadow"] = false,
+         ["Transparency"] = 0,
+         ["RotVelocity"] = Vector3.new(0,0,0),
+         ["Position"] = p,
+         ["BrickColor"] = z.BrickColor,
+         ["Material"] = Enum.Material.SmoothPlastic,
+         ["Shape"] = Enum.PartType.Ball,
+         ["Size"] = z.Size,
+       ["Rotation"] = z.Rotation,
+    
+     }
+     
+     workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+       
+ 
+ else
+     _G.Hole = false
+     while _G.Hole == true do
+         wait()
+ 
+ end
+ end
+ end
+ end
+ 
+
+
+ coroutine.wrap(BlackHoleItself)()
+
+ 
+ 
+ 
+ 
+ 
+ local function ThirdPhase() -- ClickFling.LocalScript 
+ 
+ 
+    game.Workspace:WaitForChild("BlackHole")
+    game.Workspace.BlackHole:WaitForChild("Hole")
+ 
+    wait(12)
+ 
+	
+	local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[2].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[3].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[4].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[5].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[6].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[7].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[8].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[9].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[10].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[11].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[12].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[13].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[14].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[15].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[16].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[17].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[18].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[19].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[20].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+ end
+ 
+ 
+ coroutine.wrap(ThirdPhase)()
+
+ 
+ local function FourthPhase() -- ClickFling.LocalScript 
+ 
+ 
+    game.Workspace:WaitForChild("BlackHole")
+    game.Workspace.BlackHole:WaitForChild("Hole")
+ 
+    wait(12)
+ 
+    local TweenService = game:GetService("TweenService")
+    local part = workspace.BlackHole.Hole
+    local info = TweenInfo.new(10, Enum.EasingStyle.Sine, Enum.EasingDirection.Out, -1, true)
+    
+    local tween = TweenService:Create(part,info, {CFrame = CFrame.new(-223.886063, 91, -250.543823, 1, 0, 0, 0, 1, 0, 0, 0, 1)} )
+    
+    tween:Play()
+   
+   wait(10)
+game.Workspace.BlackHole.Hole:Destroy()
+   local d  =  Instance.new("Part")
+   d.Size = Vector3.new(2042, 2042, 2042)
+   d.Parent = a
+   d.Material = Enum.Material.SmoothPlastic 
+   d.CFrame = CFrame.new(-223.886063, 91, -250.543823, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+   d.BrickColor = BrickColor.new("Really black")
+   d.Transparency = 0
+   d.CanCollide = true
+   d.CanTouch = true
+   d.Anchored = an
+   d.Shape = Enum.PartType.Ball
+    d.Name = "Hole2"
+   
+
+
+
+    game.Workspace:WaitForChild("BlackHole")
+ game.Workspace.BlackHole:WaitForChild("Hole2")
+ local z = game.Workspace.BlackHole.Hole2
+ 
+ _G.Hole2 = true
+ while _G.Hole2 == true do
+     wait()
+ 
+ if game.Workspace.BlackHole:FindFirstChild("Hole2") then
+ 
+     
+     local p = z.Position
+     local tbl = {
+         ["CanCollide"] = true,
+       
+         ["Parent"] = workspace,
+         ["Anchored"] = true,
+         ["Name"] = "Part",
+         ["CastShadow"] = false,
+         ["Transparency"] = 1,
+         ["RotVelocity"] = Vector3.new(0,0,0),
+         ["Position"] = p,
+         ["BrickColor"] = z.BrickColor,
+         ["Material"] = Enum.Material.SmoothPlastic,
+         ["Shape"] = Enum.PartType.Ball,
+         ["Size"] = z.Size,
+       ["Rotation"] = z.Rotation,
+ 
+     }
+     
+     workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+       
+ 
+ else
+     _G.Hole2 = false
+     while _G.Hole2 == true do
+         wait()
+ 
+ end
+ end
+end
+ end
+ 
+
+ coroutine.wrap(FourthPhase)()
+
+
+
+function killall()
+
+	
+	local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[2].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[3].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[4].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[5].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[6].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[7].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[8].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[9].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[10].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[11].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[12].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[13].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[14].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[15].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[16].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[17].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[18].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[19].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+local args = {
+        [1] = "FireOtherClients",
+        [2] = "drawLaser",
+        [3] = Vector3.new(0, 0, 0),
+        [4] = Vector3.new(0, 0, 0),
+        [5] = {
+            ["Name"] = "Head",
+            ["Parent"] = game.Players:GetPlayers()[20].Character,
+            ["Material"] = Enum.Material.ForceField,
+            ["CFrame"] = CFrame.new(-20.000213623046875, 5.490209102630615, 19.997617721557617) * CFrame.Angles(-0.004397252108901739, 0.0030667458195239305, -1.872209054454288e-07),
+            ["Size"] = Vector3.new(5, 1, 1)
+        }
+    }
+
+    workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+end
+
+
+ local function FithPhase()
+   wait(25)
+    _G.Kill = true
+    while _G.Kill == true do
+        wait()
+killall()
+
+ end
+end
+
+    coroutine.wrap(FithPhase)()
+
+
+
+    
+ local function Last()
+    wait(40)
+    _G.Kill = false
+    while _G.Kill == true do
+        wait()
+
+    end
+ end
+
+
+    coroutine.wrap(Last)()
+
+
+
+
+    local function Last1()
+        wait(40)
+        
+    game.Workspace.BlackHole:Destroy()
+        end
+     
+    
+    
+        coroutine.wrap(Last1)()
