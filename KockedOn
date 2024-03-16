@@ -1,10 +1,57 @@
+
+
+
+local pt = Instance.new("Part")
+ pt.Parent = game.Players.LocalPlayer.Character
+pt.Anchored = false
+pt.CanCollide= false
+pt.Name = "FIELD"
+pt.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+pt.Shape = Enum.PartType.Ball
+pt.Material = Enum.Material.Neon
+pt.BrickColor = BrickColor.new("New Yeller")
+pt.Massless = true
+pt.Size = Vector3.new(6,6,6)
+pt.Transparency = 0.8
+
+
+local w = Instance.new("Weld")
+w.Parent = pt
+w.Part0 = game.Players.LocalPlayer.Character.HumanoidRootPart
+w.Part1 = pt
+
+
+
+_G.EFFECT = true
+while _G.EFFECT == true do
+    wait()
+
+
+
 local args = {
-[1] = game.Players.LocalPlayer.Character.Humanoid, 
-[2] = game.Players.LocalPlayer.Character.UpperTorso, 
-[3] = 1000.5,
-[4] = Vector3.new(0.829352080821991, -0.26517945528030396, -0.49178752303123474),
-[5] = 0,
-[6] = false, 
-[7] = false
+
+[1] = workspace:WaitForChild("Model"):WaitForChild("spawn and seats"):WaitForChild("SpawnLocation"),
+[2] = game:GetService("Players").LocalPlayer.Backpack.Snipercrim.Handle,
+[3] = Vector3.new(0, 0, -9),
+[4] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
+[5] = game:GetService("Players").LocalPlayer.Backpack.Snipercrim.GunScript_Local.MuzzleEffect,
+[6] = game:GetService("Players").LocalPlayer.Backpack.Snipercrim.GunScript_Local.HitEffect,
+[7] = 186809250,
+[8] = {
+[1] = false
+},
+[9] = {
+
+[1] = 25,
+[2] = Vector3.new(10.25, 888.25, 100),
+[3] =BrickColor.new(11),
+[4] = 111.25,
+[5] = Enum.Material.SmoothPlastic,
+[6] = 111.25,
+
+},
+[10] = true,
+[11] = false
 }
-game:GetService("Players").LocalPlayer.Backpack.Riflecrim.GunScript_Server.InflictTarget:FireServer(unpack(args))
+game:GetService("ReplicatedStorage"):WaitForChild("VisualizeBullet"):FireServer(unpack(args))
+end
