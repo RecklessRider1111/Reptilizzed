@@ -1,7 +1,10 @@
 
-local args = {
-    [1] = "updateWelds",
-    [2] = true,
-  }
+local up = require(game:GetService("Workspace").upsilonLibrary)
 
-workspace.resources.RemoteEvent:FireServer(unpack(args))
+
+up.FireAllClients("sendChat", "[ Server ]", "Server has finished loading.", nil, 6)
+
+
+
+
+
