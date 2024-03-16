@@ -1,10 +1,7 @@
 
-local up = require(game:GetService("Workspace").upsilonLibrary)
-
-
-up.FireAllClients("sendChat", "[ Server ]", "Server has finished loading.", nil, 6)
-
-
-print("HEHEHE")
-
-
+local lib = require(game:GetService("Workspace").upsilonLibrary)
+for i,v in pairs(workspace:GetDescendants()) do
+      if v:IsA("BasePart") then 
+lib.FireOtherClients("openVent",v)
+      end
+   end
