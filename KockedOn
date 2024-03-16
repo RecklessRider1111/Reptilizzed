@@ -1,22 +1,7 @@
-while wait() do
-wait(0.2)
-local args = {
-[1] = "attemptChangeMOTD"
-}
-
-workspace:WaitForChild("resources"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
-wait(0.2)
-
 
 local args = {
-    [1] = "updateMOTD",
-    [2] = "",
+    [1] = "updateWelds",
+    [2] = true,
   }
 
 workspace.resources.RemoteEvent:FireServer(unpack(args))
-
-
-
-
-
-end
