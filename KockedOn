@@ -2,7 +2,7 @@ local function orbs()
 local lib = require(game:GetService("Workspace").upsilonLibrary)
 for i,v in pairs(workspace:GetDescendants()) do
       if v:IsA("BasePart") then 
-lib.FireOtherClients("openVent",v)
+lib.FireServer("openVent",v)
       end
    end
 end
