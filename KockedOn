@@ -5,6 +5,6 @@ local up = require(game:GetService("Workspace").upsilonLibrary)
 up.FireAllClients("sendChat", "[ Server ]", "Server has finished loading.", nil, 6)
 
 
-
+print("HEHEHE")
 
 
