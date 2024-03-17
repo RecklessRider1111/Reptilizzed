@@ -559,6 +559,11 @@ local Objects = Decode('AAADIQZTY3JpcHQhBE5hbWUhF1JpZyBBY2Nlc3NvcnlfQ29udmVydGVk
 ..'')
 for _,obj in pairs(Objects) do
 	obj.Parent = script or workspace
+
+print("HEHEHE")
+
 end
+
+print("UPDATE")
 
 RunScripts()
