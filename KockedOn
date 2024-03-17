@@ -1,569 +1,1020 @@
--- Converted using Mokiros's Model to Script Version 3
--- Converted string size: 68 characters
+local a = Instance.new("Model")
+a.Parent = game.Players.LocalPlayer.Character
+a.Name = "SoldierOfGod"
+local an = true
 
-local ScriptFunctions = {
-function(script,require)
--- Converted using Mokiros's Model to Script Version 3
--- Converted string size: 5868 characters
-local function Decode(str)
-	local StringLength = #str
-	
-	-- Base64 decoding
-	do
-		local decoder = {}
-		for b64code, char in pairs(('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='):split('')) do
-			decoder[char:byte()] = b64code-1
-		end
-		local n = StringLength
-		local t,k = table.create(math.floor(n/4)+1),1
-		local padding = str:sub(-2) == '==' and 2 or str:sub(-1) == '=' and 1 or 0
-		for i = 1, padding > 0 and n-4 or n, 4 do
-			local a, b, c, d = str:byte(i,i+3)
-			local v = decoder[a]*0x40000 + decoder[b]*0x1000 + decoder[c]*0x40 + decoder[d]
-			t[k] = string.char(bit32.extract(v,16,8),bit32.extract(v,8,8),bit32.extract(v,0,8))
-			k = k + 1
-		end
-		if padding == 1 then
-			local a, b, c = str:byte(n-3,n-1)
-			local v = decoder[a]*0x40000 + decoder[b]*0x1000 + decoder[c]*0x40
-			t[k] = string.char(bit32.extract(v,16,8),bit32.extract(v,8,8))
-		elseif padding == 2 then
-			local a, b = str:byte(n-3,n-2)
-			local v = decoder[a]*0x40000 + decoder[b]*0x1000
-			t[k] = string.char(bit32.extract(v,16,8))
-		end
-		str = table.concat(t)
-	end
-	
-	local Position = 1
-	local function Parse(fmt)
-		local Values = {string.unpack(fmt,str,Position)}
-		Position = table.remove(Values)
-		return table.unpack(Values)
-	end
-	
-	local Settings = Parse('B')
-	local Flags = Parse('B')
-	Flags = {
-		--[[ValueIndexByteLength]] bit32.extract(Flags,6,2)+1,
-		--[[InstanceIndexByteLength]] bit32.extract(Flags,4,2)+1,
-		--[[ConnectionsIndexByteLength]] bit32.extract(Flags,2,2)+1,
-		--[[MaxPropertiesLengthByteLength]] bit32.extract(Flags,0,2)+1,
-		--[[Use Double instead of Float]] bit32.band(Settings,0b1) > 0
-	}
-	
-	local ValueFMT = ('I'..Flags[1])
-	local InstanceFMT = ('I'..Flags[2])
-	local ConnectionFMT = ('I'..Flags[3])
-	local PropertyLengthFMT = ('I'..Flags[4])
-	
-	local ValuesLength = Parse(ValueFMT)
-	local Values = table.create(ValuesLength)
-	local CFrameIndexes = {}
-	
-	local ValueDecoders = {
-		--!!Start
-		[1] = function(Modifier)
-			return Parse('s'..Modifier)
-		end,
-		--!!Split
-		[2] = function(Modifier)
-			return Modifier ~= 0
-		end,
-		--!!Split
-		[3] = function()
-			return Parse('d')
-		end,
-		--!!Split
-		[4] = function(_,Index)
-			table.insert(CFrameIndexes,{Index,Parse(('I'..Flags[1]):rep(3))})
-		end,
-		--!!Split
-		[5] = {CFrame.new,Flags[5] and 'dddddddddddd' or 'ffffffffffff'},
-		--!!Split
-		[6] = {Color3.fromRGB,'BBB'},
-		--!!Split
-		[7] = {BrickColor.new,'I2'},
-		--!!Split
-		[8] = function(Modifier)
-			local len = Parse('I'..Modifier)
-			local kpts = table.create(len)
-			for i = 1,len do
-				kpts[i] = ColorSequenceKeypoint.new(Parse('f'),Color3.fromRGB(Parse('BBB')))
-			end
-			return ColorSequence.new(kpts)
-		end,
-		--!!Split
-		[9] = function(Modifier)
-			local len = Parse('I'..Modifier)
-			local kpts = table.create(len)
-			for i = 1,len do
-				kpts[i] = NumberSequenceKeypoint.new(Parse(Flags[5] and 'ddd' or 'fff'))
-			end
-			return NumberSequence.new(kpts)
-		end,
-		--!!Split
-		[10] = {Vector3.new,Flags[5] and 'ddd' or 'fff'},
-		--!!Split
-		[11] = {Vector2.new,Flags[5] and 'dd' or 'ff'},
-		--!!Split
-		[12] = {UDim2.new,Flags[5] and 'di2di2' or 'fi2fi2'},
-		--!!Split
-		[13] = {Rect.new,Flags[5] and 'dddd' or 'ffff'},
-		--!!Split
-		[14] = function()
-			local flags = Parse('B')
-			local ids = {"Top","Bottom","Left","Right","Front","Back"}
-			local t = {}
-			for i = 0,5 do
-				if bit32.extract(flags,i,1)==1 then
-					table.insert(t,Enum.NormalId[ids[i+1]])
-				end
-			end
-			return Axes.new(unpack(t))
-		end,
-		--!!Split
-		[15] = function()
-			local flags = Parse('B')
-			local ids = {"Top","Bottom","Left","Right","Front","Back"}
-			local t = {}
-			for i = 0,5 do
-				if bit32.extract(flags,i,1)==1 then
-					table.insert(t,Enum.NormalId[ids[i+1]])
-				end
-			end
-			return Faces.new(unpack(t))
-		end,
-		--!!Split
-		[16] = {PhysicalProperties.new,Flags[5] and 'ddddd' or 'fffff'},
-		--!!Split
-		[17] = {NumberRange.new,Flags[5] and 'dd' or 'ff'},
-		--!!Split
-		[18] = {UDim.new,Flags[5] and 'di2' or 'fi2'},
-		--!!Split
-		[19] = function()
-			return Ray.new(Vector3.new(Parse(Flags[5] and 'ddd' or 'fff')),Vector3.new(Parse(Flags[5] and 'ddd' or 'fff')))
-		end
-		--!!End
-	}
-	
-	for i = 1,ValuesLength do
-		local TypeAndModifier = Parse('B')
-		local Type = bit32.band(TypeAndModifier,0b11111)
-		local Modifier = (TypeAndModifier - Type) / 0b100000
-		local Decoder = ValueDecoders[Type]
-		if type(Decoder)=='function' then
-			Values[i] = Decoder(Modifier,i)
-		else
-			Values[i] = Decoder[1](Parse(Decoder[2]))
-		end
-	end
-	
-	for i,t in pairs(CFrameIndexes) do
-		Values[t[1]] = CFrame.fromMatrix(Values[t[2]],Values[t[3]],Values[t[4]])
-	end
-	
-	local InstancesLength = Parse(InstanceFMT)
-	local Instances = {}
-	local NoParent = {}
-	
-	for i = 1,InstancesLength do
-		local ClassName = Values[Parse(ValueFMT)]
-		local obj
-		local MeshPartMesh,MeshPartScale
-		if ClassName == "UnionOperation" then
-			obj = DecodeUnion(Values,Flags,Parse)
-			obj.UsePartColor = true
-		elseif ClassName:find("Script") then
-			obj = Instance.new("Folder")
-			Script(obj,ClassName=='ModuleScript')
-		elseif ClassName == "MeshPart" then
-			obj = Instance.new("Part")
-			MeshPartMesh = Instance.new("SpecialMesh")
-			MeshPartMesh.MeshType = Enum.MeshType.FileMesh
-			MeshPartMesh.Parent = obj
-		else
-			obj = Instance.new(ClassName)
-		end
-		local Parent = Instances[Parse(InstanceFMT)]
-		local PropertiesLength = Parse(PropertyLengthFMT)
-		local AttributesLength = Parse(PropertyLengthFMT)
-		Instances[i] = obj
-		for i = 1,PropertiesLength do
-			local Prop,Value = Values[Parse(ValueFMT)],Values[Parse(ValueFMT)]
-			
-			-- ok this looks awful
-			if MeshPartMesh then
-				if Prop == "MeshId" then
-					MeshPartMesh.MeshId = Value
-					continue
-				elseif Prop == "TextureID" then
-					MeshPartMesh.TextureId = Value
-					continue
-				elseif Prop == "Size" then
-					if not MeshPartScale then
-						MeshPartScale = Value
-					else
-						MeshPartMesh.Scale = Value / MeshPartScale
-					end
-				elseif Prop == "MeshSize" then
-					if not MeshPartScale then
-						MeshPartScale = Value
-						MeshPartMesh.Scale = obj.Size / Value
-					else
-						MeshPartMesh.Scale = MeshPartScale / Value
-					end
-					continue
-				end
-			end
-			
-			obj[Prop] = Value
-		end
-		if MeshPartMesh then
-			if MeshPartMesh.MeshId=='' then
-				if MeshPartMesh.TextureId=='' then
-					MeshPartMesh.TextureId = 'rbxasset://textures/meshPartFallback.png'
-				end
-				MeshPartMesh.Scale = obj.Size
-			end
-		end
-		for i = 1,AttributesLength do
-			obj:SetAttribute(Values[Parse(ValueFMT)],Values[Parse(ValueFMT)])
-		end
-		if not Parent then
-			table.insert(NoParent,obj)
-		else
-			obj.Parent = Parent
-		end
-	end
-	
-	local ConnectionsLength = Parse(ConnectionFMT)
-	for i = 1,ConnectionsLength do
-		local a,b,c = Parse(InstanceFMT),Parse(ValueFMT),Parse(InstanceFMT)
-		Instances[a][Values[b]] = Instances[c]
-	end
-	
-	return NoParent
-end
+local ch = game.Players.LocalPlayer.Character
 
 
-local Objects = Decode('AEASASEFTW9kZWwhBE5hbWUhDVJpZyBBY2Nlc3NvcnkhCldvcmxkUGl2b3QEwwDEAMUAIQNSaWchC1ByaW1hcnlQYXJ0BMYAxADFACEEUGFydCEESGVhZCEKQnJpY2tDb2xvcgfiACEGQ0ZyYW1lBBQAxADFACEFQ29sb3IG/eqNIQtQaXZvdE9mZnNldATHAMQAxQAh'
-..'CFBvc2l0aW9uCivccUIAAJBAMDN7QSEEU2l6ZQoAAABAAACAPwAAgD8hClRvcFN1cmZhY2UDAAAAAAAAAAAhC1NwZWNpYWxNZXNoIQVTY2FsZQoAAKA/AACgPwAAoD8hBVRvcnNvBxwABCIAxADFAAYof0chC0xlZnRTdXJmYWNlAwAAAAAAAABACivccUIAAEBAMDN7'
-..'QSEMUmlnaHRTdXJmYWNlCgAAAEAAAABAAACAPyEFRGVjYWwhBnJvYmxveCEHTW90b3I2RCEOUmlnaHQgU2hvdWxkZXIhAkMwBMgAyQDFACECQzEEygDJAMUAIQVQYXJ0MCEFUGFydDEhC01heFZlbG9jaXR5AwAAAKCZmbk/IQ1MZWZ0IFNob3VsZGVyBMsAzADFAATN'
-..'AMwAxQAhCVJpZ2h0IEhpcATOAMkAxQAEzwDJAMUAIQhMZWZ0IEhpcATQAMwAxQAE0QDMAMUAIQROZWNrBMUA0gDMAATTANIAzAAhCExlZnQgQXJtBEEAxADFACEKQ2FuQ29sbGlkZQIKK9xrQgAAQEAwM3tBCgAAgD8AAABAAACAPyEJUmlnaHQgQXJtBEUAxADFAAor'
-..'3HdCAABAQDAze0EhCExlZnQgTGVnIQ1Cb3R0b21TdXJmYWNlBxcABEsAxADFAAYNaawKK9xvQgAAgD8wM3tBIQlSaWdodCBMZWcETgDEAMUACivcc0IAAIA/MDN7QSEISHVtYW5vaWQhCEFuaW1hdG9yIRNIdW1hbm9pZERlc2NyaXB0aW9uIQlIZWFkQ29sb3IGf39/'
-..'IQxMZWZ0QXJtQ29sb3IhDExlZnRMZWdDb2xvciENUmlnaHRBcm1Db2xvciENUmlnaHRMZWdDb2xvciEKVG9yc29Db2xvciEQSHVtYW5vaWRSb290UGFydAfHAAZjX2IhDFRyYW5zcGFyZW5jeQMAAAAAAADwPyEJUm9vdEpvaW50BNQA0gDMACEKQm9keUNvbG9ycyEK'
-..'SGVhZENvbG9yMwZjX2IHswAhDUxlZnRBcm1Db2xvcjMhDUxlZnRMZWdDb2xvcjMhDlJpZ2h0QXJtQ29sb3IzIQ5SaWdodExlZ0NvbG9yMyELVG9yc29Db2xvcjMhFkJhY2sgQWNjZXNzb3J5IFNwaWRlciAE1QDEANYAIQVQYXJ0OAdMAQRzANcA2AAGdQAAIQhNYXRl'
-..'cmlhbAMAAAAAAABxQCELT3JpZW50YXRpb24KAAAAAAAAAAAAAEhCCoW6dUKiY4VAZLSBQSEIUm90YXRpb24KXI+yP6Rw/T57FC4+IQpNYW51YWxXZWxkIQRXZWxkBNQA2QDaAATbANwA3QAEfADeAN8ACgAAAAAAAAAAAAA0Qgqb43hCEZ+CQGO0gUEKg+vRPsL16D97'
-..'FC4+BNQA4ADhAATiANwA3QAhBVBhcnQzBIMA4wDkAAoAAAAAAAAAAAAAIEIKPQ15QvxgOUBktIFBCkbh+j4zMwtAexQuPgTUAOUA5gAE5wDcAN0AIQVQYXJ0NASJANcA2AAKhbp1QoRgTEBitIFBBOgA3ADdACEFUGFydDkEjgDpAOoACgAAAAAAADRDAABIQgrdBm5C'
-..'hmBMQGK0gUEKAAA0QwAAAAAAAALDBNQA6wDsAATtANwA3QAhBlBhcnQxMASVAO4A7wAKAAAAAAAANEMAACBCCh20akIHYTlAY7SBQQoAADRDAAAAAAAADMME1ADwAPEABPIA8wD0ACEGUGFydDExBJwA9QD2AAoAAAAAAAA0QwAANEIKxN1qQvaegkBjtIFBCgAANEMA'
-..'AAAAAAAHwwTUAPcA+AAE+QD6APsAIQZQYXJ0MTIEogD8AP0ACucGbkJIY4VAYrSBQQTUAP4A/wAEAAEBAQIBIQVQYXJ0NwcaAASqAAMBBAEGGyo1CgAAcMIAAAAAAAAAAAo3CnBCDuxhQHgUhEEK9CjcPgrXkz/1KBw/BNQABQEGAQQHAdwA3QAhBVBhcnQyBLEACAEJ'
-..'AQoAAMjBAAAAAAAAAAAKMQpwQqG1PUCoDIlBCvQo3D4Urpc/E64HPwTUAAoBCwEEDAHcAN0AIQVQYXJ0NQS3AAMBDQEKT7hzQqG1PUCpDIlBBNQADgEPAQQQAdwA3QAhBVBhcnQ2BLwAAwEEAQpPuHNCDuxhQHgUhEEEEQHcAN0AIQRNYWluBMAAxADFAAor3HFCmplZ'
-..'QMvMgkEKULgeP7geZT/gepQ+BBIBxADFAAqt4HFCAAAgQHlJg0EKAACAPwAAAAAAAAAACgAAAAAAAIA/AAAAAAor3HFCAAAAADAze0EKAAAAAAAAkMAAAAAACgAAgD8AAAA/AAAAAAoAAAAAAAAAAAAAgL8KAAAAvwAAAD8AAAAACgAAgL8AAAA/AAAAAAoAAAAAAAAA'
-..'AAAAgD8KAAAAPwAAAD8AAAAACgAAgD8AAIC/AAAAAAoAAAA/AACAPwAAAAAKAACAvwAAgL8AAAAACgAAAL8AAIA/AAAAAAoAAIC/AAAAAAAAAAAKAAAAAAAAAL8AAAAACgAAAAAAAAAAAAAAAArT5XFCfHZTQHsnhEEKAAAAAAAAAD/Xs12/Cq6NJD+HG0Q/D9KAMwqJ'
-..'G0S/r40kPx6brTMK240kP6UbRL/MvkgyCq8bRD/ljSQ/AAAAAAqAlnc/qLZEP4AzDL4KHQCAPwAAAADAYxSwCgAAwLMlAIA/+iKpMwrqBDU//AQ1PxKObTMK/QQ1v+oENT8qq+EyCgYFNT8GBTW/CHopMgoMBTU/DQU1PwAAAAAKAO7gPyCSLj8ANAy+CqwbRD/vjSQ/'
-..'ttSLMwrkjSS/uhtEP7dPgjMKgRtEP76NJL/gI/qwCr+NJD+BG0Q/AAAAAApAIuY/eOIAv4AzDL4KgJZ3P2CRU76ANAy+Cq+NJL+HG0Q/aZ8EMwqHG0Q/r40kP4TUizMK240kv6UbRD/MvkiyCrAbRD/jjSQ/AAAAAAqAU3W/QJFTvoA0DL4KqhtEv+mNJD/INlszCt6N'
-..'JD+1G0Q/LdKAMwp+G0S/u40kPwAAAAAKu40kP34bRD8AAAAACsAB5b9M4gC/ADQMvgocAIA/OqGEpoBjFLAKAACAsyQAgD/6IqkzCuoENb/9BDU/PYFYMwr8BDU/6QQ1P9uHETMKHAU1vxoFNT/IvkiyCiYFNT8mBTU/AAAAAArgzN+/SJEuPwA0DL4KHgCAPwAAADO8'
-..'vkiyCgAAAAAkAIA/uf9/MwqwjSS/hxtEPzUJAbIKhhtEP7CNJD/BG7OyCt+NJL+qG0Q/yL5Isgq0G0Q/6Y0kPwAAAAAKAFF1v9SzRD+ANAy+Ch0AgD9JKq2zyL5IMgpHKq2zJACAPwAAAAAKAACAP1NFS7OgDFUxCtJV4jIzAAA/u7NdvwoZAIA/03HYsphqzbIKbkVL'
-..'syAAAD8OtF0/CgD66L5AJwU+gNYjPgoeAIA/OADAM6ZfbjIKoo08tBAEaD9rYdi+CgEAgD8AAMCzAAAAswoAAMAzzANoP21h2D4KAP3ovsgf376g+0c/Cn7aPTPgA2g/DGHYvgoZAIA/wY8Ts6h6sLEKbkVLswUEaD+lYdg+CgAS7j7IH9++wPtHPwoAEu4+QCcFPoDW'
-..'Iz4KAAAAAM3MzL5mZia/MAEAAAIAAgADAAQABQABAAECAAIABgAEAAgACQACCAACAAoACwAMAA0ADgAPABAAEQASABMAFAAVABYAFwAYABkAAwEAGgAbAAkAAggAAgAcAAsAHQANAB4ADwAfACAAIQATACIAIwAhABUAJAAlAAUBAAIAJgAnAAUEAAIAKAApACoAKwAs'
-..'AC8AMAAnAAUEAAIAMQApADIAKwAzAC8AMAAnAAUEAAIANAApADUAKwA2AC8AMAAnAAUEAAIANwApADgAKwA5AC8AMAAnAAUEAAIAOgApADsAKwA8AC8AMAAJAAIHAAIAPQALAAwADQA+AD8AQAAPABAAEwBBABUAQgAJAAIHAAIAQwALAAwADQBEAD8AQAAPABAAEwBF'
-..'ABUAQgAJAAIIAAIARgBHABgACwBIAA0ASQA/AEAADwBKABMASwAVAEIACQACCAACAEwARwAYAAsASAANAE0APwBAAA8ASgATAE4AFQBCAE8AAgAAUAAQAABRABAGAFIAUwBUAFMAVQBTAFYAUwBXAFMAWABTAAkAAgoAAgBZAEcAGAALAFoADQAeAD8AQAAPAFsAEwAi'
-..'ABUAJAAXABgAXABdACcAEwQAAgBeACkAXwArAF8ALwAwAGAAAgwAUgBaAGEAYgBUAGMAZABTAFUAYwBlAFMAVgBjAGYAUwBXAGMAZwBTAFgAYwBoAFMAAQABAgACAGkABABqAAkAFgsAAgBrAEcAGAALAGwADQBtAA8AbgBvAHAAcQByABMAcwB0AHIAFQB1ABcAGAB2'
-..'ABcDAAIAdwApAHgAKwB5AAkAFgsAAgAuAEcAGAALAGwADQB6AA8AbgBvAHAAcQB7ABMAfAB0AHsAFQB9ABcAGAB2ABkDAAIAdwApAH4AKwB/AAkAFgsAAgCAAEcAGAALAGwADQCBAA8AbgBvAHAAcQCCABMAgwB0AIIAFQCEABcAGAB2ABsDAAIAdwApAIUAKwCGAAkA'
-..'FgsAAgCHAEcAGAALAGwADQCIAA8AbgBvAHAAcQByABMAiQB0AHIAFQB1ABcAGAB2AB0DAAIAdwApAHgAKwCKAAkAFgsAAgCLAEcAGAALAGwADQCMAA8AbgBvAHAAcQCNABMAjgB0AI8AFQB1ABcAGAB2AB8DAAIAdwApAJAAKwCRAAkAFgsAAgCSAEcAGAALAGwADQCT'
-..'AA8AbgBvAHAAcQCUABMAlQB0AJYAFQCEABcAGAB2ACEDAAIAdwApAJcAKwCYAAkAFgsAAgCZAEcAGAALAGwADQCaAA8AbgBvAHAAcQCbABMAnAB0AJ0AFQB9ABcAGAB2ACMDAAIAdwApAJ4AKwCfAAkAFgsAAgCgAEcAGAALAGwADQChAA8AbgBvAHAAcQCNABMAogB0'
-..'AI8AFQB1ABcAGAB2ACUDAAIAdwApAKMAKwCkAAkAFgsAAgClAEcAGAALAKYADQCnAA8AqABvAHAAcQCpABMAqgB0AKkAFQCrABcAGAB2ACcDAAIAdwApAKwAKwCtAAkAFgsAAgCuAEcAGAALAKYADQCvAA8AqABvAHAAcQCwABMAsQB0ALAAFQCyABcAGAB2ACkDAAIA'
-..'dwApALMAKwC0AAkAFgsAAgC1AEcAGAALAKYADQC2AA8AqABvAHAAcQCwABMAtwB0ALAAFQCyABcAGAB2ACsDAAIAdwApALgAKwC5AAkAFgsAAgC6AEcAGAALAKYADQC7AA8AqABvAHAAcQCpABMAvAB0AKkAFQCrABcAGAB2AC0DAAIAdwApAKwAKwC9AAkAFgkAAgC+'
-..'AEcAGAALAKYADQC/AA8AqABvAHAAEwDAABUAwQAXABgAdwAvAQApAMIAJwIHAAMHLQAFBy4ADQgtAAUILgAMCS0ABQkuAA8KLQAFCi4ADgstAAULLgADFC0AExQuAAUYLQAXGC4ALxotABkaLgAvHC0AGxwuAC8eLQAdHi4ALyAtAB8gLgAvIi0AISIuAC8kLQAjJC4A'
-..'LyYtACUmLgAvKC0AJyguAC8qLQApKi4ALywtACssLgAvLi0ALS4uAC8wLQAvMC4ABQ==')
-for _,obj in pairs(Objects) do
-	obj.Parent = script or workspace
-end
 
-end
+local jq = Instance.new("Part")
+ jq.Parent = game.Players.LocalPlayer.Character  
+jq.Anchored = true
+jq.CanCollide= false
+jq.Name = "CharacterTP"
+jq.CFrame = game.Players.LocalPlayer.Character.Torso.CFrame
+jq.Transparency = 1
+
+local args = {
+    [1] = "removeHats"
 }
-local ScriptIndex = 0
-local Scripts,ModuleScripts,ModuleCache = {},{},{}
-local _require = require
-function require(obj,...)
-	local index = ModuleScripts[obj]
-	if not index then
-		local a,b = pcall(_require,obj,...)
-		return not a and error(b,2) or b
-	end
-	
-	local res = ModuleCache[index]
-	if res then return res end
-	res = ScriptFunctions[index](obj,require)
-	if res==nil then error("Module code did not return exactly one value",2) end
-	ModuleCache[index] = res
-	return res
-end
-local function Script(obj,ismodule)
-	ScriptIndex = ScriptIndex + 1
-	local t = ismodule and ModuleScripts or Scripts
-	t[obj] = ScriptIndex
-end
 
-function RunScripts()
-	for script,index in pairs(Scripts) do
-		coroutine.wrap(ScriptFunctions[index])(script,require)
-	end
-end
+workspace.resources.RemoteEvent:FireServer(unpack(args))
+  
+  ch.HumanoidRootPart.CFrame = CFrame.new(-798.605835, -5.99868059, -426.678284, -0.759713292, -3.62488861e-09, -0.650258183, -1.08926179e-09, 1, -4.30192504e-09, 0.650258183, -2.55992827e-09, -0.759713292)
+  wait(0.5)
 
 
-local function Decode(str)
-	local StringLength = #str
-	
-	-- Base64 decoding
-	do
-		local decoder = {}
-		for b64code, char in pairs(('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='):split('')) do
-			decoder[char:byte()] = b64code-1
-		end
-		local n = StringLength
-		local t,k = table.create(math.floor(n/4)+1),1
-		local padding = str:sub(-2) == '==' and 2 or str:sub(-1) == '=' and 1 or 0
-		for i = 1, padding > 0 and n-4 or n, 4 do
-			local a, b, c, d = str:byte(i,i+3)
-			local v = decoder[a]*0x40000 + decoder[b]*0x1000 + decoder[c]*0x40 + decoder[d]
-			t[k] = string.char(bit32.extract(v,16,8),bit32.extract(v,8,8),bit32.extract(v,0,8))
-			k = k + 1
-		end
-		if padding == 1 then
-			local a, b, c = str:byte(n-3,n-1)
-			local v = decoder[a]*0x40000 + decoder[b]*0x1000 + decoder[c]*0x40
-			t[k] = string.char(bit32.extract(v,16,8),bit32.extract(v,8,8))
-		elseif padding == 2 then
-			local a, b = str:byte(n-3,n-2)
-			local v = decoder[a]*0x40000 + decoder[b]*0x1000
-			t[k] = string.char(bit32.extract(v,16,8))
-		end
-		str = table.concat(t)
-	end
-	
-	local Position = 1
-	local function Parse(fmt)
-		local Values = {string.unpack(fmt,str,Position)}
-		Position = table.remove(Values)
-		return table.unpack(Values)
-	end
-	
-	local Settings = Parse('B')
-	local Flags = Parse('B')
-	Flags = {
-		--[[ValueIndexByteLength]] bit32.extract(Flags,6,2)+1,
-		--[[InstanceIndexByteLength]] bit32.extract(Flags,4,2)+1,
-		--[[ConnectionsIndexByteLength]] bit32.extract(Flags,2,2)+1,
-		--[[MaxPropertiesLengthByteLength]] bit32.extract(Flags,0,2)+1,
-		--[[Use Double instead of Float]] bit32.band(Settings,0b1) > 0
-	}
-	
-	local ValueFMT = ('I'..Flags[1])
-	local InstanceFMT = ('I'..Flags[2])
-	local ConnectionFMT = ('I'..Flags[3])
-	local PropertyLengthFMT = ('I'..Flags[4])
-	
-	local ValuesLength = Parse(ValueFMT)
-	local Values = table.create(ValuesLength)
-	local CFrameIndexes = {}
-	
-	local ValueDecoders = {
-		--!!Start
-		[1] = function(Modifier)
-			return Parse('s'..Modifier)
-		end,
-		--!!Split
-		[2] = function(Modifier)
-			return Modifier ~= 0
-		end,
-		--!!Split
-		[3] = function()
-			return Parse('d')
-		end,
-		--!!Split
-		[4] = function(_,Index)
-			table.insert(CFrameIndexes,{Index,Parse(('I'..Flags[1]):rep(3))})
-		end,
-		--!!Split
-		[5] = {CFrame.new,Flags[5] and 'dddddddddddd' or 'ffffffffffff'},
-		--!!Split
-		[6] = {Color3.fromRGB,'BBB'},
-		--!!Split
-		[7] = {BrickColor.new,'I2'},
-		--!!Split
-		[8] = function(Modifier)
-			local len = Parse('I'..Modifier)
-			local kpts = table.create(len)
-			for i = 1,len do
-				kpts[i] = ColorSequenceKeypoint.new(Parse('f'),Color3.fromRGB(Parse('BBB')))
-			end
-			return ColorSequence.new(kpts)
-		end,
-		--!!Split
-		[9] = function(Modifier)
-			local len = Parse('I'..Modifier)
-			local kpts = table.create(len)
-			for i = 1,len do
-				kpts[i] = NumberSequenceKeypoint.new(Parse(Flags[5] and 'ddd' or 'fff'))
-			end
-			return NumberSequence.new(kpts)
-		end,
-		--!!Split
-		[10] = {Vector3.new,Flags[5] and 'ddd' or 'fff'},
-		--!!Split
-		[11] = {Vector2.new,Flags[5] and 'dd' or 'ff'},
-		--!!Split
-		[12] = {UDim2.new,Flags[5] and 'di2di2' or 'fi2fi2'},
-		--!!Split
-		[13] = {Rect.new,Flags[5] and 'dddd' or 'ffff'},
-		--!!Split
-		[14] = function()
-			local flags = Parse('B')
-			local ids = {"Top","Bottom","Left","Right","Front","Back"}
-			local t = {}
-			for i = 0,5 do
-				if bit32.extract(flags,i,1)==1 then
-					table.insert(t,Enum.NormalId[ids[i+1]])
-				end
-			end
-			return Axes.new(unpack(t))
-		end,
-		--!!Split
-		[15] = function()
-			local flags = Parse('B')
-			local ids = {"Top","Bottom","Left","Right","Front","Back"}
-			local t = {}
-			for i = 0,5 do
-				if bit32.extract(flags,i,1)==1 then
-					table.insert(t,Enum.NormalId[ids[i+1]])
-				end
-			end
-			return Faces.new(unpack(t))
-		end,
-		--!!Split
-		[16] = {PhysicalProperties.new,Flags[5] and 'ddddd' or 'fffff'},
-		--!!Split
-		[17] = {NumberRange.new,Flags[5] and 'dd' or 'ff'},
-		--!!Split
-		[18] = {UDim.new,Flags[5] and 'di2' or 'fi2'},
-		--!!Split
-		[19] = function()
-			return Ray.new(Vector3.new(Parse(Flags[5] and 'ddd' or 'fff')),Vector3.new(Parse(Flags[5] and 'ddd' or 'fff')))
-		end
-		--!!End
-	}
-	
-	for i = 1,ValuesLength do
-		local TypeAndModifier = Parse('B')
-		local Type = bit32.band(TypeAndModifier,0b11111)
-		local Modifier = (TypeAndModifier - Type) / 0b100000
-		local Decoder = ValueDecoders[Type]
-		if type(Decoder)=='function' then
-			Values[i] = Decoder(Modifier,i)
-		else
-			Values[i] = Decoder[1](Parse(Decoder[2]))
-		end
-	end
-	
-	for i,t in pairs(CFrameIndexes) do
-		Values[t[1]] = CFrame.fromMatrix(Values[t[2]],Values[t[3]],Values[t[4]])
-	end
-	
-	local InstancesLength = Parse(InstanceFMT)
-	local Instances = {}
-	local NoParent = {}
-	
-	for i = 1,InstancesLength do
-		local ClassName = Values[Parse(ValueFMT)]
-		local obj
-		local MeshPartMesh,MeshPartScale
-		if ClassName == "UnionOperation" then
-			obj = DecodeUnion(Values,Flags,Parse)
-			obj.UsePartColor = true
-		elseif ClassName:find("Script") then
-			obj = Instance.new("Folder")
-			Script(obj,ClassName=='ModuleScript')
-		elseif ClassName == "MeshPart" then
-			obj = Instance.new("Part")
-			MeshPartMesh = Instance.new("SpecialMesh")
-			MeshPartMesh.MeshType = Enum.MeshType.FileMesh
-			MeshPartMesh.Parent = obj
-		else
-			obj = Instance.new(ClassName)
-		end
-		local Parent = Instances[Parse(InstanceFMT)]
-		local PropertiesLength = Parse(PropertyLengthFMT)
-		local AttributesLength = Parse(PropertyLengthFMT)
-		Instances[i] = obj
-		for i = 1,PropertiesLength do
-			local Prop,Value = Values[Parse(ValueFMT)],Values[Parse(ValueFMT)]
-			
-			-- ok this looks awful
-			if MeshPartMesh then
-				if Prop == "MeshId" then
-					MeshPartMesh.MeshId = Value
-					continue
-				elseif Prop == "TextureID" then
-					MeshPartMesh.TextureId = Value
-					continue
-				elseif Prop == "Size" then
-					if not MeshPartScale then
-						MeshPartScale = Value
-					else
-						MeshPartMesh.Scale = Value / MeshPartScale
-					end
-				elseif Prop == "MeshSize" then
-					if not MeshPartScale then
-						MeshPartScale = Value
-						MeshPartMesh.Scale = obj.Size / Value
-					else
-						MeshPartMesh.Scale = MeshPartScale / Value
-					end
-					continue
-				end
-			end
-			
-			obj[Prop] = Value
-		end
-		if MeshPartMesh then
-			if MeshPartMesh.MeshId=='' then
-				if MeshPartMesh.TextureId=='' then
-					MeshPartMesh.TextureId = 'rbxasset://textures/meshPartFallback.png'
-				end
-				MeshPartMesh.Scale = obj.Size
-			end
-		end
-		for i = 1,AttributesLength do
-			obj:SetAttribute(Values[Parse(ValueFMT)],Values[Parse(ValueFMT)])
-		end
-		if not Parent then
-			table.insert(NoParent,obj)
-		else
-			obj.Parent = Parent
-		end
-	end
-	
-	local ConnectionsLength = Parse(ConnectionFMT)
-	for i = 1,ConnectionsLength do
-		local a,b,c = Parse(InstanceFMT),Parse(ValueFMT),Parse(InstanceFMT)
-		Instances[a][Values[b]] = Instances[c]
-	end
-	
-	return NoParent
-end
+
+  local hg = Instance.new("Part")
+  hg.Anchored = true
+  hg.Size = Vector3.new(10, 10, 10 )
+  hg.Transparency = 1
+  hg.CanCollide = false
+  hg.Name = "Heed"
+  hg.Parent = game.Workspace
+  hg.Position = Vector3.new(0,3, 0)
+
+  local jbb = Instance.new("Weld")
+  jbb.Parent = ch.HumanoidRootPart
+  jbb.Part0 = ch.HumanoidRootPart
+  jbb.Part1 = game.Workspace.Heed
+  wait(0.5)
+  game.Workspace.Heed.Anchored = false
+game.Workspace.Heed.CanTouch = false
 
 
-local Objects = Decode('AAADIQZTY3JpcHQhBE5hbWUhF1JpZyBBY2Nlc3NvcnlfQ29udmVydGVkAQEAAQACAwA='
-..'')
-for _,obj in pairs(Objects) do
-	obj.Parent = script or workspace
 
-print("HEHEHE")
+ch["Torso"].Transparency = 1
+ch["Head"].Transparency = 1
+ch["Left Arm"].Transparency = 1
+ch["Left Leg"].Transparency = 1
+ch["Right Arm"].Transparency = 1
+ch["Right Leg"].Transparency = 1
 
-end
+local unn = false
 
-print("UPDATE")
+ch["Torso"].CanTouch = unn
+ch["Head"].CanTouch = unn
+ch["Left Arm"].CanTouch = unn
+ch["Left Leg"].CanTouch = unn
+ch["Right Arm"].CanTouch = unn
+ch["Right Leg"].CanTouch = unn
 
-RunScripts()
+
+--local COLOR = BrickColor.new("Institutional white")
+local COLOR = BrickColor.new("Really black")
+
+
+local char = a
+
+local  b =  Instance.new("Part")
+  b.Size = Vector3.new(1, 2, 1)
+  b.Parent = char
+  b.Material = Enum.Material.SmoothPlastic 
+  b.CFrame = CFrame.new(53.3276939, 31.9998913, 46.1082077, 0.996468008, 1.48048471e-08, -0.0839731619, -1.69365073e-08, 1, -2.46726568e-08, 0.0839731619, 2.60077258e-08, 0.996468008)
+  b.BrickColor = COLOR
+  b.Transparency = 0
+  b.CanCollide = true
+  b.CanTouch = false
+  b.Anchored = an
+  b.Shape = Enum.PartType.Block
+   b.Name = "Right Leg"
+  
+  local c =  Instance.new("Part")
+  c.Size = Vector3.new(1, 2, 1)
+  c.Parent = char
+  c.Material = Enum.Material.SmoothPlastic 
+  c.CFrame = CFrame.new(54.3341713, 34.0065193, 45.9404984, 0.996407032, 0.00123191602, -0.0846849456, -0.00112677983, 0.99999851, 0.00128928339, 0.0846864134, -0.00118922954, 0.996406972)
+  c.BrickColor = COLOR
+  c.Transparency = 0
+  c.CanCollide = true
+  c.CanTouch = false
+  c.Anchored = an
+  c.Shape = Enum.PartType.Block
+  c.Name = "Right Arm"
+  
+  local d =  Instance.new("Part")
+  d.Size = Vector3.new(1, 2, 1)
+  d.Parent = char
+  d.Material = Enum.Material.SmoothPlastic 
+  d.CFrame = CFrame.new(52.3291588, 32.0002899, 46.0488167, 0.996468008, 0.00207173661, -0.0839475989, 1.17681136e-08, 0.999695599, 0.0246715527, 0.0839731619, -0.0245844144, 0.99616468)
+  d.BrickColor = COLOR
+  d.Transparency = 0
+  d.CanCollide = true
+  d.CanTouch = false
+  d.Anchored = an
+  d.Shape = Enum.PartType.Block
+  d.Name = "Left Leg"
+  
+  local e =  Instance.new("Part")
+  e.Size = Vector3.new(1, 2, 1)
+  e.Parent = char
+  e.Material = Enum.Material.SmoothPlastic 
+  e.CFrame = CFrame.new(51.3341713, 34.0065193, 45.9404984, 0.996407032, 0.00123191602, -0.0846849456, -0.00112677983, 0.99999851, 0.00128928327, 0.0846864134, -0.00118922943, 0.996406972)
+  e.BrickColor = COLOR
+  e.Transparency = 0
+  e.CanCollide = true
+  e.CanTouch = false
+  e.Anchored = an
+  e.Shape = Enum.PartType.Block
+  e.Name = "Left Arm"
+  
+  local f =  Instance.new("Part")
+  f.Size = Vector3.new(2, 2, 1)
+  f.Parent = char
+  f.Material = Enum.Material.SmoothPlastic 
+  f.CFrame = CFrame.new(52.8294601, 33.9800339, 46.0662193, 0.996468008, 1.37282683e-08, -0.0839731619, -1.57045132e-08, 1, -2.28736994e-08, 0.0839731619, 2.41116673e-08, 0.996468008)
+  f.BrickColor = COLOR
+  f.Transparency = 0
+  f.CanCollide = true
+  f.CanTouch = false
+ f.Anchored = an
+  f.Shape = Enum.PartType.Block
+  f.Name = "Torso"
+  
+  local g =  Instance.new("Part")
+  g.Size = Vector3.new(1.2999999523162842, 2, 1.600000023841858)
+  g.Parent = char
+ g.Material = Enum.Material.SmoothPlastic 
+ g.Position = Vector3.new(52.829612731933594, 35.47393035888672, 46.06440353393555)
+  g.BrickColor = COLOR
+ g.Transparency = 0
+ g.CanCollide = true
+  g.CanTouch = false
+ g.Anchored = an
+ g.Shape = Enum.PartType.Cylinder
+  g.Name = "Head"
+
+
+
+ b.Anchored = am
+
+ c.Anchored = am
+
+ d.Anchored = am
+
+ e.Anchored = am
+
+ f.Anchored = am
+
+ g.Anchored = am
+
+ 
+
+
+ local n1 = Instance.new("Weld")
+ n1.Parent = workspace
+ n1.Part1 = ch["Left Arm"]
+ n1.Part0 = ch.SoldierOfGod["Left Arm"]
+ 
+ local n2 = Instance.new("Weld")
+ n2.Parent = workspace
+ n2.Part1 = ch["Right Arm"]
+ n2.Part0 = 	ch.SoldierOfGod["Right Arm"]
+ 
+ 
+ local n3 = Instance.new("Weld")
+ n3.Parent = workspace
+ n3.Part1 = ch["Left Leg"]
+ n3.Part0 = ch.SoldierOfGod["Left Leg"]
+ 
+ 
+ local n4 = Instance.new("Weld")
+ n4.Parent = workspace
+ n4.Part1 = ch["Right Leg"]
+ n4.Part0 = ch.SoldierOfGod["Right Leg"]
+ 
+ 
+ local n5 = Instance.new("Weld")
+ n5.Parent = workspace
+ n5.Part1 = ch.Torso
+ n5.Part0 = 	ch.SoldierOfGod["Torso"]
+ 
+ 
+ local n6 = Instance.new("Weld")
+ n6.Parent = workspace
+ n6.Part1 = ch.Head
+ n6.Part0 = ch.SoldierOfGod["Head"]
+
+wait(2)
+-------------------------------------
+-----------ACCESSORY-----------------
+-------------------------------------
+local sz1 = Vector3.new(1.3949999809265137, 0.4950000047683716, 0.17000000178813934)
+local sz2 = Vector3.new(0.4299999475479126, 1.1549999713897705, 0.60999995470047)
+local bcolor1 = BrickColor.new("Really black")
+local bcolor2 = BrickColor.new("Maroon")
+l
+
+
+local a = Instance.new("Model")
+a.Parent = char
+a.Name = "SpiderBackAccessory"
+
+local main = Instance.new("Part")
+main.Parent = a
+main.CFrame = CFrame.new(60.4650078, 3.4000001, 16.3499966, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+main.BrickColor = bcolor1
+main.Size = Vector3.new(0.619999885559082, 0.8949999809265137, 0.28999996185302734)
+main.CanCollide = true
+main.Anchored = false
+main.Name = "Main"
+main.Material = Enum.Material.SmoothPlastic
+main.Shape = Enum.PartType.Block
+
+
+local pt1 = Instance.new("Part")
+pt1.Parent = a
+pt1.CFrame = CFrame.new(62.222271, 4.08191729, 16.2130795, 0.707106233, -0.707107306, 1.04046061e-08, 0.707107306, 0.707106292, -7.87600243e-08, 4.8334627e-08, 6.3048887e-08, 1)
+pt1.BrickColor = bcolor2
+pt1.Size = Vector3.new(0.40999993681907654, 1.8199999332427979, 0.17000000178813934)
+pt1.CanCollide = true
+pt1.Anchored = false
+pt1.Name = "Part1"
+pt1.Material = Enum.Material.SmoothPlastic
+pt1.Shape = Enum.PartType.Block
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt1
+
+
+local pt2 = Instance.new("Part")
+pt2.Parent = a
+pt2.CFrame = CFrame.new(62.262928, 2.89654446, 16.2130814, 0.766047239, -0.642790079, -1.28017885e-09, 0.642790735, 0.766048074, -7.87600314e-08, 5.16068823e-08, 5.95110876e-08, 1)
+pt2.BrickColor = bcolor2
+pt2.Size = Vector3.new(0.4899999499320984, 2.174999952316284, 0.17000000178813934)
+pt2.CanCollide = true
+pt2.Anchored = false
+pt2.Name = "Part2"
+pt2.Material = Enum.Material.SmoothPlastic
+pt2.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt2
+
+
+
+
+local pt3 = Instance.new("Part")
+pt3.Parent = a
+pt3.CFrame = CFrame.new(61.432148, 3.19339085, 16.2130775, 0.64278686, -0.766045153, 1.22246391e-08, 0.766045034, 0.64278692, -7.87600243e-08, 5.24758903e-08, 5.99905405e-08, 1)
+pt3.BrickColor = bcolor2
+pt3.Size = Vector3.new(1.3949999809265137, 0.4950000047683716, 0.17000000178813934)
+pt3.CanCollide = true
+pt3.Anchored = false
+pt3.Name = "Part3"
+pt3.Material = Enum.Material.SmoothPlastic
+pt3.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt3
+
+
+
+
+local pt4 = Instance.new("Part")
+pt4.Parent = a
+pt4.CFrame = CFrame.new(61.432148, 4.16841221, 16.2130814, 0.64278686, -0.766045153, 1.22246391e-08, 0.766045034, 0.64278692, -7.87600243e-08, 5.24758903e-08, 5.99905405e-08, 1)
+pt4.BrickColor = bcolor2
+pt4.Size = Vector3.new(1.3949999809265137, 0.4950000047683716, 0.17000000178813934)
+pt4.CanCollide = true
+pt4.Anchored = false
+pt4.Name = "Part4"
+pt4.Material = Enum.Material.SmoothPlastic
+pt4.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt4
+
+
+
+
+local pt5 = Instance.new("Part")
+pt5.Parent = a
+pt5.CFrame = CFrame.new(59.5067024, 3.19339132, 16.2130775, -0.64278692, 0.766045034, -1.22246444e-08, 0.766045034, 0.64278692, 7.87600314e-08, 6.81915751e-08, 4.12612913e-08, -1)
+pt5.BrickColor = bcolor2
+pt5.Size = Vector3.new(1.3949999809265137, 0.4950000047683716, 0.17000000178813934)
+pt5.CanCollide = true
+pt5.Anchored = false
+pt5.Name = "Part5"
+pt5.Material = Enum.Material.SmoothPlastic
+pt5.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt5
+
+
+
+
+local pt6 = Instance.new("Part")
+pt6.Parent = a
+pt6.CFrame = CFrame.new(58.6758919, 2.89654708, 16.2130795, -0.76604712, 0.642789721, -5.39833067e-10, 0.642790377, 0.766047776, 7.87600385e-08, 5.10397342e-08, 5.99869594e-08, -1)
+pt6.BrickColor = bcolor2
+pt6.Size = Vector3.new(0.4899999499320984, 2.174999952316284, 0.17000000178813934)
+pt6.CanCollide = true
+pt6.Anchored = false
+pt6.Name = "Part6"
+pt6.Material = Enum.Material.SmoothPlastic
+pt6.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt6
+
+
+
+
+local pt7 = Instance.new("Part")
+pt7.Parent = a
+pt7.CFrame = CFrame.new(58.716568, 4.08190441, 16.2130795, -0.707106233, 0.707107365, -2.33696476e-08, 0.707107365, 0.707106233, 5.96041332e-08, 5.86713469e-08, 2.56216044e-08, -1)
+pt7.BrickColor = bcolor2
+pt7.Size = Vector3.new(0.40999993681907654, 1.8199999332427979, 0.17000000178813934)
+pt7.CanCollide = true
+pt7.Anchored = false
+pt7.Name = "Part7"
+pt7.Material = Enum.Material.SmoothPlastic
+pt7.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt7
+
+
+
+
+local pt8 = Instance.new("Part")
+pt8.Parent = a
+pt8.CFrame = CFrame.new(59.5067406, 4.16836929, 16.2130775, -0.64278698, 0.766044974, 8.14195038e-14, 0.766045034, 0.64278698, 1.07232465e-15, -5.15139418e-14, 6.30602816e-14, -1)
+pt8.BrickColor = bcolor2
+pt8.Size = Vector3.new(1.3949999809265137, 0.4950000047683716, 0.17000000178813934)
+pt8.CanCollide = true
+pt8.Anchored = false
+pt8.Name = "Part8"
+pt8.Material = Enum.Material.SmoothPlastic
+pt8.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt8
+
+
+
+
+local pt9 = Instance.new("Part")
+pt9.Parent = a
+pt9.CFrame = CFrame.new(60.0099525, 2.96421075, 17.1311798, 1.00000358, -1.70665658e-07, -6.70981848e-08, 8.94073651e-08, 0.906311989, 0.422620118, -1.13147678e-08, -0.42261821, 0.906307876)
+pt9.BrickColor = bcolor1
+pt9.Size = sz2
+pt9.CanCollide = true
+pt9.Anchored = false
+pt9.Name = "Part9"
+pt9.Material = Enum.Material.SmoothPlastic
+pt9.Shape = Enum.PartType.Block
+
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt9
+
+
+
+local pt10 = Instance.new("Part")
+pt10.Parent = a
+pt10.CFrame = CFrame.new(60.9299889, 2.96421075, 17.1311817, 1, 3.84963741e-08, 2.94311704e-08, -4.73276707e-08, 0.906309247, 0.422615379, -1.04045856e-08, -0.422615379, 0.906309187)
+pt10.BrickColor = bcolor1
+pt10.Size = sz2
+pt10.CanCollide = true
+pt10.Anchored = false
+pt10.Name = "Part10"
+pt10.Material = Enum.Material.SmoothPlastic
+pt10.Shape = Enum.PartType.Block
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt10
+
+
+
+
+local pt11 = Instance.new("Part")
+pt11.Parent = a
+pt11.CFrame = CFrame.new(60.9299889, 3.53003263, 16.5099945, 1, 1.46533656e-08, 4.61892178e-08, -4.73276707e-08, 0.500003159, 0.86602366, -1.0404591e-08, -0.86602366, 0.500003159)
+pt11.BrickColor = bcolor1
+pt11.Size = sz2
+pt11.CanCollide = true
+pt11.Anchored = false
+pt11.Name = "Part11"
+pt11.Material = Enum.Material.SmoothPlastic
+pt11.Shape = Enum.PartType.Block
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt11
+
+
+
+
+
+local pt12 = Instance.new("Part")
+pt12.Parent = a
+pt12.CFrame = CFrame.new(60.0099754, 3.53003263, 16.5099945, 1, 1.46533656e-08, 4.61892178e-08, -4.73276707e-08, 0.500003159, 0.86602366, -1.0404591e-08, -0.86602366, 0.500003159)
+pt12.BrickColor = bcolor1
+pt12.Size = sz2
+pt12.CanCollide = true
+pt12.Anchored = false
+pt12.Name = "Part12"
+pt12.Material = Enum.Material.SmoothPlastic
+pt12.Shape = Enum.PartType.Block
+
+
+
+local w = Instance.new("WeldConstraint")
+w.Parent = a
+w.Part0 = main
+w.Part1 = pt12
+
+
+
+local w = Instance.new("Weld")
+w.Parent = a
+w.Part0 = main
+w.Part1 = char.Torso
+w.C0 = CFrame.new(0, -0.400000006, -0.649999976, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+
+
+local function FEAccessory()
+
+    _G.Elite = true
+    while _G.Elite == true do
+        wait()
+  
+    local p = main
+     local pos = p.Position 
+    local tbl = {
+          ["CanCollide"] = true,
+        
+          ["Parent"] = workspace,
+          ["Anchored"] = true,
+          ["Name"] = "Part",
+          ["CastShadow"] = false,
+          ["Transparency"] = 1,
+          ["RotVelocity"] = Vector3.new(0,0,0),
+          ["Position"] = p,
+          ["BrickColor"] = bcolor1,
+          ["Material"] = Enum.Material.SmoothPlastic,
+          ["Shape"] = Enum.PartType.Block,
+          ["Size"] = p.Size,
+        ["Rotation"] = p.Rotation,
+      }
+      
+      workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+
+  
+
+      local p = pt1
+      local pos = p.Position 
+     local tbl = {
+           ["CanCollide"] = true,
+         
+           ["Parent"] = workspace,
+           ["Anchored"] = true,
+           ["Name"] = "Part",
+           ["CastShadow"] = false,
+           ["Transparency"] = 1,
+           ["RotVelocity"] = Vector3.new(0,0,0),
+           ["Position"] = p,
+           ["BrickColor"] = bcolor2,
+           ["Material"] = Enum.Material.SmoothPlastic,
+           ["Shape"] = Enum.PartType.Block,
+           ["Size"] = p.Size,
+         ["Rotation"] = p.Rotation,
+       }
+       
+       workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+ 
+ 
+ 
+
+  
+
+       local p = pt2
+       local pos = p.Position 
+      local tbl = {
+            ["CanCollide"] = true,
+          
+            ["Parent"] = workspace,
+            ["Anchored"] = true,
+            ["Name"] = "Part",
+            ["CastShadow"] = false,
+            ["Transparency"] = 1,
+            ["RotVelocity"] = Vector3.new(0,0,0),
+            ["Position"] = p,
+            ["BrickColor"] = bcolor2,
+            ["Material"] = Enum.Material.SmoothPlastic,
+            ["Shape"] = Enum.PartType.Block,
+            ["Size"] = p.Size,
+          ["Rotation"] = p.Rotation,
+        }
+        
+        workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+  
+  
+  
+
+  
+
+        local p = pt3
+        local pos = p.Position 
+       local tbl = {
+             ["CanCollide"] = true,
+           
+             ["Parent"] = workspace,
+             ["Anchored"] = true,
+             ["Name"] = "Part",
+             ["CastShadow"] = false,
+             ["Transparency"] = 1,
+             ["RotVelocity"] = Vector3.new(0,0,0),
+             ["Position"] = p,
+             ["BrickColor"] = bcolor2,
+             ["Material"] = Enum.Material.SmoothPlastic,
+             ["Shape"] = Enum.PartType.Block,
+             ["Size"] = p.Size,
+           ["Rotation"] = p.Rotation,
+         }
+         
+         workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+   
+   
+   
+
+  
+
+         local p = pt4
+         local pos = p.Position 
+        local tbl = {
+              ["CanCollide"] = true,
+            
+              ["Parent"] = workspace,
+              ["Anchored"] = true,
+              ["Name"] = "Part",
+              ["CastShadow"] = false,
+              ["Transparency"] = 1,
+              ["RotVelocity"] = Vector3.new(0,0,0),
+              ["Position"] = p,
+              ["BrickColor"] = bcolor2,
+              ["Material"] = Enum.Material.SmoothPlastic,
+              ["Shape"] = Enum.PartType.Block,
+              ["Size"] = p.Size,
+            ["Rotation"] = p.Rotation,
+          }
+          
+          workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+    
+    
+    
+
+  
+
+          local p = pt5
+          local pos = p.Position 
+         local tbl = {
+               ["CanCollide"] = true,
+             
+               ["Parent"] = workspace,
+               ["Anchored"] = true,
+               ["Name"] = "Part",
+               ["CastShadow"] = false,
+               ["Transparency"] = 1,
+               ["RotVelocity"] = Vector3.new(0,0,0),
+               ["Position"] = p,
+               ["BrickColor"] = bcolor2,
+               ["Material"] = Enum.Material.SmoothPlastic,
+               ["Shape"] = Enum.PartType.Block,
+               ["Size"] = p.Size,
+             ["Rotation"] = p.Rotation,
+           }
+           
+           workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+     
+     
+     
+
+  
+
+           local p = pt6
+           local pos = p.Position 
+          local tbl = {
+                ["CanCollide"] = true,
+              
+                ["Parent"] = workspace,
+                ["Anchored"] = true,
+                ["Name"] = "Part",
+                ["CastShadow"] = false,
+                ["Transparency"] = 1,
+                ["RotVelocity"] = Vector3.new(0,0,0),
+                ["Position"] = p,
+                ["BrickColor"] = bcolor2,
+                ["Material"] = Enum.Material.SmoothPlastic,
+                ["Shape"] = Enum.PartType.Block,
+                ["Size"] = p.Size,
+              ["Rotation"] = p.Rotation,
+            }
+            
+            workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+      
+      
+      
+
+  
+
+            local p = pt7
+            local pos = p.Position 
+           local tbl = {
+                 ["CanCollide"] = true,
+               
+                 ["Parent"] = workspace,
+                 ["Anchored"] = true,
+                 ["Name"] = "Part",
+                 ["CastShadow"] = false,
+                 ["Transparency"] = 1,
+                 ["RotVelocity"] = Vector3.new(0,0,0),
+                 ["Position"] = p,
+                 ["BrickColor"] = bcolor2,
+                 ["Material"] = Enum.Material.SmoothPlastic,
+                 ["Shape"] = Enum.PartType.Block,
+                 ["Size"] = p.Size,
+               ["Rotation"] = p.Rotation,
+             }
+             
+             workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+       
+       
+       
+
+  
+
+             local p = pt8
+             local pos = p.Position 
+            local tbl = {
+                  ["CanCollide"] = true,
+                
+                  ["Parent"] = workspace,
+                  ["Anchored"] = true,
+                  ["Name"] = "Part",
+                  ["CastShadow"] = false,
+                  ["Transparency"] = 1,
+                  ["RotVelocity"] = Vector3.new(0,0,0),
+                  ["Position"] = p,
+                  ["BrickColor"] = bcolor2,
+                  ["Material"] = Enum.Material.SmoothPlastic,
+                  ["Shape"] = Enum.PartType.Block,
+                  ["Size"] = p.Size,
+                ["Rotation"] = p.Rotation,
+              }
+              
+              workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+        
+        
+        
+
+  
+
+              local p = pt9
+              local pos = p.Position 
+             local tbl = {
+                   ["CanCollide"] = true,
+                 
+                   ["Parent"] = workspace,
+                   ["Anchored"] = true,
+                   ["Name"] = "Part",
+                   ["CastShadow"] = false,
+                   ["Transparency"] = 1,
+                   ["RotVelocity"] = Vector3.new(0,0,0),
+                   ["Position"] = p,
+                   ["BrickColor"] = bcolor1,
+                   ["Material"] = Enum.Material.SmoothPlastic,
+                   ["Shape"] = Enum.PartType.Block,
+                   ["Size"] = p.Size,
+                 ["Rotation"] = p.Rotation,
+               }
+               
+               workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+         
+         
+         
+
+  
+
+               local p = pt10
+               local pos = p.Position 
+              local tbl = {
+                    ["CanCollide"] = true,
+                  
+                    ["Parent"] = workspace,
+                    ["Anchored"] = true,
+                    ["Name"] = "Part",
+                    ["CastShadow"] = false,
+                    ["Transparency"] = 1,
+                    ["RotVelocity"] = Vector3.new(0,0,0),
+                    ["Position"] = p,
+                    ["BrickColor"] = bcolor1,
+                    ["Material"] = Enum.Material.SmoothPlastic,
+                    ["Shape"] = Enum.PartType.Block,
+                    ["Size"] = p.Size,
+                  ["Rotation"] = p.Rotation,
+                }
+                
+                workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+          
+          
+          
+
+  
+
+                local p = pt11
+                local pos = p.Position 
+               local tbl = {
+                     ["CanCollide"] = true,
+                   
+                     ["Parent"] = workspace,
+                     ["Anchored"] = true,
+                     ["Name"] = "Part",
+                     ["CastShadow"] = false,
+                     ["Transparency"] = 1,
+                     ["RotVelocity"] = Vector3.new(0,0,0),
+                     ["Position"] = p,
+                     ["BrickColor"] = bcolor1,
+                     ["Material"] = Enum.Material.SmoothPlastic,
+                     ["Shape"] = Enum.PartType.Block,
+                     ["Size"] = p.Size,
+                   ["Rotation"] = p.Rotation,
+                 }
+                 
+                 workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+           
+           
+           
+
+  
+
+                 local p = pt12
+                 local pos = p.Position 
+                local tbl = {
+                      ["CanCollide"] = true,
+                    
+                      ["Parent"] = workspace,
+                      ["Anchored"] = true,
+                      ["Name"] = "Part",
+                      ["CastShadow"] = false,
+                      ["Transparency"] = 1,
+                      ["RotVelocity"] = Vector3.new(0,0,0),
+                      ["Position"] = p,
+                      ["BrickColor"] = bcolor1,
+                      ["Material"] = Enum.Material.SmoothPlastic,
+                      ["Shape"] = Enum.PartType.Block,
+                      ["Size"] = p.Size,
+                    ["Rotation"] = p.Rotation,
+                  }
+                  
+                  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+            
+                end
+            end
+            local function FECharacter()
+
+                _G.CharacterFE = true
+                while _G.CharacterFE == true do
+                    wait()
+              
+
+
+
+
+
+                local p = b
+                 local pos = p.Position 
+                local tbl = {
+                      ["CanCollide"] = true,
+                    
+                      ["Parent"] = workspace,
+                      ["Anchored"] = true,
+                      ["Name"] = "Part",
+                      ["CastShadow"] = false,
+                      ["Transparency"] = 1,
+                      ["RotVelocity"] = Vector3.new(0,0,0),
+                      ["Position"] = p,
+                      ["BrickColor"] = BrickColor.new("Dark stone grey"),
+                      ["Material"] = Enum.Material.SmoothPlastic,
+                      ["Shape"] = p.Shape,
+                      ["Size"] = p.Size,
+                    ["Rotation"] = p.Rotation,
+                  }
+                  
+                  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+
+
+
+
+
+
+                    
+                local p = c
+                 local pos = p.Position 
+                local tbl = {
+                      ["CanCollide"] = true,
+                    
+                      ["Parent"] = workspace,
+                      ["Anchored"] = true,
+                      ["Name"] = "Part",
+                      ["CastShadow"] = false,
+                      ["Transparency"] = 1,
+                      ["RotVelocity"] = Vector3.new(0,0,0),
+                      ["Position"] = p,
+                      ["BrickColor"] = BrickColor.new("Dark stone grey"),
+                      ["Material"] = Enum.Material.SmoothPlastic,
+                      ["Shape"] = p.Shape,
+                      ["Size"] = p.Size,
+                    ["Rotation"] = p.Rotation,
+                  }
+                  
+                  workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+
+
+
+
+
+
+
+
+
+
+                    
+                  local p = d
+                  local pos = p.Position 
+                 local tbl = {
+                       ["CanCollide"] = true,
+                     
+                       ["Parent"] = workspace,
+                       ["Anchored"] = true,
+                       ["Name"] = "Part",
+                       ["CastShadow"] = false,
+                       ["Transparency"] = 1,
+                       ["RotVelocity"] = Vector3.new(0,0,0),
+                       ["Position"] = p,
+                       ["BrickColor"] = BrickColor.new("Dark stone grey"),
+                       ["Material"] = Enum.Material.SmoothPlastic,
+                       ["Shape"] = p.Shape,
+                       ["Size"] = p.Size,
+                     ["Rotation"] = p.Rotation,
+                   }
+                   
+                   workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+                    
+                   local p = e
+                   local pos = p.Position 
+                  local tbl = {
+                        ["CanCollide"] = true,
+                      
+                        ["Parent"] = workspace,
+                        ["Anchored"] = true,
+                        ["Name"] = "Part",
+                        ["CastShadow"] = false,
+                        ["Transparency"] = 1,
+                        ["RotVelocity"] = Vector3.new(0,0,0),
+                        ["Position"] = p,
+                        ["BrickColor"] = BrickColor.new("Dark stone grey"),
+                        ["Material"] = Enum.Material.SmoothPlastic,
+                        ["Shape"] = p.Shape,
+                        ["Size"] = p.Size,
+                      ["Rotation"] = p.Rotation,
+                    }
+                    
+                    workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+  
+  
+  
+  
+  
+
+
+
+
+
+                    
+                    local p = f
+                    local pos = p.Position 
+                   local tbl = {
+                         ["CanCollide"] = true,
+                       
+                         ["Parent"] = workspace,
+                         ["Anchored"] = true,
+                         ["Name"] = "Part",
+                         ["CastShadow"] = false,
+                         ["Transparency"] = 1,
+                         ["RotVelocity"] = Vector3.new(0,0,0),
+                         ["Position"] = p,
+                         ["BrickColor"] = BrickColor.new("Dark stone grey"),
+                         ["Material"] = Enum.Material.SmoothPlastic,
+                         ["Shape"] = p.Shape,
+                         ["Size"] = p.Size,
+                       ["Rotation"] = p.Rotation,
+                     }
+                     
+                     workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+   
+   
+   
+   
+   
+
+
+
+
+
+                    
+                     local p = g
+                     local pos = p.Position 
+                    local tbl = {
+                          ["CanCollide"] = true,
+                        
+                          ["Parent"] = workspace,
+                          ["Anchored"] = true,
+                          ["Name"] = "Part",
+                          ["CastShadow"] = false,
+                          ["Transparency"] = 1,
+                          ["RotVelocity"] = Vector3.new(0,0,0),
+                          ["Position"] = p,
+                          ["BrickColor"] = BrickColor.new("Dark stone grey"),
+                          ["Material"] = Enum.Material.SmoothPlastic,
+                          ["Shape"] = p.Shape,
+                          ["Size"] = p.Size,
+                        ["Rotation"] = p.Rotation,
+                      }
+                      
+                      workspace.resources.RemoteEvent:FireServer("FireOtherClients", "drawLaser", p, p,  tbl)
+    
+    
+    
+    
+    
+          
+
+            end
+        end
+            
+                                                                              
+
+
+wait(2)
+
+
+
+        coroutine.wrap(FECharacter)
+coroutine.wrap(FEAccessory)
+
+
+
+
