@@ -866,7 +866,7 @@ tool.Activated:connect(function()
     end
     if target then --your code down here:
 
-
+        local cm = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 
 
 
@@ -907,9 +907,9 @@ local args = {
         game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
 
 wait(0.3)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cm
 
-game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
 
 game.Players.LocalPlayer.Character["Click Kill"].Parent = game.Players.LocalPlayer.Backpack
 game.Players.LocalPlayer.Backpack["Click Kill"].Parent = game.Players.LocalPlayer.Character
@@ -920,13 +920,7 @@ end
 end
 workspace.FallenPartsDestroyHeight = -50000
 local plr =  game.Players.LocalPlayer
-local pt = Instance.new("Part")
- pt.Parent = plr.Character
-pt.Anchored = true
-pt.CanCollide= false
-pt.Name = "FixedTP"
-pt.CFrame = plr.Character.HumanoidRootPart.CFrame
-pt.Transparency = 1
+
 local args = {
         [1] = "Shopping Cart",
 [2] = false
@@ -962,20 +956,16 @@ local plr = game.Players.LocalPlayer
 	tool.CanBeDropped = false
 	tool.RequiresHandle = false
 	tool.Activated:connect(function()
-
-
-local pt = Instance.new("Part")
- pt.Parent = plr.Character
-pt.Anchored = true
-pt.CanCollide= false
-pt.Name = "FixedTP"
-pt.CFrame = plr.Character.HumanoidRootPart.CFrame
-
+        local cm = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local lookV = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector
 local pos = mouse.Hit+Vector3.new(0, 3, 0)
 			pos = Vector3.new(pos.X, pos.Y, pos.Z)
-game.Players.LocalPlayer.Character.FixedTP.Position = pos
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
-game.Players.LocalPlayer.Character.FixedTP:Destroy()
+            local lookAtPoint = pos + lookV
+            
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos, lookAtPoint)
+
 end)
 
 wait()
