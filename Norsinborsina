@@ -12,7 +12,7 @@ local Trap = Instance.new("TextButton")
 local Cart = Instance.new("TextButton")
 local AvatarChanger = Instance.new("TextButton")
 local Aura = Instance.new("TextButton")
-
+local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 --Properties:
 
 RedCliffLordship.Name = "RedCliff Lordship"
@@ -145,13 +145,7 @@ local function CZLHPS_fake_script() -- Kill.LocalScript
 					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
 						local debounce = true
 	
-						local E = Instance.new("Part")
-						E.Anchored = true
-						E.Transparency = 1
-						E.CanCollide = false
-						E.Parent = workspace
-						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-						E.Name = "tppart"
+						local cm = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 	
 	
 	
@@ -163,9 +157,9 @@ local function CZLHPS_fake_script() -- Kill.LocalScript
 						wait(0.3)
 						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
 						wait(0.1)
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cm
 						wait(0.3)
-						workspace.tppart:Destroy()
+					
 						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
 							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
 							end
@@ -194,13 +188,8 @@ local function EPCQF_fake_script() -- VoidScreen.LocalScript
 					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
 						local debounce = true
 	
-						local E = Instance.new("Part")
-						E.Anchored = true
-						E.Transparency = 1
-						E.CanCollide = false
-						E.Parent = workspace
-						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-						E.Name = "tppart"
+                        local cm = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
 	
 	
 	
@@ -212,9 +201,9 @@ local function EPCQF_fake_script() -- VoidScreen.LocalScript
 						wait(0.7)
 						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
 	
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cm
 						wait(0.3)
-						workspace.tppart:Destroy()
+					
 						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
 							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
 							end
@@ -244,13 +233,8 @@ local function NEVIF_fake_script() -- Trap.LocalScript
 					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
 						local debounce = true
 	
-						local E = Instance.new("Part")
-						E.Anchored = true
-						E.Transparency = 1
-						E.CanCollide = false
-						E.Parent = workspace
-						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-						E.Name = "tppart"
+                        local cm = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
 	
 	
 	
@@ -262,9 +246,9 @@ local function NEVIF_fake_script() -- Trap.LocalScript
 						wait(0.3)
 						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
 						wait(0.1)
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cm
 						wait(0.3)
-						workspace.tppart:Destroy()
+						
 						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
 							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
 							end
@@ -336,7 +320,7 @@ game.Players.LocalPlayer.Character:WaitForChild("Ladder")
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character.Ladder,
     [2] = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, -7.5, 0),
-    [3] = workspace:FindFirstChild("Redcliff City Map").Foundation.Part_Texture
+    [3] = game:GetService("Workspace")["Redcliff City Map"].Grids.G35.Hobby_Shop_Sign
 }
 
 game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
@@ -368,87 +352,79 @@ local args = {
 		wait(0.5)
 		
 
-local plr = game.Players.LocalPlayer
-	local mouse = plr:GetMouse()
-	local tool = Instance.new("Tool", plr.Backpack)
-	tool.Name = "TP"
-	tool.CanBeDropped = false
-	tool.RequiresHandle = false
-	tool.Activated:connect(function()
-
-
-local pt = Instance.new("Part")
- pt.Parent = plr.Character
-pt.Anchored = true
-pt.CanCollide= false
-pt.Name = "FixedTP"
-pt.CFrame = plr.Character.HumanoidRootPart.CFrame
-pt.Transparency = 1
-local pos = mouse.Hit+Vector3.new(0, 3, 0)
-			pos = Vector3.new(pos.X, pos.Y, pos.Z)
-game.Players.LocalPlayer.Character.FixedTP.Position = pos
-
-
-
-local args = {
-    [1] = "C4",
-    [2] = false
-}
-
-game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
-
-game.Players.LocalPlayer.Backpack:WaitForChild("C4")
-
-game.Players.LocalPlayer.Backpack.C4.Parent = game.Players.LocalPlayer.Character
-game.Players.LocalPlayer.Character:WaitForChild("C4")
-
-
-
-
-
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character.C4,
-    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
-    [3] = workspace:FindFirstChild("Redcliff City Map").Buildings.Port.Part
-}
-
-game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
-
-
--- Script generated by SimpleSpy - credits to exx#9394
-local args = {
-    [1] = "C4"
+        local plr = game.Players.LocalPlayer
+        local mouse = plr:GetMouse()
+        local tool = Instance.new("Tool", plr.Backpack)
+        tool.Name = "TP"
+        tool.CanBeDropped = false
+        tool.RequiresHandle = false
+        tool.Activated:connect(function()
+    
+    local cf = plr.Character.HumanoidRootPart.CFrame
+    
+    
+    
+    local args = {
+        [1] = "C4",
+        [2] = false
     }
     
-game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestActivateDeployment:FireServer(unpack(args))
-
-
-
-wait(0.01)
-
--- Script generated by SimpleSpy - credits to exx#9394
-
-local args = {
-    [1] = game:GetService("Players").LocalPlayer.Character.C4
-}
-
-game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
-
-
-
-
-wait(0.01)
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
-game.Players.LocalPlayer.Character.FixedTP:Destroy()
-game.Players.LocalPlayer.Character.TP.Parent = game.Players.LocalPlayer.Backpack
-game.Players.LocalPlayer.Backpack:WaitForChild("TP")
-wait(0.1)
-game.Players.LocalPlayer.Backpack.TP.Parent = game.Players.LocalPlayer.Character
-
-
-end)
+    game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+    
+    game.Players.LocalPlayer.Backpack:WaitForChild("C4")
+    print("1")
+    game.Players.LocalPlayer.Backpack.C4.Parent = game.Players.LocalPlayer.Character
+    game.Players.LocalPlayer.Character:WaitForChild("C4")
+    
+    
+    
+    
+    
+    
+    
+    local args = {
+        [1] = game:GetService("Players").LocalPlayer.Character.C4,
+        [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+        [3] = game:GetService("Workspace")["Redcliff City Map"].Grids.G29.School.Part
+    }
+    
+    game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
+    
+    
+    -- Script generated by SimpleSpy - credits to exx#9394
+    local args = {
+        [1] = "C4"
+        }
+        
+    game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestActivateDeployment:FireServer(unpack(args))
+    
+    
+    
+    wait(0.01)
+    
+    -- Script generated by SimpleSpy - credits to exx#9394
+    
+    local args = {
+        [1] = game:GetService("Players").LocalPlayer.Character.C4
+    }
+    
+    game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
+    
+    
+    
+    
+    wait(0.01)
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+    
+    game.Players.LocalPlayer.Character.TP.Parent = game.Players.LocalPlayer.Backpack
+    game.Players.LocalPlayer.Backpack:WaitForChild("TP")
+    wait(0.1)
+    game.Players.LocalPlayer.Backpack.TP.Parent = game.Players.LocalPlayer.Character
+    
+    
+    end)
+    
 
 
 
@@ -525,13 +501,8 @@ local function SDSDY_fake_script() -- Aura.LocalScript
 					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
 						local debounce = true
 	
-						local E = Instance.new("Part")
-						E.Anchored = true
-						E.Transparency = 1
-						E.CanCollide = false
-						E.Parent = workspace
-						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-						E.Name = "tppart"
+                        local cm = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
 	
 	
 	
@@ -543,7 +514,7 @@ local function SDSDY_fake_script() -- Aura.LocalScript
 						wait(0.7)
 						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
 	
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cm
 						wait(0.3)
 						workspace.tppart:Destroy()
 						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
@@ -601,7 +572,7 @@ game.Players.LocalPlayer.Character:WaitForChild("Ladder")
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character.Ladder,
     [2] = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, -7.5, 0),
-    [3] = workspace:FindFirstChild("Redcliff City Map").Foundation.Part_Texture
+    [3] = game:GetService("Workspace")["Redcliff City Map"].Grids.G35.Hobby_Shop_Sign
 }
 
 game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
@@ -641,17 +612,11 @@ local plr = game.Players.LocalPlayer
 	tool.RequiresHandle = false
 	tool.Activated:connect(function()
 
+local lookV = 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector					
 
-local pt = Instance.new("Part")
- pt.Parent = plr.Character
-pt.Anchored = true
-pt.CanCollide= false
-pt.Name = "FixedTP"
-pt.CFrame = plr.Character.HumanoidRootPart.CFrame
-pt.Transparency = 1
 local pos = mouse.Hit+Vector3.new(0, 3, 0)
 			pos = Vector3.new(pos.X, pos.Y, pos.Z)
-game.Players.LocalPlayer.Character.FixedTP.Position = pos
+            local lookAtPoint = pos + lookV
 
 
 
@@ -675,7 +640,7 @@ game.Players.LocalPlayer.Character:WaitForChild("C4")
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character.C4,
     [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
-    [3] = workspace:FindFirstChild("Redcliff City Map").Buildings.Port.Part
+    [3] = game:GetService("Workspace")["Redcliff City Map"].Grids.G35.Hobby_Shop_Sign
 }
 
 game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
@@ -687,8 +652,8 @@ local args = {
     }
     
 game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestActivateDeployment:FireServer(unpack(args))
-
-
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(pos, lookAtPoint)
 
 wait(0.01)
 
@@ -705,8 +670,8 @@ game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesServ
 
 wait(0.01)
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
-game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
 game.Players.LocalPlayer.Character.TP.Parent = game.Players.LocalPlayer.Backpack
 game.Players.LocalPlayer.Backpack:WaitForChild("TP")
 wait(0.1)
@@ -1120,7 +1085,7 @@ game.Players.LocalPlayer.Character:WaitForChild("Ladder")
 local args = {
     [1] = game:GetService("Players").LocalPlayer.Character.Ladder,
     [2] = target.Parent.HumanoidRootPart.CFrame + Vector3.new(0, -7.5, 0),
-    [3] = workspace:FindFirstChild("Redcliff City Map").Foundation.Part_Texture
+    [3] = game:GetService("Workspace")["Redcliff City Map"].Grids.G35.Hobby_Shop_Sign
 }
 
 game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
@@ -1603,7 +1568,7 @@ end)
 
 
 
-
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
 
 
 
