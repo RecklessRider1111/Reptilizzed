@@ -1,12 +1,1 @@
-while task.wait() do
-   
-  
-   workspace.resources.RemoteEvent:FireServer("becomeHostile") 
-
-if game.Players.LocalPlayer.Backpack:FindFirstChild("Punch") then
-
-game.Players.LocalPlayer.Backpack.Punch:Destroy()
-else
-game.Workspace.Name = "Workspace"
-end
-end
+a
