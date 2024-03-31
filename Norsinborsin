@@ -868,7 +868,7 @@ i.CFrame = CFrame.new(-1785.22974, -13.5, 427.331421, 1, 0, 0, 0, 1, 0, 0, 0, 1)
                 }
                 game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
             end
-coroutine.wrap(avatar)()
+--coroutine.wrap(avatar)()
                 wait(0.5)
 
 
