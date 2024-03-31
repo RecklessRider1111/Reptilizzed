@@ -1,1 +1,1617 @@
-aa
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local RedCliffLordship = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local LoopsOFF = Instance.new("TextButton")
+local Kill = Instance.new("TextButton")
+local VoidScreen = Instance.new("TextButton")
+local Trap = Instance.new("TextButton")
+local Cart = Instance.new("TextButton")
+local AvatarChanger = Instance.new("TextButton")
+local Aura = Instance.new("TextButton")
+
+--Properties:
+
+RedCliffLordship.Name = "RedCliff Lordship"
+RedCliffLordship.Parent = game.CoreGui
+RedCliffLordship.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = RedCliffLordship
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.Position = UDim2.new(0.857286751, 0, 0.3313106, 0)
+Frame.Size = UDim2.new(0, 206, 0, 210)
+Frame.Active = true
+Frame.Draggable = true
+
+
+
+LoopsOFF.Name = "Loops OFF"
+LoopsOFF.Parent = Frame
+LoopsOFF.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+LoopsOFF.Position = UDim2.new(0.325242698, 0, 0.0363636352, 0)
+LoopsOFF.Size = UDim2.new(0, 71, 0, 32)
+LoopsOFF.Font = Enum.Font.SourceSans
+LoopsOFF.Text = "Loops OFF"
+LoopsOFF.TextColor3 = Color3.fromRGB(255, 0, 0)
+LoopsOFF.TextScaled = true
+LoopsOFF.TextSize = 14.000
+LoopsOFF.TextWrapped = true
+
+Kill.Name = "Kill"
+Kill.Parent = Frame
+Kill.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Kill.Position = UDim2.new(0.0291262139, 0, 0.321212113, 0)
+Kill.Size = UDim2.new(0, 71, 0, 23)
+Kill.Font = Enum.Font.SourceSans
+Kill.Text = "Kill"
+Kill.TextColor3 = Color3.fromRGB(255, 0, 0)
+Kill.TextScaled = true
+Kill.TextSize = 14.000
+Kill.TextWrapped = true
+
+VoidScreen.Name = "Void Screen"
+VoidScreen.Parent = Frame
+VoidScreen.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+VoidScreen.Position = UDim2.new(0.592233002, 0, 0.321212113, 0)
+VoidScreen.Size = UDim2.new(0, 71, 0, 23)
+VoidScreen.Font = Enum.Font.SourceSans
+VoidScreen.Text = "Void Screen"
+VoidScreen.TextColor3 = Color3.fromRGB(255, 0, 0)
+VoidScreen.TextScaled = true
+VoidScreen.TextSize = 14.000
+VoidScreen.TextWrapped = true
+
+Trap.Name = "Trap"
+Trap.Parent = Frame
+Trap.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Trap.Position = UDim2.new(0.0291262139, 0, 0.537229359, 0)
+Trap.Size = UDim2.new(0, 71, 0, 23)
+Trap.Font = Enum.Font.SourceSans
+Trap.Text = "Trap"
+Trap.TextColor3 = Color3.fromRGB(255, 0, 0)
+Trap.TextScaled = true
+Trap.TextSize = 14.000
+Trap.TextWrapped = true
+
+Cart.Name = "Cart"
+Cart.Parent = Frame
+Cart.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Cart.Position = UDim2.new(0.592233002, 0, 0.537229359, 0)
+Cart.Size = UDim2.new(0, 71, 0, 23)
+Cart.Font = Enum.Font.SourceSans
+Cart.Text = "Cart"
+Cart.TextColor3 = Color3.fromRGB(255, 0, 0)
+Cart.TextScaled = true
+Cart.TextSize = 14.000
+Cart.TextWrapped = true
+
+AvatarChanger.Name = "Avatar Changer"
+AvatarChanger.Parent = Frame
+AvatarChanger.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+AvatarChanger.Position = UDim2.new(0.0291262139, 0, 0.798701286, 0)
+AvatarChanger.Size = UDim2.new(0, 71, 0, 29)
+AvatarChanger.Font = Enum.Font.SourceSans
+AvatarChanger.Text = "Avatar Changer"
+AvatarChanger.TextColor3 = Color3.fromRGB(255, 0, 0)
+AvatarChanger.TextScaled = true
+AvatarChanger.TextSize = 14.000
+AvatarChanger.TextWrapped = true
+
+Aura.Name = "Aura"
+Aura.Parent = Frame
+Aura.BackgroundColor3 = Color3.fromRGB(81, 81, 81)
+Aura.Position = UDim2.new(0.592233002, 0, 0.798701286, 0)
+Aura.Size = UDim2.new(0, 71, 0, 29)
+Aura.Font = Enum.Font.SourceSans
+Aura.Text = "Kick"
+Aura.TextColor3 = Color3.fromRGB(255, 0, 0)
+Aura.TextScaled = true
+Aura.TextSize = 14.000
+Aura.TextWrapped = true
+
+-- Scripts:
+
+local function MNNJKBL_fake_script() -- LoopsOFF.LocalScript 
+	local script = Instance.new('LocalScript', LoopsOFF)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+		_G.force = false
+		while _G.force == true do
+			wait()
+			end
+		
+		
+	end)
+end
+coroutine.wrap(MNNJKBL_fake_script)()
+local function CZLHPS_fake_script() -- Kill.LocalScript 
+	local script = Instance.new('LocalScript', Kill)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+		
+		workspace.FallenPartsDestroyHeight = -9999
+		_G.force = true
+		while _G.force == true do
+			wait()
+	
+	
+			if debounce == nil then
+				if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
+						local debounce = true
+	
+						local E = Instance.new("Part")
+						E.Anchored = true
+						E.Transparency = 1
+						E.CanCollide = false
+						E.Parent = workspace
+						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						E.Name = "tppart"
+	
+	
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, -999, 0)
+						wait(0.0000000000001)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+						wait(0.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+						wait(0.3)
+						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
+						wait(0.1)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						wait(0.3)
+						workspace.tppart:Destroy()
+						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
+							end
+						end
+					end
+				end
+			end
+		end
+		
+	end)
+end
+coroutine.wrap(CZLHPS_fake_script)()
+local function EPCQF_fake_script() -- VoidScreen.LocalScript 
+	local script = Instance.new('LocalScript', VoidScreen)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+	
+		_G.force = true
+		while _G.force == true do
+			wait()
+	
+	
+			if debounce == nil then
+				if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
+						local debounce = true
+	
+						local E = Instance.new("Part")
+						E.Anchored = true
+						E.Transparency = 1
+						E.CanCollide = false
+						E.Parent = workspace
+						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						E.Name = "tppart"
+	
+	
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9999999999999, 999999999999, 999999999999)
+						wait(0.0000000000001)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+						wait(0.7)
+						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						wait(0.3)
+						workspace.tppart:Destroy()
+						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
+							end
+						end
+					end
+				end
+			end
+		end
+		
+		
+	end)
+end
+coroutine.wrap(EPCQF_fake_script)()
+local function NEVIF_fake_script() -- Trap.LocalScript 
+	local script = Instance.new('LocalScript', Trap)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+	
+		_G.force = true
+		while _G.force == true do
+			wait()
+	
+	
+			if debounce == nil then
+				if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
+						local debounce = true
+	
+						local E = Instance.new("Part")
+						E.Anchored = true
+						E.Transparency = 1
+						E.CanCollide = false
+						E.Parent = workspace
+						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						E.Name = "tppart"
+	
+	
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(697.860718, 66.1355743, -454.016602, 0.997492909, -8.71123673e-10, 0.0707666725, -3.269841e-11, 1, 1.27707027e-08, -0.0707666725, -1.27409994e-08, 0.997492909)
+						wait(0.0000000000001)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+						wait(0.2)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+						wait(0.3)
+						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
+						wait(0.1)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						wait(0.3)
+						workspace.tppart:Destroy()
+						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
+							end
+						end
+					end
+				end
+			end
+		end
+		
+		
+	end)
+end
+coroutine.wrap(NEVIF_fake_script)()
+local function ZCRGWZ_fake_script() -- Cart.LocalScript 
+	local script = Instance.new('LocalScript', Cart)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+		
+		-- Script generated by SimpleSpy - credits to exx#9394
+	
+		local args = {
+			[1] = "Shopping Cart",
+			[2] = false
+		}
+	
+		game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+	
+		
+	end)
+end
+coroutine.wrap(ZCRGWZ_fake_script)()
+local function HDLF_fake_script() -- AvatarChanger.LocalScript 
+	local script = Instance.new('LocalScript', AvatarChanger)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+		-- Script generated by SimpleSpy - credits to exx#9394
+		local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Cage"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+
+tool.Activated:connect(function()
+    local t = mouse.Target
+    local target = nil
+    if t then
+      for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+            if t:IsDescendantOf(v.Character) then
+                target = v
+                break
+            end
+        end
+      end
+    end
+    if target then --your code down here:
+
+
+
+
+
+-- Script generated by SimpleSpy - credits to exx#9394
+game.Players.LocalPlayer.Backpack.Ladder.Parent = game.Players.LocalPlayer.Character
+
+game.Players.LocalPlayer.Character:WaitForChild("Ladder")
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Ladder,
+    [2] = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, -7.5, 0),
+    [3] = workspace:FindFirstChild("Redcliff City Map").Foundation.Part_Texture
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
+
+
+game.Players.LocalPlayer.Character.Ladder.Parent = game.Players.LocalPlayer.Backpack
+
+end
+end)
+
+
+
+
+
+local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "NAN"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+
+	
+local args = {
+			[1] = "Shopping Cart",
+			[2] = false
+		}
+	
+		game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+		wait(0.5)
+		
+
+local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "TP"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+	tool.Activated:connect(function()
+
+
+local pt = Instance.new("Part")
+ pt.Parent = plr.Character
+pt.Anchored = true
+pt.CanCollide= false
+pt.Name = "FixedTP"
+pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+pt.Transparency = 1
+local pos = mouse.Hit+Vector3.new(0, 3, 0)
+			pos = Vector3.new(pos.X, pos.Y, pos.Z)
+game.Players.LocalPlayer.Character.FixedTP.Position = pos
+
+
+
+local args = {
+    [1] = "C4",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+
+game.Players.LocalPlayer.Backpack:WaitForChild("C4")
+
+game.Players.LocalPlayer.Backpack.C4.Parent = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character:WaitForChild("C4")
+
+
+
+
+
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.C4,
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+    [3] = workspace:FindFirstChild("Redcliff City Map").Buildings.Port.Part
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
+
+
+-- Script generated by SimpleSpy - credits to exx#9394
+local args = {
+    [1] = "C4"
+    }
+    
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestActivateDeployment:FireServer(unpack(args))
+
+
+
+wait(0.01)
+
+-- Script generated by SimpleSpy - credits to exx#9394
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.C4
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
+
+
+
+
+wait(0.01)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+game.Players.LocalPlayer.Character.FixedTP:Destroy()
+game.Players.LocalPlayer.Character.TP.Parent = game.Players.LocalPlayer.Backpack
+game.Players.LocalPlayer.Backpack:WaitForChild("TP")
+wait(0.1)
+game.Players.LocalPlayer.Backpack.TP.Parent = game.Players.LocalPlayer.Character
+
+
+end)
+
+
+
+
+local i = Instance.new("Part")
+i.Parent = workspace
+i.Anchored = true
+i.CanCollide = true
+i.Transparency = 1
+i.Size = Vector3.new(1720, 1, 2031)
+i.CFrame = CFrame.new(-1785.22974, -13.5, 427.331421, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+
+
+	game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer()
+					wait(0.5)
+	
+					local args = {
+						[1] = {
+							["HeadScale"] = 1.15,
+							["HeightScale"] = 1.15,
+							["DepthScale"] = 1.2,
+							["WidthScale"] = 1.2,
+	
+						}
+					}
+	
+					game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+					
+					wait(1)
+					
+					
+	
+		
+	
+	
+	
+	
+		local args = {
+			[1] = "Ladder",
+			[2] = false
+		}
+	
+		game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+		
+		wait(0.5)
+		
+		game.Players.LocalPlayer.Backpack.NAN:Destroy()
+		
+		wait(0.5)
+		
+		local args = {
+    [1] = "12793224744"
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.SetLayeredClothing:FireServer(unpack(args))
+		
+		
+	end)
+end
+coroutine.wrap(HDLF_fake_script)()
+local function SDSDY_fake_script() -- Aura.LocalScript 
+	local script = Instance.new('LocalScript', Aura)
+
+	script.Parent.MouseButton1Down:connect(function()
+		
+		_G.force = true
+		while _G.force == true do
+			wait()
+	
+	
+			if debounce == nil then
+				if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+					if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") then
+						local debounce = true
+	
+						local E = Instance.new("Part")
+						E.Anchored = true
+						E.Transparency = 1
+						E.CanCollide = false
+						E.Parent = workspace
+						E.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+						E.Name = "tppart"
+	
+	
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-330.649445, -7.03660107, 576.56366, 0.994352758, -1.08500195e-08, -0.106125519, 1.33788562e-08, 1, 2.31168027e-08, 0.106125519, -2.44060931e-08, 0.994352758)
+						wait(0.0000000000001)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+						wait(0.7)
+						game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
+	
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.tppart.CFrame
+						wait(0.3)
+						workspace.tppart:Destroy()
+						if game.Players.LocalPlayer.Character:FindFirstChild("Shopping Cart") then
+							if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
+							end
+						end
+					end
+				end
+			end
+		end
+		
+	end)
+end
+coroutine.wrap(SDSDY_fake_script)()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+
+
+
+
+-- 
+
+
+
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Cage"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+
+tool.Activated:connect(function()
+    local t = mouse.Target
+    local target = nil
+    if t then
+      for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+            if t:IsDescendantOf(v.Character) then
+                target = v
+                break
+            end
+        end
+      end
+    end
+    if target then --your code down here:
+
+
+
+
+
+-- Script generated by SimpleSpy - credits to exx#9394
+game.Players.LocalPlayer.Backpack.Ladder.Parent = game.Players.LocalPlayer.Character
+
+game.Players.LocalPlayer.Character:WaitForChild("Ladder")
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Ladder,
+    [2] = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, -7.5, 0),
+    [3] = workspace:FindFirstChild("Redcliff City Map").Foundation.Part_Texture
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
+
+
+game.Players.LocalPlayer.Character.Ladder.Parent = game.Players.LocalPlayer.Backpack
+
+end
+end)
+
+
+
+
+
+local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "NAN"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+
+	
+local args = {
+			[1] = "Shopping Cart",
+			[2] = false
+		}
+	
+		game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+		wait(0.5)
+		
+
+local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "TP"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+	tool.Activated:connect(function()
+
+
+local pt = Instance.new("Part")
+ pt.Parent = plr.Character
+pt.Anchored = true
+pt.CanCollide= false
+pt.Name = "FixedTP"
+pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+pt.Transparency = 1
+local pos = mouse.Hit+Vector3.new(0, 3, 0)
+			pos = Vector3.new(pos.X, pos.Y, pos.Z)
+game.Players.LocalPlayer.Character.FixedTP.Position = pos
+
+
+
+local args = {
+    [1] = "C4",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+
+game.Players.LocalPlayer.Backpack:WaitForChild("C4")
+
+game.Players.LocalPlayer.Backpack.C4.Parent = game.Players.LocalPlayer.Character
+game.Players.LocalPlayer.Character:WaitForChild("C4")
+
+
+
+
+
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.C4,
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame,
+    [3] = workspace:FindFirstChild("Redcliff City Map").Buildings.Port.Part
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
+
+
+-- Script generated by SimpleSpy - credits to exx#9394
+local args = {
+    [1] = "C4"
+    }
+    
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestActivateDeployment:FireServer(unpack(args))
+
+
+
+wait(0.01)
+
+-- Script generated by SimpleSpy - credits to exx#9394
+
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.C4
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
+
+
+
+
+wait(0.01)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+game.Players.LocalPlayer.Character.FixedTP:Destroy()
+game.Players.LocalPlayer.Character.TP.Parent = game.Players.LocalPlayer.Backpack
+game.Players.LocalPlayer.Backpack:WaitForChild("TP")
+wait(0.1)
+game.Players.LocalPlayer.Backpack.TP.Parent = game.Players.LocalPlayer.Character
+
+
+end)
+
+
+
+
+local i = Instance.new("Part")
+i.Parent = workspace
+i.Anchored = true
+i.CanCollide = true
+i.Transparency = 1
+i.Size = Vector3.new(1720, 1, 2031)
+i.CFrame = CFrame.new(-1785.22974, -13.5, 427.331421, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+
+
+	game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer()
+					wait(0.5)
+	
+					local args = {
+						[1] = {
+							["HeadScale"] = 1.15,
+							["HeightScale"] = 1.15,
+							["DepthScale"] = 1.2,
+							["WidthScale"] = 1.2,
+	
+						}
+					}
+	
+					game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+					
+					wait(1)
+					
+					
+	
+		
+	
+	
+	
+                    wait(0.5)
+		local args = {
+			[1] = "Ladder",
+			[2] = false
+		}
+	
+		game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+		
+		wait(0.5)
+		
+		game.Players.LocalPlayer.Backpack.NAN:Destroy()
+		
+
+
+
+
+        wait(0.5)
+       local function avatar()
+        local args = {
+            [1] = {
+       -- 
+        ["HatAccessory"] = "7438701616"
+        
+        }
+        }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+        
+        wait(0.5)
+        local args = {
+            [1] = {
+        --
+        ["HairAccessory"] = "7097747842"
+        
+        }
+        }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+
+        wait(0.5)
+        local args = {
+            [1] = {
+        --
+        ["FaceAccessory"] = "19380685"
+        
+        }
+        }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+
+
+        wait(0.5)
+
+        local args = {
+            [1] = {
+        --
+        ["FaceAccessory"] = "14621271519"
+        
+        }
+        }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+
+
+        wait(0.5)
+        local args = {
+            [1] = {
+        
+        ["WaistAccessory"] = "13612068259"
+        
+        }
+        }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+
+
+
+
+
+
+
+
+				wait(0.5)
+		
+                local args = {
+                    [1] = {
+                
+                ["HatAccessory"] = "13995840265"
+                
+                }
+                }
+                game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+
+                wait(0.5)
+                local args = {
+                    [1] = {
+                
+                ["HatAccessory"] = "13683000928"
+                
+                }
+                }
+                game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+                wait(0.5)
+                
+                local args = {
+                    [1] = {
+                        
+                ["WaistAccessory"] = "15505734603"
+                
+                }
+                }
+                game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+                wait(0.5)
+                local args = {
+                    [1] = {
+                
+                ["FaceAccessory"] = "6512727119"
+                
+                }
+                }
+                game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.HumanoidDescriptionService.RE.LoadCharacterWithHumanoidDescription:FireServer(unpack(args))
+            end
+coroutine.wrap(avatar)()
+                wait(0.5)
+
+
+-- Put this script in StarterPlayer -> StarterPlayerScripts
+
+
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Click Kill"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+
+tool.Activated:connect(function()
+    local t = mouse.Target
+    local target = nil
+    if t then
+      for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Character and v.Character:FindFirstChild("UpperTorso") or
+        v.Character and v.Character:FindFirstChild("LowerTorso") or 
+        v.Character and v.Character:FindFirstChild("Head") or
+        v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+        
+            if t:IsDescendantOf(v.Character) then
+                target = v
+                break
+            end
+        end
+      end
+    end
+    if target then --your code down here:
+
+
+
+
+
+function loop()
+_G.couch = true
+while _G.couch == true do
+    wait()
+
+if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
+
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(2, -3, 6)
+wait(0.000000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(8, -3, 0)
+wait(0.00000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(-2, -3, -6)
+wait(0.000000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, -3, 8)
+wait(0.00000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(6, -3, 2)
+wait(0.000000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(8, -3, 0)
+wait(0.00000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(-6, -3, -2)
+wait(0.000000000000000000000001)
+else
+
+_G.couch = false
+wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1176.90234, -2227.7289696, 364.746216, -0.581983864, -1.29063613e-08, -0.813200295, 8.17990653e-09, 1, -2.17251941e-08, 0.813200295, -1.92956158e-08, -0.581983864)
+wait(0.4)
+local args = {
+        [1] = game:GetService("Players").LocalPlayer.Character["Shopping Cart"]
+
+       
+       }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
+
+wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+
+game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+game.Players.LocalPlayer.Character["Click Kill"].Parent = game.Players.LocalPlayer.Backpack
+game.Players.LocalPlayer.Backpack["Click Kill"].Parent = game.Players.LocalPlayer.Character
+
+
+end
+end
+end
+workspace.FallenPartsDestroyHeight = -50000
+local plr =  game.Players.LocalPlayer
+local pt = Instance.new("Part")
+ pt.Parent = plr.Character
+pt.Anchored = true
+pt.CanCollide= false
+pt.Name = "FixedTP"
+pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+pt.Transparency = 1
+local args = {
+        [1] = "Shopping Cart",
+[2] = false
+       
+       }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+
+
+        game.Players.LocalPlayer.Backpack:WaitForChild("Shopping Cart")
+        game.Players.LocalPlayer.Backpack["Shopping Cart"].Parent = game.Players.LocalPlayer.Character
+       
+      
+  
+        game.Players.LocalPlayer.Character["Shopping Cart"].Grip = game.Players.LocalPlayer.Character["Shopping Cart"].Grip + Vector3.new(-0.5, 0.699999988079071, -3)
+       
+       
+       game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
+game.Players.LocalPlayer.Backpack["Shopping Cart"].Parent = game.Players.LocalPlayer.Character
+       
+       loop()
+        
+      end
+      end)
+     
+
+wait()
+
+
+local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "Click TP"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+	tool.Activated:connect(function()
+
+
+local pt = Instance.new("Part")
+ pt.Parent = plr.Character
+pt.Anchored = true
+pt.CanCollide= false
+pt.Name = "FixedTP"
+pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+
+local pos = mouse.Hit+Vector3.new(0, 3, 0)
+			pos = Vector3.new(pos.X, pos.Y, pos.Z)
+game.Players.LocalPlayer.Character.FixedTP.Position = pos
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+game.Players.LocalPlayer.Character.FixedTP:Destroy()
+end)
+
+wait()
+
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Click Kick"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+
+tool.Activated:connect(function()
+ local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+   local t = mouse.Target
+    local target = nil
+    if t then
+      for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Character and v.Character:FindFirstChild("UpperTorso") or
+        v.Character and v.Character:FindFirstChild("LowerTorso") or 
+        v.Character and v.Character:FindFirstChild("Head") or
+        v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+        
+            if t:IsDescendantOf(v.Character) then
+                target = v
+                break
+            end
+        end
+      end
+    end
+    if target then --your code down here:
+
+
+
+
+
+function loop()
+_G.couch = true
+while _G.couch == true do
+    wait()
+
+if game.Players.LocalPlayer.Character["Shopping Cart"].Seat:FindFirstChild("SeatWeld") == nil then
+
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(2, -3, 6)
+wait(0.000000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(8, -3, 0)
+wait(0.00000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(-2, -3, -6)
+wait(0.000000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, -3, 8)
+wait(0.00000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(6, -3, 2)
+wait(0.000000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(8, -3, 0)
+wait(0.00000000000000000000001)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(-6, -3, -2)
+wait(0.000000000000000000000001)
+else
+
+_G.couch = false
+local seat = game.Players.LocalPlayer.Character["Shopping Cart"].Seat
+
+if seat.Occupant then
+    local target = seat.Occupant
+
+    wait()
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-322.568878, -9.53660202, 564.407349, 0.000953826879, 6.369544e-09, 0.999999523, -1.88820373e-08, 1, -6.35153663e-09, -0.999999523, -1.8875971e-08, 0.000953826879)
+   wait()
+   for i, v in pairs(workspace["Redcliff City Map"].Buildings.Subway.Entrances.Mall_Station_Entrance:GetChildren()) do
+    if v:IsA("Part") then
+    if v.Size == Vector3.new(32, 16, 16) then
+
+
+
+  v:Destroy() 
+end
+end
+   end
+   
+   wait()
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-322.568878, -9.53660202, 564.407349, 0.000953826879, 6.369544e-09, 0.999999523, -1.88820373e-08, 1, -6.35153663e-09, -0.999999523, -1.8875971e-08, 0.000953826879)
+
+local p = Instance.new("Part")
+p.Parent = workspace 
+p.Size = Vector3.new(12, 5, 11)
+p.CFrame = CFrame.new(-328.525787, -15.999939, 560.786987, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+p.Anchored = true 
+
+
+wait(1)
+local args = {
+        [1] = game:GetService("Players").LocalPlayer.Character["Shopping Cart"]
+
+       
+       }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.DeleteTool:FireServer(unpack(args))
+
+wait()
+
+
+game.Players.LocalPlayer.Backpack.Ladder.Parent = game.Players.LocalPlayer.Character
+
+game.Players.LocalPlayer.Character:WaitForChild("Ladder")
+local args = {
+    [1] = game:GetService("Players").LocalPlayer.Character.Ladder,
+    [2] = target.Parent.HumanoidRootPart.CFrame + Vector3.new(0, -7.5, 0),
+    [3] = workspace:FindFirstChild("Redcliff City Map").Foundation.Part_Texture
+}
+
+game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.ActivateTool:FireServer(unpack(args))
+
+wait()
+game.Players.LocalPlayer.Character.Ladder.Parent = game.Players.LocalPlayer.Backpack
+
+wait(0.7)
+
+
+
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
+
+
+game.Players.LocalPlayer.Character["Click Kill"].Parent = game.Players.LocalPlayer.Backpack
+game.Players.LocalPlayer.Backpack["Click Kill"].Parent = game.Players.LocalPlayer.Character
+
+end
+end
+end
+end
+workspace.FallenPartsDestroyHeight = -50000
+local plr =  game.Players.LocalPlayer
+local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local args = {
+        [1] = "Shopping Cart",
+[2] = false
+       
+       }
+        game:GetService("ReplicatedStorage").ScriptPackages.Knit.Services.EquipablesService.RE.RequestToolByName:FireServer(unpack(args))
+
+
+        game.Players.LocalPlayer.Backpack:WaitForChild("Shopping Cart")
+        game.Players.LocalPlayer.Backpack["Shopping Cart"].Parent = game.Players.LocalPlayer.Character
+       
+      
+  
+        game.Players.LocalPlayer.Character["Shopping Cart"].Grip = game.Players.LocalPlayer.Character["Shopping Cart"].Grip + Vector3.new(-0.5, 0.699999988079071, -3)
+       
+       
+       game.Players.LocalPlayer.Character["Shopping Cart"].Parent = game.Players.LocalPlayer.Backpack
+game.Players.LocalPlayer.Backpack["Shopping Cart"].Parent = game.Players.LocalPlayer.Character
+       
+       loop()
+        
+      end
+      end)
+     wait()
+
+
+local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+wait()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  CFrame.new(-330.649445, -7.03660107, 576.56366, 0.994352758, -1.08500195e-08, -0.106125519, 1.33788562e-08, 1, 2.31168027e-08, 0.106125519, -2.44060931e-08, 0.994352758)
+wait()
+workspace.TeleportPart:Destroy()
+--workspace.TeleportPart.CanTouch = false
+wait()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
+wait()
+
+
+local plots = workspace._Plots
+
+local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+local num = 1
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 2
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 3
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 4
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 5
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 6
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 7
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 8
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 9
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 10
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 11
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 12
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 13
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 14
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 15
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 16
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 17
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 18
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 19
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 20
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 21
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+
+
+local num = 22
+-- House 1
+if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
+    local modelChild = plots[num].Building:FindFirstChildOfClass("Model")
+    if modelChild then
+        local field = modelChild:FindFirstChild("Field")
+        if field then
+           wait(0.00000001111)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = field.CFrame
+
+           wait(0.00000001111)
+           field.Position = Vector3.new(999, 999, 999)
+        end
+    end
+end
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
+wait()
+
+
+
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.E then
+            print("EEE")
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+
+  end
+    end
+end)
+
+
+wait()
+
+
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.E then
+            
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+
+  end
+    end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
