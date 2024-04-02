@@ -1186,7 +1186,6 @@ end)
 
 
 
-
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
 
 
@@ -1206,6 +1205,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
 
 
 
+local function houses()
 local plots = workspace._Plots
 
 local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -1580,8 +1580,10 @@ if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
         end
     end
 end
-wait(1)
+end
+coroutine.wrap(houses)()
 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
 
 
 
