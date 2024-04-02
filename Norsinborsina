@@ -1134,7 +1134,7 @@ wait()
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  CFrame.new(-330.649445, -7.03660107, 576.56366, 0.994352758, -1.08500195e-08, -0.106125519, 1.33788562e-08, 1, 2.31168027e-08, 0.106125519, -2.44060931e-08, 0.994352758)
 wait()
-workspace.TeleportPart:Destroy()
+--workspace.TeleportPart:Destroy()
 --workspace.TeleportPart.CanTouch = false
 wait()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
@@ -1142,70 +1142,6 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
 wait()
 
 
-
-
-
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
-
-wait()
-
-
-
-
-local UIS = game:GetService("UserInputService")
-
-UIS.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Keyboard then
-        if input.KeyCode == Enum.KeyCode.E then
-            print("EEE")
-            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-
-  end
-    end
-end)
-
-
-wait()
-
-
-
-local UIS = game:GetService("UserInputService")
-
-UIS.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Keyboard then
-        if input.KeyCode == Enum.KeyCode.E then
-            
-            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-
-  end
-    end
-end)
-
-
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-local function houses()
 local plots = workspace._Plots
 
 local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -1580,10 +1516,50 @@ if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
         end
     end
 end
-end
-coroutine.wrap(houses)()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
+wait()
+
+
+
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.E then
+            print("EEE")
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+
+  end
+    end
+end)
+
+
+wait()
+
+
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.E then
+            
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+
+  end
+    end
+end)
+
+
+
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
 
 
 
