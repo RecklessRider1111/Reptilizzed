@@ -1142,6 +1142,70 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
 wait()
 
 
+
+
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
+wait()
+
+
+
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.E then
+            print("EEE")
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+
+  end
+    end
+end)
+
+
+wait()
+
+
+
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.E then
+            
+            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
+          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
+
+  end
+    end
+end)
+
+
+
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 local plots = workspace._Plots
 
 local cf = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -1517,49 +1581,6 @@ if plots[num] and plots[num].Building and plots[num].Building:IsA("Model") then
     end
 end
 wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
-
-wait()
-
-
-
-
-local UIS = game:GetService("UserInputService")
-
-UIS.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Keyboard then
-        if input.KeyCode == Enum.KeyCode.E then
-            print("EEE")
-            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-
-  end
-    end
-end)
-
-
-wait()
-
-
-
-local UIS = game:GetService("UserInputService")
-
-UIS.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Keyboard then
-        if input.KeyCode == Enum.KeyCode.E then
-            
-            workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-          workspace.CurrentCamera.CameraType = Enum.CameraType.Custom
-
-  end
-    end
-end)
-
-
-
-
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = cf
-
 
 
 
