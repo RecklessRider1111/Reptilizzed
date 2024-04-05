@@ -1,1 +1,3347 @@
 
+game.Players.LocalPlayer.CameraMaxZoomDistance = 250
+local function LavaFE() 
+    print("The Darkones AntiSpy Has Been Activated")
+    
+    function kick()
+    game.Players.LocalPlayer:Kick("NOPE")
+    end
+    
+    
+    
+    
+    function antispy1()
+    local model = game.CoreGui
+    for i, v in pairs(model:GetDescendants()) do
+    if v:FindFirstChild("ColorBar") then
+    kick()
+    end
+    end
+    end
+    
+    
+    
+    
+    
+    function antispy2()
+    if game.CoreGui:FindFirstChild("SimpleSpy2") then
+    kick()
+    end
+    end
+    
+    
+    
+    function antispy3()
+    if game.Players.LocalPlayer.PlayerGui:FindFirstChild("gui") then
+    kick()
+    end
+    end
+    
+    
+    
+    function antispy4()
+    local model = game.CoreGui
+    for i, v in pairs(model:GetDescendants()) do
+    if v:FindFirstChild("ContextMenus") then
+    kick()
+    end
+    end
+    end
+    
+    
+    
+    
+    function antispy5()
+    if _G.scanRemotes == true then
+    kick()
+    end
+    end
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    while task.wait() do
+    antispy1()
+    antispy2()
+    antispy3()
+    antispy4()
+    antispy5()
+    
+    
+    
+    
+    end
+    end
+    
+    
+    local function LL() 
+        
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Prison Adventure Admin", "DarkTheme")
+    --main
+    
+    local Main = Window:NewTab("Abilities")
+    local MainSection = Main:NewSection("Abilities")
+
+
+    MainSection:NewButton("Click Kill(AR In Inventory)", "", function()
+        
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Click Kill"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+
+tool.Activated:connect(function()
+    local t = mouse.Target
+    local target = nil
+    if t then
+      for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Character and v.Character:FindFirstChild("UpperTorso") or
+        v.Character and v.Character:FindFirstChild("LowerTorso") or 
+        v.Character and v.Character:FindFirstChild("Head") or
+        v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+        
+            if t:IsDescendantOf(v.Character) then
+                target = v
+                break
+            end
+        end
+      end
+    end
+    if target then --your code down here:
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+end
+end)
+    end)
+
+    
+
+    MainSection:NewButton("Click Arrest", "", function()
+        
+function CHECK()
+    if game.Players.LocalPlayer.Character:FindFirstChild("Handcuffs") == nil then
+    game.Players.LocalPlayer.Backpack.Handcuffs.Parent = game.Players.LocalPlayer.Character
+    end
+    end
+    
+    
+    local plr = game.Players.LocalPlayer
+    local mouse = plr:GetMouse()
+    local tool = Instance.new("Tool", plr.Backpack)
+    tool.Name = "Click Arrest"
+    tool.CanBeDropped = false
+    tool.RequiresHandle = false
+    
+    tool.Activated:connect(function()
+        local t = mouse.Target
+        local target = nil
+        if t then
+          for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Character and v.Character:FindFirstChild("UpperTorso") or
+            v.Character and v.Character:FindFirstChild("LowerTorso") or 
+            v.Character and v.Character:FindFirstChild("Head") or
+            v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+            
+                if t:IsDescendantOf(v.Character) then
+                    target = v
+                    break
+                end
+            end
+          end
+        end
+        if target then --your code down here:
+    
+    
+    CHECK()
+    local pt = Instance.new("Part")
+     pt.Parent = plr.Character
+    pt.Anchored = true
+    pt.CanCollide= false
+    pt.Name = "FixedTP"
+    pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+    pt.Transparency = 1
+    
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = target.Character.HumanoidRootPart.CFrame
+    
+    wait(0.2)
+    local args = {
+    
+    [1] = target
+    
+    }
+    game:GetService("ReplicatedStorage").Arrest:FireServer(unpack(args))
+    wait(0.2)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+    game.Players.LocalPlayer.Character.FixedTP:Destroy()
+    game.Players.LocalPlayer.Character.Handcuffs.Parent = game.Players.LocalPlayer.Backpack
+    
+    end
+    end)
+    end)
+
+    
+
+    MainSection:NewButton("Click Damage(AR In Inventory)", "", function()
+        
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+local tool = Instance.new("Tool", plr.Backpack)
+tool.Name = "Click Kill"
+tool.CanBeDropped = false
+tool.RequiresHandle = false
+
+tool.Activated:connect(function()
+    local t = mouse.Target
+    local target = nil
+    if t then
+      for i, v in pairs(game.Players:GetPlayers()) do
+        if v.Character and v.Character:FindFirstChild("UpperTorso") or
+        v.Character and v.Character:FindFirstChild("LowerTorso") or 
+        v.Character and v.Character:FindFirstChild("Head") or
+        v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+        
+            if t:IsDescendantOf(v.Character) then
+                target = v
+                break
+            end
+        end
+      end
+    end
+    if target then --your code down here:
+
+
+
+local args = {
+
+[1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+[2] = {
+
+["p"] = target.Character.HumanoidRootPart.Position, 
+["pid"] = 1,
+["part"] = target.Character.HumanoidRootPart, 
+["d"] = 9.7905120849609375,
+["maxDist"] = 99999999.775586128234863,
+["h"] = target.Character.Humanoid,
+["m"] = Enum.Material.Plastic,
+["sid"] = 1,
+["t"] = 0.2252200234085019,
+["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+}
+}
+game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+
+
+
+
+end
+end)
+    end)
+
+    
+
+    MainSection:NewButton("Click TP", "", function()
+        local plr = game.Players.LocalPlayer
+	local mouse = plr:GetMouse()
+	local tool = Instance.new("Tool", plr.Backpack)
+	tool.Name = "Click TP"
+	tool.CanBeDropped = false
+	tool.RequiresHandle = false
+	tool.Activated:connect(function()
+
+
+local pt = Instance.new("Part")
+ pt.Parent = plr.Character
+pt.Anchored = true
+pt.CanCollide= false
+pt.Name = "FixedTP"
+pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+
+local pos = mouse.Hit+Vector3.new(0, 3, 0)
+			pos = Vector3.new(pos.X, pos.Y, pos.Z)
+game.Players.LocalPlayer.Character.FixedTP.Position = pos
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+game.Players.LocalPlayer.Character.FixedTP:Destroy()
+end)
+    end)
+
+    MainSection:NewSlider("Speed", "Speed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+        end)
+        
+        
+        MainSection:NewSlider("JumpPower", "JumpPower", 700, 16, function(j) -- 500 (MaxValue) | 0 (MinValue)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = j
+        end)
+        
+        
+        MainSection:NewButton("Sit", "There", function()
+        game.Players.LocalPlayer.Character.Humanoid.Sit = true
+        end)
+
+
+    
+
+
+
+
+
+        local OVERPOWERED = Window:NewTab("OVERPOWERED")
+    local OVERPOWEREDSection  = OVERPOWERED:NewSection("OVERPOWERED")
+    
+    
+    OVERPOWEREDSection:NewButton("Kill All Crims(AR In Inventory)", "", function()
+        for i, v in pairs(game.Players:GetDescendants()) do
+            if v.Parent == game.Players then
+            if v.TeamColor == BrickColor.new("Really red") then
+             
+            
+             
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            
+            end
+            end
+            end
+    end)
+
+
+    OVERPOWEREDSection:NewButton("Kill All Cops(AR In Inventory)", "", function()
+        for i, v in pairs(game.Players:GetDescendants()) do
+            if v.Parent == game.Players then
+            if v.TeamColor == BrickColor.new("Bright blue") then
+             
+            
+             
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            
+            end
+            end
+            end
+    end)
+
+
+
+
+
+    OVERPOWEREDSection:NewToggle("Spam Kill All Crims(AR In Inventory)", "", function(state)
+        if state then
+            _G.KILL1 = true
+            while _G.KILL1 == true do
+                wait(2)
+            
+            
+            for i, v in pairs(game.Players:GetDescendants()) do
+            if v.Parent == game.Players then
+            if v.TeamColor == BrickColor.new("Really red") then
+             
+            
+             
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            end
+            end
+            end
+            end
+        else
+            _G.KILL1 = false
+while _G.KILL1 == true do
+    wait()
+        end
+    end
+    end)
+
+
+
+
+
+    OVERPOWEREDSection:NewToggle("Spam Kill All Cops(AR In Inventory)", "", function(state)
+        if state then
+            _G.KILL2 = true
+            while _G.KILL2 == true do
+                wait(2)
+            
+            
+            
+            
+            for i, v in pairs(game.Players:GetDescendants()) do
+            if v.Parent == game.Players then
+            if v.TeamColor == BrickColor.new("Bright blue") then
+             
+            
+             
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            
+            local args = {
+            
+            [1] = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Assault rifle"), 
+            [2] = {
+            
+            ["p"] = v.Character.HumanoidRootPart.Position, 
+            ["pid"] = 1,
+            ["part"] = v.Character.HumanoidRootPart, 
+            ["d"] = 9.7905120849609375,
+            ["maxDist"] = 99999999.775586128234863,
+            ["h"] = v.Character.Humanoid,
+            ["m"] = Enum.Material.Plastic,
+            ["sid"] = 1,
+            ["t"] = 0.2252200234085019,
+            ["n"] = Vector3.new(-0.9959797263145447, 0, 0.08957904577255249)
+            }
+            }
+            game:GetService("ReplicatedStorage").WeaponsSystem.Network.WeaponHit:FireServer(unpack(args))
+            
+            
+            
+            
+            
+            end
+            
+            end
+            end
+            end
+        else
+            _G.KILL2 = false
+while _G.KILL2 == true do
+    wait()
+        end
+        end
+    end)
+
+
+
+
+
+
+    local TPS = Window:NewTab("TPs")
+    local TPSSection  = TPS:NewSection("TPs")
+
+
+
+    TPSSection:NewButton("Alien Gun", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1081.12341, 296.677826, 2086.04053, -0.954371035, 7.11806649e-08, 0.298623413, 4.78773643e-08, 1, -8.535131e-08, -0.298623413, -6.71595188e-08, -0.954371035)
+        --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new() 
+    end)
+
+
+
+
+    
+    TPSSection:NewButton("Armory", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1036.93787, 281.873871, 1073.21643, 0.706225991, 5.97491789e-09, -0.707986474, -3.58675933e-08, 1, -2.73390928e-08, 0.707986474, 4.47013484e-08, 0.706225991)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Backroom", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-838.467041, 281.941895, 1239.82605, -0.490784228, -4.07115337e-08, 0.871281147, -1.14312497e-08, 1, 4.02869453e-08, -0.871281147, 9.81236514e-09, -0.490784228)
+        --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()   
+    end)
+
+
+
+    
+    TPSSection:NewButton("Cafatieria", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-875.029419, 281.941895, 1220.31262, 0.528224766, 2.85634076e-08, 0.849104583, -4.89083014e-08, 1, -3.21377724e-09, -0.849104583, -3.98306632e-08, 0.528224766)
+    end)
+
+
+
+    
+    TPSSection:NewButton("Courtyard", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1118.01184, 281.073883, 1294.20728, -0.732120097, -1.5174292e-08, -0.68117559, -1.74627832e-08, 1, -3.50781493e-09, 0.68117559, 9.32708044e-09, -0.732120097)    
+    end)
+
+
+
+    
+    TPSSection:NewButton("Crim Base", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(455.151764, 281.013947, 1831.70642, -0.956213295, 2.54824184e-09, -0.292670608, 2.62678039e-08, 1, -7.71152955e-08, 0.292670608, -8.14264851e-08, -0.956213295)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Gass Station", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(980.497559, 281.660156, 67.6862488, 0.0771404654, -1.06144649e-08, -0.997020245, 2.3180748e-08, 1, -8.85266971e-09, 0.997020245, -2.24287753e-08, 0.0771404654)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("JBlock", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-878.300293, 282.041901, 1315.71973, 0.940813005, -3.75764095e-08, -0.338926047, 6.7842457e-08, 1, 7.74524551e-08, 0.338926047, -9.586185e-08, 0.940813005)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Military Base", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(644.953674, 280.973907, 831.374207, 0.752794981, -3.63453481e-08, 0.658255041, 2.06504414e-08, 1, 3.15983897e-08, -0.658255041, -1.0193852e-08, 0.752794981)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Police Roof", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1019.15466, 306.143341, 1073.79749, -0.996167779, -4.78923106e-08, -0.0874627978, -5.5858731e-08, 1, 8.86360638e-08, 0.0874627978, 9.31819528e-08, -0.996167779)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Secret 1", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-246.730576, 257.073883, 1358.86707, -0.133413523, -2.42650309e-08, -0.991060436, 5.4481788e-09, 1, -2.52173233e-08, 0.991060436, -8.76380657e-09, -0.133413523)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Secret 2", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-121.291916, 255.202667, 1744.6123, 0.234175414, -1.23798687e-08, -0.972194374, 5.6997127e-09, 1, -1.13610374e-08, 0.972194374, -2.88075297e-09, 0.234175414)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Secret 3", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-33.732254, 253.682816, 2077.75073, 0.941224933, 6.5961693e-08, 0.337780446, -7.55760894e-08, 1, 1.53129225e-08, -0.337780446, -3.99410318e-08, 0.941224933)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Tall Building", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(410.154053, 542.796021, 1691.68188, 0.636017859, 1.04381506e-07, 0.771674335, -8.73977726e-08, 1, -6.32325836e-08, -0.771674335, -2.72255622e-08, 0.636017859)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Red Cube", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1335.94153, 359.657684, -433.673492, -0.895416081, 1.11018466e-07, -0.445230335, 1.17342623e-07, 1, 1.33593518e-08, 0.445230335, -4.02823197e-08, -0.895416081)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+    
+    TPSSection:NewButton("Top Of Prison", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-908.036682, 310.751312, 1199.34753, 0.332613736, -2.2612852e-08, -0.94306314, 5.8495587e-08, 1, -3.34698247e-09, 0.94306314, -5.40517782e-08, 0.332613736)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+
+    
+    TPSSection:NewButton("Volcano", "", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1211.48364, 430.192596, 1976.74585, -0.93972677, -1.21695853e-08, -0.341926306, -3.51524321e-08, 1, 6.10192785e-08, 0.341926306, 6.93609934e-08, -0.93972677)
+--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new()
+    end)
+
+
+
+
+
+
+
+
+
+    
+
+
+    local Weapons = Window:NewTab("Weapons")
+    local WeaponsSection  = Weapons:NewSection("Weapons")
+
+
+
+
+    WeaponsSection:NewToggle("Shotgun", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Shotgun", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Shotgun", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("SMG", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "SMG", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "SMG", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Pistol", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Pistol", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Pistol", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("KeyCard", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "KeyCard", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "KeyCard", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Assault rifle", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Assault rifle", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Assault rifle", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Flare", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "AirDropFlare", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "AirDropFlare", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Crossbow", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Crossbow", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Crossbow", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Railgun", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Railgun", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Railgun", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("UFOgun", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "UFOgun", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "UFOgun", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Sniper Rifle", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Sniper rifle", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Sniper rifle", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Pizza", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Pizza", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Pizza", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Taco", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Taco", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Taco", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Burger", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Burger", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Burger", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+
+        end
+    end)
+    
+
+    
+
+
+    WeaponsSection:NewToggle("Hotdog", "", function(state)
+        if state then
+           
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Hotdog", 
+            [3] = true
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+        else
+           
+
+            local plr = game.Players.LocalPlayer
+
+
+            local pt = Instance.new("Part")
+             pt.Parent = plr.Character
+            pt.Anchored = true
+            pt.CanCollide= false
+            pt.Name = "FixedTP"
+            pt.CFrame = plr.Character.HumanoidRootPart.CFrame
+            pt.Transparency = 1
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(48.8090401, 281.938049, 1400.03162, -0.611430407, 5.34529434e-08, 0.791298211, 1.56600265e-07, 1, 5.34529434e-08, -0.791298211, 1.56600265e-07, -0.611430407)
+            wait(0.2)
+            
+            
+            
+            local args = { 
+            [1] = "IRC",
+            
+            [2] = "Hotdog", 
+            [3] = false
+            }
+            game:GetService("ReplicatedStorage").GunShopEvent:FireServer(unpack(args))
+            
+            
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.FixedTP.CFrame
+            game.Players.LocalPlayer.Character.FixedTP:Destroy()
+
+
+        end
+    end)
+    
+
+    
+
+end
+    
+--coroutine.wrap(LavaFE)()
+coroutine.wrap(LL)()
